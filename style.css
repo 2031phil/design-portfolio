@@ -5,7 +5,7 @@
 * {
     box-sizing: border-box;
     margin: 0;
-    font-family: "Articulat CF";
+    font-family: "Articulat CF", "Trebuchet MS", sans-serif;
 }
 
 a {
