@@ -1,0 +1,77 @@
+let closeButton = document.getElementById("closeButton");
+let projectContainer = document.getElementsByClassName("project-container")[0];
+let titleTextSmall = document.getElementsByClassName("title-text-small")[0];
+let icons = document.querySelectorAll(".icons");
+// let media = document.querySelectorAll(".project-media");
+
+function delay(URL) {
+    setTimeout(function () { window.location = URL }, 500);
+}
+
+monogram.addEventListener("mouseover", function () {
+    monogram.classList.add("animate__tada");
+});
+
+monogram.addEventListener("animationend", function () {
+    monogram.classList.remove("animate__tada");
+});
+
+closeButton.addEventListener("click", function () {
+    projectContainer.style.transform = "translateY(100vh)";
+    titleTextSmall.classList.add("animate__fadeOut")
+});
+
+closeButton.addEventListener("mouseover", function () {
+    closeButton.style.transform = "translateY(-2rem) scale(1.1)";
+});
+
+closeButton.addEventListener("mouseleave", function () {
+    closeButton.style.transform = "translateY(-2rem) scale(1)";
+});
+
+
+const rootElement = document.documentElement;
+let lastScaleFactor = null;
+
+function updateElementSize() {
+    const styles = getComputedStyle(rootElement);
+    const scaleFactor = parseFloat(styles.getPropertyValue('--scale-factor')) || 1;
+
+    if (scaleFactor !== lastScaleFactor) {
+        icons.forEach((i) => {
+            let originalIconWidth = i.getAttribute("data-original-width");
+            let originalIconHeight = i.getAttribute("data-original-height");
+
+            if (!originalIconWidth || !originalIconHeight) {
+                originalIconWidth = i.getAttribute("width");
+                originalIconHeight = i.getAttribute("height");
+
+                i.setAttribute("data-original-width", originalIconWidth);
+                i.setAttribute("data-original-height", originalIconHeight);
+            }
+
+            i.setAttribute("width", originalIconWidth * scaleFactor);
+            i.setAttribute("height", originalIconHeight * scaleFactor);
+        });
+
+        // media.forEach((i) => {
+        //     let originalMediaWidth = i.getAttribute("data-original-width");
+
+        //     if (!originalMediaWidth) {
+        //         mediaStyle = i.getAttribute("style");
+        //         match = mediaStyle.match(/\d+/);
+        //         originalMediaWidth = match ? match[0] : null;
+                
+        //         i.setAttribute("data-original-width", originalMediaWidth);
+        //     }
+
+        //     i.style.width = originalMediaWidth * scaleFactor + "%";
+        // });
+
+        lastScaleFactor = scaleFactor;
+    }
+}
+
+updateElementSize();
+
+window.addEventListener('resize', updateElementSize);
