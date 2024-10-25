@@ -21,7 +21,10 @@
 
 <body>
     <header>
-        <img class="animate__animated" id="monogram" src="./assets/monogram.png" alt="Monogram">
+        <picture>
+            <source srcset="./assets/monogram.webp" type="image/webp">
+            <img class="animate__animated" id="monogram" src="./assets/monogram.png" alt="Monogram">
+        </picture>
         <a class="header-link" id="linkedInLink" href="https://www.linkedin.com/in/philip-horlemann-865b4b246"
             target="_blank">
             LinkedIn
@@ -63,8 +66,14 @@
         <div class="projects-grid animate__animated animate__fadeIn">
             <a href="javascript:longDelay('edurino-app.html')" class="project-card" id="edurinoApp">
                 <div class="project-card-image-container">
-                    <img src="./assets/edurino-app-screenshot.png" alt="Edurino App Screenshot" id="edurinoAppImage1">
-                    <img src="./assets/edurino-app-mockup.png" alt="Edurino App iPad Mockup" id="edurinoAppImage2">
+                    <picture>
+                        <source srcset="./assets/edurino-app-screenshot-s.webp" type="image/webp">
+                        <img src="./assets/edurino-app-screenshot.png" alt="Edurino App Screenshot" id="edurinoAppImage1">
+                    </picture>
+                    <picture>
+                        <source srcset="./assets/edurino-app-mockup.webp" type="image/webp">
+                        <img src="./assets/edurino-app-mockup.png" alt="Edurino App iPad Mockup" id="edurinoAppImage2">
+                    </picture>
                 </div>
                 <div class="project-card-text-container">
                     <h3>Edurino App</h3>
@@ -75,10 +84,16 @@
             </a>
             <a href="javascript:longDelay('edurino-website.html')" class="project-card" id="edurinoWebsite">
                 <div class="project-card-image-container">
-                    <img src="./assets/edurino-website-screenshot.jpeg" alt="Edurino Website Screenshot"
+                    <picture>
+                        <source srcset="./assets/edurino-website-screenshot.webp" type="image/webp">
+                        <img src="./assets/edurino-website-screenshot.jpeg" alt="Edurino Website Screenshot"
                         id="edurinoWebsiteImage2">
-                    <img src="./assets/edurino-website-mockup.png" alt="Edurino Website iPhone Mockup"
+                    </picture>
+                    <picture>
+                        <source srcset="./assets/edurino-website-mockup.webp" type="image/webp">
+                        <img src="./assets/edurino-website-mockup.png" alt="Edurino Website iPhone Mockup"
                         id="edurinoWebsiteImage1">
+                    </picture>
                 </div>
                 <div class="project-card-text-container">
                     <h3>Edurino Website</h3>
@@ -88,7 +103,11 @@
             </a>
             <a class="project-card" id="artistWebsite">
                 <div class="centered-image">
-                    <img src="./assets/artist-website.png" alt="Artist Website Screenshot" id="artistWebsiteImage">
+                    <picture>
+                        <source srcset="./assets/artist-website-s.webp 300w, ./assets/artist-website.webp 900w"
+                            sizes="(max-width: 915px) 12.5rem, (max-width: 1500px) 15rem, 18rem" type="image/webp">
+                        <img src="./assets/artist-website.png" alt="Artist Website Screenshot" id="artistWebsiteImage">
+                    </picture>
                 </div>
                 <div class="project-card-text-container">
                     <h3>Artist Website</h3>
@@ -99,8 +118,13 @@
             </a>
             <a class="project-card" id="photoPortfolio">
                 <div class="centered-image">
-                    <img src="./assets/photography-portfolio.png" alt="Photo Portfolio Screenshot"
-                        id="photographyPortfolioImage">
+                    <picture>
+                        <source
+                            srcset="./assets/photography-portfolio-s.webp 300w, ./assets/photography-portfolio.webp 900w"
+                            sizes="(max-width: 915px) 12.5rem, (max-width: 1500px) 15rem, 18rem" type="image/webp">
+                        <img src="./assets/photography-portfolio.png" alt="Photo Portfolio Screenshot"
+                            id="photographyPortfolioImage">
+                    </picture>
                 </div>
                 <div class="project-card-text-container">
                     <h3>Photo Portfolio</h3>
