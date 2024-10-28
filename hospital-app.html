@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philip Horlemann - Hospital App</title>
+    <meta content="Philip Horlemann — Eudrino App" property="og:title">
+    <meta content="./assets/design-portfolio-opengraph.png" property="og:image">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/lbq0rfz.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+
+<body>
+    <header>
+        <picture>
+            <source srcset="./assets/monogram.webp" type="image/webp">
+            <img class="animate__animated" id="monogram" src="./assets/monogram.png" alt="Monogram">
+        </picture>
+        <a class="header-link" id="linkedInLink" style="display: flex;"
+            href="https://www.linkedin.com/in/philip-horlemann-865b4b246" target="_blank">
+            LinkedIn
+            <lord-icon class="linkedin-icon" src="https://cdn.lordicon.com/mgampcwp.json" trigger="hover"
+                target="#linkedInLink" state="hover-draw" colors="primary:#121331,secondary:#000000,tertiary:#000000"
+                style="width: 1rem; height: 1rem;">
+            </lord-icon>
+        </a>
+        <a class="header-link" id="resumeLink"
+            href="https://drive.google.com/file/d/1Q76UBzBlZ4lAu-FwBwUzVFubjl89XBdD/view?usp=sharing" target="_blank">
+            Resume
+            <lord-icon id="resumeIcon" src="https://cdn.lordicon.com/zbgyohdh.json" trigger="hover" target="#resumeLink"
+                style="width: 1.2rem; height: 1.2rem;" colors="primary:#000;">
+            </lord-icon>
+        </a>
+        <a class="header-link" id="contactLink" href="mailto:philip.horlemann@web.de" target="_blank">
+            Contact
+            <lord-icon id="contactIcon" src="https://cdn.lordicon.com/fdxqrdfe.json" trigger="hover"
+                target="#contactLink" style="width: 1.5rem; height: 1.5rem;" colors="primary:#000;">
+            </lord-icon>
+        </a>
+    </header>
+    <div class="title-text-small animate__animated animate__fadeIn">
+        <h3>Philip Horlemann -</h3>
+        <span>UX Designer</span>
+    </div>
+    <main>
+        <div class="project-container">
+            <a id="closeButton" class="animate__animated animate__fadeIn" href="javascript:delay('index.html')">
+                <svg class="icons" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50"
+                    fill="none">
+                    <path
+                        d="M16 1H46C47.6569 1 49 2.34315 49 4V34C49 42.2843 42.2843 49 34 49H4C2.34315 49 1 47.6569 1 46V16C1 7.71573 7.71573 1 16 1Z"
+                        fill="white" stroke="black" stroke-width="2" />
+                    <path d="M35 15L15 35M15 15L35 35" stroke="black" stroke-width="4" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </a>
+            <section>
+                <div class="project-title-img-container">
+                    <div class="project-title-container animate__animated animate__fadeIn">
+                        <h1>Hospital App</h1>
+                        <span>2023</span>
+                    </div>
+                    <picture>
+                        <source
+                            srcset="./assets/hospital-app/iphone-mockup2-s.webp 800w, ./assets/hospital-app/iphone-mockup2.webp 1500w"
+                            sizes="(max-width: 915px) 30rem, (max-width: 1500px) 64rem, 77rem" type="image/webp">
+                        <img class="animate__animated animate__fadeIn" src="./assets/hospital-app/iphone-mockup2.png"
+                            alt="Mockups of my Design of the App">
+                    </picture>
+                </div>
+            </section>
+            <hr>
+            <section id="overview" class="animate__animated animate__fadeIn">
+                <div class="overview-top-container">
+                    <h2>Overview</h2>
+                    <div class="project-goal-container">
+                        <div class="project-goal-icon-title-container">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"
+                                fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M6.73473 6.73472C4.7407 8.72875 3.55844 11.7769 3.55844 16C3.55844 20.2232 4.7407 23.2714 6.73473 25.2653C8.72876 27.2594 11.7769 28.4416 16 28.4416C20.2232 28.4416 23.2712 27.2594 25.2654 25.2653C27.2593 23.2714 28.4417 20.2232 28.4417 16C28.4417 15.0174 29.2383 14.2208 30.2209 14.2208C31.2035 14.2208 32.0001 15.0174 32.0001 16C32.0001 20.8782 30.6225 24.9405 27.7815 27.7816C24.9404 30.6226 20.8782 32 16 32C11.1219 32 7.05957 30.6226 4.21853 27.7816C1.37749 24.9405 0 20.8782 0 16C0 11.1219 1.37749 7.05958 4.21853 4.21853C7.05957 1.37749 11.1219 0 16 0C16.9827 0 17.7792 0.796585 17.7792 1.77922C17.7792 2.76187 16.9827 3.55844 16 3.55844C11.7769 3.55844 8.72876 4.74069 6.73473 6.73472ZM15.4599 8.44816C15.6774 9.40642 15.0769 10.3596 14.1186 10.5771C12.8342 10.8685 11.9532 11.4642 11.3718 12.2732C10.776 13.1024 10.3846 14.3118 10.3846 15.999C10.3846 18.0378 10.9525 19.3794 11.7861 20.2131C12.6197 21.0467 13.9613 21.6146 16.0002 21.6146C17.77 21.6146 19.0137 21.1845 19.8473 20.5367C20.6628 19.9029 21.2583 18.9279 21.5001 17.4836C21.6623 16.5144 22.5795 15.8603 23.5486 16.0225C24.5179 16.1848 25.1719 17.1019 25.0097 18.0711C24.6462 20.2426 23.6658 22.0759 22.0309 23.3464C20.4141 24.6027 18.3331 25.173 16.0002 25.173C13.3063 25.173 10.9505 24.4098 9.2699 22.7292C7.58927 21.0486 6.82613 18.6928 6.82613 15.999C6.82613 13.7754 7.34365 11.7809 8.48209 10.1967C9.63505 8.59221 11.3137 7.56469 13.3311 7.10684C14.2893 6.88937 15.2425 7.48989 15.4599 8.44816ZM21.9096 12.6058L17.2583 17.2571C16.5635 17.9519 15.437 17.9519 14.7421 17.2571C14.0473 16.5623 14.0473 15.4357 14.7421 14.7409L19.3945 10.0885C18.9212 8.09571 19.5099 5.98695 20.9713 4.52548L24.5812 0.915487C24.8752 0.621417 25.3019 0.502829 25.7055 0.602942C26.109 0.703058 26.4309 1.00725 26.5533 1.40465L27.5063 4.49454L30.5962 5.44745C30.9935 5.57 31.2977 5.8917 31.3978 6.29535C31.4979 6.69897 31.3795 7.12556 31.0853 7.41963L27.4757 11.0295C26.0134 12.4917 23.9032 13.0803 21.9096 12.6058Z"
+                                    fill="black" />
+                            </svg>
+                            <h3>Project Goal</h3>
+                        </div>
+                        <p>Designing an app that helps users plan a visit to the SRH clinic in Gera more easily and
+                            conveniently.</p>
+                    </div>
+                </div>
+                <div class="project-objectives-title-container">
+                    <h3>Objectives</h3>
+                    <div class="project-objectives-container">
+                        <div class="project-objective-container">
+                            <div class="project-objective-svg-container">
+                                <svg class="icons" xmlns="http://www.w3.org/2000/svg" width="39" height="39"
+                                    viewBox="0 0 39 39" fill="none">
+                                    <path
+                                        d="M12.3138 19.0734C13.5213 19.0734 14.5501 18.6519 15.4002 17.8089C16.0188 17.1954 16.5148 16.4928 16.8882 15.7012C17.1181 15.2138 16.8117 14.6634 16.2891 14.5318C15.8176 14.4131 15.3421 14.6829 15.1241 15.1176C14.8986 15.5673 14.619 15.976 14.2856 16.3437C13.7648 16.9194 13.1076 17.2072 12.3138 17.2072C11.5214 17.2072 10.8649 16.9194 10.3441 16.3437C10.0106 15.976 9.7311 15.5673 9.50555 15.1176C9.28755 14.6829 8.81207 14.4131 8.34054 14.5318C7.81799 14.6634 7.51155 15.2138 7.74143 15.7012C8.11484 16.4928 8.61084 17.1954 9.22945 17.8089C10.0795 18.6519 11.1076 19.072 12.3138 19.0734ZM19.5127 30.6866C20.7146 30.6866 21.8673 30.4326 22.9707 29.9245C23.814 29.5378 24.6138 29.0104 25.3702 28.3424C25.7644 27.9943 25.7459 27.3862 25.3613 27.0275C24.997 26.6877 24.4339 26.6953 24.0462 27.0083C23.4488 27.4908 22.8306 27.8766 22.1917 28.166C21.312 28.5657 20.4148 28.7655 19.5 28.7655C18.5852 28.7655 17.688 28.5657 16.8083 28.166C16.1688 27.8753 15.5501 27.4888 14.9522 27.0062C14.5655 26.6941 14.004 26.6868 13.6406 27.0257C13.2555 27.3849 13.2385 27.9941 13.6334 28.3425C14.4139 29.031 15.2252 29.5647 16.0673 29.9435C17.1609 30.4375 18.3086 30.6845 19.5106 30.6845M26.6862 19.0734C27.8938 19.0734 28.9226 18.6519 29.7727 17.8089C30.3906 17.1951 30.8861 16.4921 31.2593 15.7C31.4886 15.2132 31.1827 14.6634 30.6608 14.5319C30.1898 14.4131 29.7146 14.6827 29.4969 15.1169C29.2713 15.5669 28.9916 15.9758 28.658 16.3437C28.1373 16.9194 27.48 17.2072 26.6862 17.2072C25.8924 17.2072 25.2352 16.9194 24.7144 16.3437C24.3811 15.9753 24.1017 15.5664 23.8762 15.1172C23.6581 14.6827 23.1826 14.413 22.7111 14.5317C22.1884 14.6633 21.8819 15.214 22.112 15.7014C22.4857 16.4929 22.9823 17.1954 23.6019 17.8089C24.4506 18.6533 25.478 19.0755 26.6841 19.0755M19.5084 38.7236C16.8822 38.7236 14.4122 38.2254 12.0984 37.229C9.78608 36.2311 7.77419 34.8772 6.06278 33.1672C4.35137 31.4572 2.99674 29.4474 1.99889 27.1379C1.00104 24.8283 0.50141 22.359 0.500003 19.73C0.498596 17.1009 0.997522 14.6309 1.99678 12.32C2.99323 10.0076 4.34504 7.99571 6.05223 6.2843C7.75941 4.57289 9.76989 3.21826 12.0837 2.22041C14.3974 1.22256 16.8674 0.723633 19.4937 0.723633C22.1199 0.723633 24.5899 1.22256 26.9037 2.22041C29.216 3.21686 31.2279 4.56937 32.9393 6.27797C34.6507 7.98656 36.0054 9.99704 37.0032 12.3094C38.0011 14.6218 38.5 17.0911 38.5 19.7173C38.5 22.3435 38.0018 24.8135 37.0053 27.1273C36.0089 29.4411 34.655 31.453 32.9436 33.163C31.2321 34.873 29.2224 36.2276 26.9142 37.2269C24.6061 38.2261 22.1389 38.725 19.5084 38.7236ZM19.5 36.6125C24.2148 36.6125 28.2083 34.9764 31.4806 31.7042C34.7528 28.432 36.3889 24.4384 36.3889 19.7236C36.3889 15.0088 34.7528 11.0153 31.4806 7.74308C28.2083 4.47085 24.2148 2.83474 19.5 2.83474C14.7852 2.83474 10.7917 4.47085 7.51945 7.74308C4.24722 11.0153 2.61111 15.0088 2.61111 19.7236C2.61111 24.4384 4.24722 28.432 7.51945 31.7042C10.7917 34.9764 14.7852 36.6125 19.5 36.6125Z"
+                                        fill="black" />
+                                </svg>
+                            </div>
+                            <span class="s1">Make a visit less stressful</span>
+                        </div>
+                        <div class="project-objective-container">
+                            <div class="project-objective-svg-container">
+                                <svg class="icons" xmlns="http://www.w3.org/2000/svg" width="33" height="33"
+                                    viewBox="0 0 33 33" fill="none">
+                                    <path
+                                        d="M19.0112 19.6872C19.1085 19.49 19.2681 19.3304 19.4653 19.2331L30.6258 13.724C30.9475 13.5838 31.1585 13.2667 31.1608 12.9155C31.1622 12.7422 31.1145 12.5721 31.0231 12.4248C30.9318 12.2776 30.8005 12.1592 30.6446 12.0835L2.92825 1.86609C2.12765 1.57096 1.34898 2.34959 1.64407 3.15021L11.8604 30.8677C12.0136 31.1859 12.3401 31.3875 12.6936 31.3827C13.0448 31.3804 13.3618 31.1694 13.5021 30.8477L19.0112 19.6872Z"
+                                        stroke="black" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <span class="s1">Navigate visitors in the hospital</span>
+                        </div>
+                        <div class="project-objective-container">
+                            <div class="project-objective-svg-container">
+                                <svg class="icons" xmlns="http://www.w3.org/2000/svg" width="35" height="36"
+                                    viewBox="0 0 35 36" fill="none">
+                                    <path
+                                        d="M15.3649 30.1762C11.597 33.9687 5.19401 35.2247 1.5 31.4321C6.42535 26.3344 1.5 23.8718 5.19401 20.1777C5.84266 19.4552 6.6318 18.8725 7.51326 18.4653C8.3947 18.0581 9.34992 17.8349 10.3206 17.8094C11.2912 17.7838 12.2569 17.9565 13.1585 18.3167C14.0602 18.677 14.8789 19.2174 15.5646 19.9048C16.2503 20.5922 16.7887 21.4123 17.1468 22.3148C17.5049 23.2173 17.6752 24.1834 17.6473 25.154C17.6193 26.1246 17.3938 27.0791 16.9844 27.9598C16.5751 28.8402 15.9905 29.6277 15.2664 30.2747L15.3649 30.1762Z"
+                                        stroke="black" stroke-width="2.6533" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M11.8311 17.9269L24.8953 3.35701C26.7524 1.26942 30.1044 1.16607 32.0863 3.13537C34.0567 5.11745 33.953 8.46959 31.8647 10.3264L17.4417 23.2414"
+                                        stroke="black" stroke-width="2.6533" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <span class="s1">Design an<br> app</span>
+                        </div>
+                        <div class="project-objective-container">
+                            <div class="project-objective-svg-container">
+                                <svg class="icons" xmlns="http://www.w3.org/2000/svg" width="25" height="36"
+                                    viewBox="0 0 25 36" fill="none">
+                                    <path
+                                        d="M1.5 5.41667C1.5 4.44421 1.88631 3.51158 2.57394 2.82394C3.26158 2.13631 4.19421 1.75 5.16667 1.75H19.8333C20.8058 1.75 21.7384 2.13631 22.4261 2.82394C23.1137 3.51158 23.5 4.44421 23.5 5.41667V31.0833C23.5 32.0558 23.1137 32.9884 22.4261 33.6761C21.7384 34.3637 20.8058 34.75 19.8333 34.75H5.16667C4.19421 34.75 3.26158 34.3637 2.57394 33.6761C1.88631 32.9884 1.5 32.0558 1.5 31.0833V5.41667Z"
+                                        stroke="black" stroke-width="2.15217" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M10.6665 3.58325H14.3332" stroke="black" stroke-width="2.15217"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M12.5 27.4167V27.4367" stroke="black" stroke-width="2.15217"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <span class="s1">Create a<br> prototype</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-img-container">
+                    <div class="img-title-centered">
+                        <div class="img-title-container">
+                            <h4>The SRH clinic in Gera</h4>
+                        </div>
+                    </div>
+                    <picture>
+                        <source
+                            srcset="./assets/hospital-app/srh-hospital-s.webp 600w, ./assets/hospital-app/srh-hospital.webp 1200w"
+                            sizes="(max-width: 915px) 20rem, (max-width: 1500px) 47rem, 57rem" type="image/webp">
+                        <img src="./assets/hospital-app/srh-hospital.png" alt="The SRH clinic in Gera">
+                    </picture>
+                </div>
+            </section>
+            <hr>
+            <section>
+                <h2>Personas</h2>
+                <article class="persona-article">
+                    <h3>Persona 1</h3>
+                    <div class="article-text">
+                        <p>Tim is 18 years old and wants to visit his friend in the hospital. He is very skilled with
+                            technology and is a supporter of more digitalisation in everyday life. He has never planned
+                            a visit to a hospital before and would rather use an app to do it than to call or write an
+                            email.
+                        </p>
+                        <div class="persona-article-img-container">
+                            <picture>
+                                <source srcset="./assets/hospital-app/persona1.webp" type="image/webp">
+                                <img src="./assets/hospital-app/persona1.png" alt="Tim, the first persona">
+                            </picture>
+                        </div>
+                    </div>
+                </article>
+                <article class="persona-article">
+                    <h3>Persona 2</h3>
+                    <div class="article-text">
+                        <p>Marie is a 54 year old woman who wants to make an appointment with a specialist at the
+                            hospital. She is not that good with technology and can get lost in more complex UIs. She
+                            also doesn't have the best orientation in big places such as hospitals and doesn't know if
+                            she'll be able to find the right room.
+                        </p>
+                        <div class="persona-article-img-container">
+                            <picture>
+                                <source srcset="./assets/hospital-app/persona2.webp" type="image/webp">
+                                <img src="./assets/hospital-app/persona2.png" alt="Marie, the second persona">
+                            </picture>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <hr>
+            <section>
+                <h2>Core Design Idea and USP</h2>
+                <article class="dual-article">
+                    <div class="vertical-article">
+                        <h3>Practicality</h3>
+                        <ul>
+                            <li>Introducing the way to make appointments in the 21st century</li>
+                            <li>Plan visits quickly and efficiently</li>
+                            <li>Always find your destination on a visit</li>
+                            <li>All the important contact infos in one place, quickly accessible</li>
+                        </ul>
+                        <picture>
+                            <source srcset="./assets/hospital-app/ui-kit.webp" type="image/webp">
+                            <img src="./assets/hospital-app/ui-kit.png" alt="My UI Kit">
+                        </picture>
+                    </div>
+                    <div class="vertical-article">
+                        <h3>Simplicity</h3>
+                        <ul>
+                            <li>Better organisation decreases the time people spend searching and planning visits or
+                                contacting the right people in emergencies</li>
+                            <li>Easy navigation to and within hospital makes visits less difficult, less stressful and
+                                more convenient</li>
+                            <li>Simple layout and modern design enabling usability for all ages</li>
+                        </ul>
+                        <picture>
+                            <source srcset="./assets/hospital-app/iphone-mockup1.webp" type="image/webp">
+                            <img src="./assets/hospital-app/iphone-mockup1.png"
+                                alt="Mockup showing the Simplicity of the UI">
+                        </picture>
+                    </div>
+                </article>
+            </section>
+            <hr>
+            <section id="design">
+                <h2>Design Process</h2>
+                <div class="step-container">
+                    <div class="progress-container">
+                        <h3>Step 1</h3>
+                        <div class="progress-bar">
+                            <div class="bar" style="width: 25%;"></div>
+                        </div>
+                    </div>
+                    <div class="project-img-container smaller-img">
+                        <div class="img-title-centered">
+                            <div class="img-title-container">
+                                <h4>Low Fidelity Wireframes</h4>
+                            </div>
+                        </div>
+                        <picture>
+                            <source
+                                srcset="./assets/hospital-app/lowfi-wireframes-s.webp 600w, ./assets/hospital-app/lowfi-wireframes.webp 1200w"
+                                sizes="(max-width: 915px) 20rem, (max-width: 1500px) 47rem, 57rem" type="image/webp">
+                            <img src="./assets/hospital-app/lowfi-wireframes.png" alt="Low fidelity wireframes">
+                        </picture>
+                    </div>
+                </div>
+                <div class="step-container">
+                    <div class="progress-container">
+                        <h3>Step 2</h3>
+                        <div class="progress-bar">
+                            <div class="bar" style="width: 50%;"></div>
+                        </div>
+                    </div>
+                    <div class="project-img-container smaller-img">
+                        <div class="img-title-centered">
+                            <div class="img-title-container">
+                                <h4>Experimenting with Layouts</h4>
+                            </div>
+                        </div>
+                        <picture>
+                            <source
+                                srcset="./assets/hospital-app/layout-experiments-s.webp 600w, ./assets/hospital-app/layout-experiments.webp 1200w"
+                                sizes="(max-width: 915px) 20rem, (max-width: 1500px) 47rem, 57rem" type="image/webp">
+                            <img src="./assets/hospital-app/layout-experiments.png"
+                                alt="Experimenting with different layouts">
+                        </picture>
+                    </div>
+                </div>
+                <div class="step-container">
+                    <div class="progress-container">
+                        <h3>Step 3</h3>
+                        <div class="progress-bar">
+                            <div class="bar" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    <div class="project-img-container smaller-img">
+                        <div class="img-title-centered">
+                            <div class="img-title-container">
+                                <h4>Finalized Layouts</h4>
+                            </div>
+                        </div>
+                        <picture>
+                            <source
+                                srcset="./assets/hospital-app/final-layouts-s.webp 600w, ./assets/hospital-app/final-layouts.webp 1200w"
+                                sizes="(max-width: 915px) 20rem, (max-width: 1500px) 47rem, 57rem" type="image/webp">
+                            <img src="./assets/hospital-app/final-layouts.png" alt="Finalized Layouts">
+                        </picture>
+                    </div>
+                </div>
+                <div class="step-container">
+                    <div class="progress-container">
+                        <h3>Step 4</h3>
+                        <div class="progress-bar">
+                            <div class="bar" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                    <div class="project-img-container">
+                        <div class="img-title-centered">
+                            <div class="img-title-container">
+                                <h4>High Fidelity Wireframes</h4>
+                            </div>
+                        </div>
+                        <picture>
+                            <source
+                                srcset="./assets/hospital-app/highfi-wireframes-s.webp 600w, ./assets/hospital-app/highfi-wireframes.webp 1200w"
+                                sizes="(max-width: 915px) 20rem, (max-width: 1500px) 47rem, 57rem" type="image/webp">
+                            <img src="./assets/hospital-app/highfi-wireframes.png" alt="High Fidelity Wireframes"
+                                style="margin-top: 1rem;">
+                        </picture>
+                    </div>
+                </div>
+            </section>
+            <hr>
+            <section>
+                <h2>Prototyping</h2>
+                <div class="project-img-container">
+                    <div class="img-title-centered">
+                        <div class="img-title-container">
+                            <h4>Project in ProtoPie</h4>
+                        </div>
+                    </div>
+                    <picture>
+                        <source
+                            srcset="./assets/hospital-app/protopie-screenshot-s.webp 600w, ./assets/hospital-app/protopie-screenshot.webp 1200w"
+                            sizes="(max-width: 915px) 20rem, (max-width: 1500px) 47rem, 57rem" type="image/webp">
+                        <img src="./assets/hospital-app/protopie-screenshot.png" alt="Project in ProtoPie">
+                    </picture>
+                </div>
+                <div class="project-img-container" style="z-index: 1;">
+                    <div class="img-title-centered">
+                        <div class="img-title-container">
+                            <h4>Video of the Finished Prototype</h4>
+                        </div>
+                    </div>
+                    <video id="hospitalAppVideo" autoplay muted loop playsinline
+                        src="./assets/hospital-app/hopsital-app-video.mp4"></video>
+                </div>
+            </section>
+            <hr>
+            <section id="takeaways">
+                <h2>Project Takeaways</h2>
+                <div class="takeaway-cards-container">
+                    <div class="takeaway-card">
+                        <div class="fuck-you-CSS">
+                            <div class="takeaway-card-icon-container">
+                                <svg class="icons" xmlns="http://www.w3.org/2000/svg" width="44" height="45"
+                                    viewBox="0 0 44 45" fill="none">
+                                    <rect x="0.0185547" y="0.489258" width="20.6282" height="20.6283" rx="4.12565"
+                                        fill="black" />
+                                    <rect x="0.147461" y="23.6943" width="20.6282" height="20.6283" rx="4.12565"
+                                        fill="black" />
+                                    <rect x="23.2266" y="0.322266" width="20.6282" height="20.6283" rx="4.12565"
+                                        fill="black" />
+                                    <rect x="23.3535" y="23.5273" width="20.6282" height="20.6283" rx="4.12565"
+                                        fill="black" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="takeaway-card-text-container">
+                            <h4>Working with boxes</h4>
+                            <p>While sometimes it may look good or even be necessary for a clear structure, I learned
+                                that there is no need to box everything in. After having initial wireframes with all of
+                                the content inside boxes, I revised some of the screens to look more open by taking some
+                                elements (like titles) out of the boxes, which improved the look and feel dramatically
+                                in my opinion.</p>
+                        </div>
+                    </div>
+                    <div class="takeaway-card">
+                        <div class="fuck-you-CSS">
+                            <div class="takeaway-card-icon-container">
+                                <svg class="icons" xmlns="http://www.w3.org/2000/svg" width="40" height="45"
+                                    viewBox="0 0 40 45" fill="none">
+                                    <path
+                                        d="M0.256836 2.01457C0.256836 1.56575 0.435132 1.1353 0.752501 0.817931C1.06987 0.500562 1.50032 0.322266 1.94914 0.322266H38.0517C38.5005 0.322266 38.931 0.500562 39.2483 0.817931C39.5657 1.1353 39.744 1.56575 39.744 2.01457C39.744 2.4634 39.5657 2.89385 39.2483 3.21122C38.931 3.52859 38.5005 3.70688 38.0517 3.70688H1.94914C1.50032 3.70688 1.06987 3.52859 0.752501 3.21122C0.435132 2.89385 0.256836 2.4634 0.256836 2.01457ZM0.256836 42.63C0.256836 42.1811 0.435132 41.7507 0.752501 41.4333C1.06987 41.1159 1.50032 40.9377 1.94914 40.9377H38.0517C38.5005 40.9377 38.931 41.1159 39.2483 41.4333C39.5657 41.7507 39.744 42.1811 39.744 42.63C39.744 43.0788 39.5657 43.5092 39.2483 43.8266C38.931 44.144 38.5005 44.3223 38.0517 44.3223H1.94914C1.50032 44.3223 1.06987 44.144 0.752501 43.8266C0.435132 43.5092 0.256836 43.0788 0.256836 42.63ZM21.1963 6.4597C20.879 6.14279 20.4489 5.96478 20.0004 5.96478C19.552 5.96478 19.1218 6.14279 18.8045 6.4597L12.0353 13.2289C11.7364 13.5497 11.5736 13.974 11.5814 14.4125C11.5891 14.8509 11.7667 15.2692 12.0768 15.5793C12.3868 15.8893 12.8051 16.0669 13.2436 16.0747C13.682 16.0824 14.1063 15.9197 14.4271 15.6207L18.3081 11.7397V32.9048L14.4271 29.0238C14.1063 28.7249 13.682 28.5621 13.2436 28.5699C12.8051 28.5776 12.3868 28.7552 12.0768 29.0653C11.7667 29.3753 11.5891 29.7936 11.5814 30.2321C11.5736 30.6705 11.7364 31.0948 12.0353 31.4156L18.8045 38.1848C19.1218 38.5017 19.552 38.6798 20.0004 38.6798C20.4489 38.6798 20.879 38.5017 21.1963 38.1848L27.9656 31.4156C28.1318 31.2607 28.2652 31.0738 28.3577 30.8663C28.4502 30.6587 28.4999 30.4346 28.5039 30.2073C28.5079 29.9801 28.4661 29.7544 28.381 29.5437C28.2959 29.333 28.1692 29.1415 28.0085 28.9808C27.8478 28.8201 27.6564 28.6935 27.4457 28.6083C27.2349 28.5232 27.0092 28.4814 26.782 28.4854C26.5548 28.4895 26.3307 28.5392 26.1231 28.6317C25.9155 28.7242 25.7287 28.8575 25.5738 29.0238L21.6927 32.9048V11.7397L25.5738 15.6207C25.7287 15.787 25.9155 15.9204 26.1231 16.0128C26.3307 16.1053 26.5548 16.1551 26.782 16.1591C27.0092 16.1631 27.2349 16.1213 27.4457 16.0362C27.6564 15.9511 27.8478 15.8244 28.0085 15.6637C28.1692 15.503 28.2959 15.3116 28.381 15.1008C28.4661 14.8901 28.5079 14.6644 28.5039 14.4372C28.4999 14.21 28.4502 13.9859 28.3577 13.7783C28.2652 13.5707 28.1318 13.3839 27.9656 13.2289L21.1963 6.4597Z"
+                                        fill="black" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="takeaway-card-text-container">
+                            <h4>Getting the spacing right</h4>
+                            <p>Working with a lot of differently sized elements like texts and icons can be tricky,
+                                especially when putting them all together on a wireframe. It is thus important to
+                                arrange them very delicately, paying close attention to the spacing between every
+                                element in relation to their size, their importance and their context, even more so when
+                                designing for mobile.</p>
+                        </div>
+                    </div>
+                    <div class="takeaway-card">
+                        <div class="fuck-you-CSS">
+                            <div class="takeaway-card-icon-container">
+                                <svg class="icons" xmlns="http://www.w3.org/2000/svg" width="58" height="78"
+                                    fill="none">
+                                    <path fill="#000"
+                                        d="M36.311 46.696c-.562-1.5 1.29-2.655 2.387-1.63l.151.164 7.058 8.569a3.337 3.337 0 1 1-5.567 3.603l-.134-.312-3.895-10.394Zm1.59-8.633.21.065 10.397 3.895a3.336 3.336 0 1 1-3.002 5.914l-.29-.216-8.568-7.055c-1.238-1.015-.21-2.942 1.253-2.6v-.003ZM58 36.29a3.334 3.334 0 0 1-3.566 3.328l-.32-.037-10.948-1.825c-1.565-.26-1.652-2.397-.263-2.868l.263-.064 10.948-1.825A3.336 3.336 0 0 1 58 36.293v-.003Zm-7.776-10.525a3.335 3.335 0 0 1-1.407 4.656l-.312.136-10.396 3.896c-1.498.562-2.65-1.29-1.627-2.388l.16-.15 8.572-7.059a3.334 3.334 0 0 1 5.01.91Zm-5.225-11.993a3.338 3.338 0 0 1 1.121 4.72l-.215.29-7.056 8.568c-1.015 1.238-2.942.21-2.6-1.253l.062-.21 3.895-10.399a3.336 3.336 0 0 1 4.792-1.719v.003ZM25.145 45.23c1.015-1.238 2.942-.21 2.6 1.253l-.062.21-3.895 10.4a3.335 3.335 0 1 1-5.914-3.002l.213-.29 7.058-8.57Zm2.365-4.715-.164.151-8.568 7.058a3.336 3.336 0 1 1-3.604-5.567l.312-.134 10.397-3.895c1.498-.563 2.65 1.29 1.627 2.387ZM9.56 32.962l.32.037 10.948 1.825c1.565.263 1.652 2.397.263 2.868l-.263.064L9.88 39.581a3.336 3.336 0 1 1-.322-6.62h.002Zm8.928-8.319.29.216 8.568 7.055c1.238 1.016.21 2.942-1.253 2.6l-.21-.061-10.397-3.896a3.336 3.336 0 1 1 3.002-5.914Zm5.166-9.465.134.312 3.895 10.397c.562 1.5-1.29 2.65-2.387 1.627l-.151-.161-7.058-8.571a3.337 3.337 0 1 1 5.567-3.604Zm8.343.062c-2.06 0-3.63 1.85-3.291 3.886l1.825 10.948c.277 1.657 2.655 1.657 2.932 0l1.825-10.948a3.334 3.334 0 0 0-3.291-3.886Zm1.466 27.266c-.277-1.657-2.655-1.657-2.932 0l-1.825 10.948a3.335 3.335 0 1 0 6.582 0l-1.825-10.948Z"
+                                        opacity=".8" />
+                                    <g filter="url(#a)">
+                                        <path fill="#000"
+                                            d="M32.617 57.496c-.975 0-1.776-.296-2.403-.888-.627-.626-.94-1.392-.94-2.298V27.99l.731 1.149-3.812 2.82c-.488.383-1.097.575-1.828.575-.836 0-1.567-.314-2.193-.94-.627-.627-.94-1.376-.94-2.246 0-1.114.54-2.02 1.618-2.716l7.52-5.014a3.44 3.44 0 0 1 1.15-.522 5.6 5.6 0 0 1 1.253-.156c1.01 0 1.81.313 2.403.94.591.591.887 1.34.887 2.245V54.31c0 .906-.33 1.672-.992 2.298-.627.592-1.445.888-2.454.888Z" />
+                                        <path stroke="#fff" stroke-width="2.262"
+                                            d="m29.414 57.408.012.012.012.01c.864.817 1.956 1.197 3.179 1.197 1.245 0 2.359-.373 3.23-1.196l.002-.002c.885-.838 1.346-1.9 1.346-3.119V24.124c0-1.173-.394-2.213-1.208-3.034-.841-.884-1.956-1.283-3.214-1.283-.484 0-.989.066-1.508.186l-.01.002-.01.003a4.572 4.572 0 0 0-1.512.685l-7.503 5.002c-1.34.867-2.13 2.102-2.13 3.662 0 1.176.437 2.21 1.272 3.045.824.825 1.838 1.272 2.993 1.272.931 0 1.794-.247 2.513-.806l1.265-.935V54.31c0 1.198.427 2.254 1.271 3.098Z" />
+                                    </g>
+                                    <defs>
+                                        <filter id="a" width="55.556" height="77.282" x=".869" y=".576"
+                                            color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+                                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                            <feColorMatrix in="SourceAlpha" result="hardAlpha"
+                                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+                                            <feOffset />
+                                            <feGaussianBlur stdDeviation="9.05" />
+                                            <feComposite in2="hardAlpha" operator="out" />
+                                            <feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0" />
+                                            <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_112_169" />
+                                            <feBlend in="SourceGraphic" in2="effect1_dropShadow_112_169"
+                                                result="shape" />
+                                        </filter>
+                                    </defs>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="takeaway-card-text-container">
+                            <h4>First ever project</h4>
+                            <p>This was my first ever UX Design project when I was a first semester at SRH Berlin, so
+                                please don't be too harsh on it : ). It was a lot of fun to work on and I learned more
+                                than I could summarize in three points.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="script2.js"></script>
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+</body>
+
+</html>
