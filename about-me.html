@@ -13,23 +13,28 @@
         content="Currently UX Design student in Berlin. I love designing and creating digital interactions that transform an ordinary product into a pleasant or exciting experience for the user."
         property="og:description">
     <meta content="./assets/design-portfolio-opengraph.png" property="og:image">
+    <script>
+        (function () {
+            const userPreference = localStorage.getItem('theme') || 'light';
+            const root = document.documentElement;
+            root.classList.add(userPreference === 'dark' ? 'dark-mode' : 'light-mode');
+        })();
+    </script>
     <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
     <link rel="apple-touch-icon" href="assets/home-screen-icon.png">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://use.typekit.net/lbq0rfz.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
 
 <body>
     <header>
         <picture>
-            <source srcset="./assets/monogram.webp" type="image/webp">
-            <img class="animate__animated" id="monogram" src="./assets/monogram.png" alt="Monogram">
+            <source id="monogramWebp" srcset="./assets/monogram-lightmode.webp" type="image/webp">
+            <img class="animate__animated" id="monogram" src="./assets/monogram-lightmode.png" alt="Monogram">
         </picture>
         <a class="header-link" id="linkedInLink" href="https://www.linkedin.com/in/philip-horlemann-865b4b246"
             target="_blank">
             LinkedIn
-            <lord-icon class="linkedin-icon" src="https://cdn.lordicon.com/mgampcwp.json" trigger="hover"
+            <lord-icon class="linkedin-icon header-icon" src="https://cdn.lordicon.com/mgampcwp.json" trigger="hover"
                 target="#linkedInLink" state="hover-draw" colors="primary:#121331,secondary:#000000,tertiary:#000000"
                 style="width: 1rem; height: 1rem;">
             </lord-icon>
@@ -37,28 +42,52 @@
         <a class="header-link" id="resumeLink"
             href="https://drive.google.com/file/d/1Q76UBzBlZ4lAu-FwBwUzVFubjl89XBdD/view?usp=sharing" target="_blank">
             Resume
-            <lord-icon id="resumeIcon" src="https://cdn.lordicon.com/zbgyohdh.json" trigger="hover" target="#resumeLink"
-                style="width: 1.2rem; height: 1.2rem;" colors="primary:#000;">
+            <lord-icon class="header-icon" id="resumeIcon" src="https://cdn.lordicon.com/zbgyohdh.json" trigger="hover"
+                target="#resumeLink" style="width: 1.2rem; height: 1.2rem;" colors="primary:#000;">
             </lord-icon>
         </a>
         <a class="header-link" id="contactLink" href="mailto:philip.horlemann@web.de" target="_blank">
             Contact
-            <lord-icon id="contactIcon" src="https://cdn.lordicon.com/fdxqrdfe.json" trigger="hover"
-                target="#contactLink" style="width: 1.5rem; height: 1.5rem;" colors="primary:#000;">
+            <lord-icon class="header-icon" id="contactIcon" src="https://cdn.lordicon.com/fdxqrdfe.json" trigger="hover"
+                target="#contactLink" style="width: 1.5rem; height: 1.5rem;" colors="primary:#000;" aria-label="Toggle appearance">
             </lord-icon>
         </a>
     </header>
+    <div id="appearanceSwitch">
+        <svg xmlns="http://www.w3.org/2000/svg" width="106" height="80" viewBox="0 0 106 80" fill="none">
+            <mask id="path-1-inside-1_180_175" fill="white">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M79.5 52.9902C79.5054 38.3592 91.3678 26.5001 106 26.5001L106 9.15527e-05L9.48027e-07 9.02887e-05L6.32018e-07 26.5001C14.6355 26.5001 26.5 38.3645 26.5 53.0001C26.5001 67.6356 38.3645 79.5 53 79.5C67.6355 79.5 79.5 67.6356 79.5 53.0001C79.5 53.0001 79.5 53 79.5 53C79.5 52.9967 79.5 52.9934 79.5 52.9902Z" />
+            </mask>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M79.5 52.9902C79.5054 38.3592 91.3678 26.5001 106 26.5001L106 9.15527e-05L9.48027e-07 9.02887e-05L6.32018e-07 26.5001C14.6355 26.5001 26.5 38.3645 26.5 53.0001C26.5001 67.6356 38.3645 79.5 53 79.5C67.6355 79.5 79.5 67.6356 79.5 53.0001C79.5 53.0001 79.5 53 79.5 53C79.5 52.9967 79.5 52.9934 79.5 52.9902Z"
+                fill="white" style="fill: var(--background-color);" />
+            <path
+                d="M106 26.5001L107.325 26.5001L107.325 27.8251L106 27.8251L106 26.5001ZM79.5 52.9902L78.175 52.9902L78.175 52.9897L79.5 52.9902ZM106 9.15527e-05L106 -1.32491L107.325 -1.32491L107.325 9.15685e-05L106 9.15527e-05ZM9.48027e-07 9.02887e-05L-1.325 9.02729e-05L-1.325 -1.32491L9.63827e-07 -1.32491L9.48027e-07 9.02887e-05ZM6.32018e-07 26.5001L6.16217e-07 27.8251L-1.325 27.8251L-1.325 26.5001L6.32018e-07 26.5001ZM26.5 53.0001L25.175 53.0001L25.175 53.0001L26.5 53.0001ZM79.5 53.0001L80.825 53.0001L80.825 53.0001L79.5 53.0001ZM106 27.8251C92.0994 27.8251 80.8301 39.0912 80.825 52.9906L78.175 52.9897C78.1806 37.6271 90.6362 25.1751 106 25.1751L106 27.8251ZM107.325 9.15685e-05L107.325 26.5001L104.675 26.5001L104.675 9.15369e-05L107.325 9.15685e-05ZM9.63827e-07 -1.32491L106 -1.32491L106 1.32509L9.32226e-07 1.32509L9.63827e-07 -1.32491ZM-1.325 26.5001L-1.325 9.02729e-05L1.325 9.03045e-05L1.325 26.5001L-1.325 26.5001ZM25.175 53.0001C25.175 39.0963 13.9038 27.8251 6.16217e-07 27.8251L6.47818e-07 25.1751C15.3673 25.1751 27.825 37.6328 27.825 53.0001L25.175 53.0001ZM27.825 53.0001C27.8251 66.9038 39.0963 78.175 53 78.175L53 80.825C37.6327 80.825 25.1751 68.3674 25.175 53.0001L27.825 53.0001ZM53 78.175C66.9037 78.175 78.175 66.9038 78.175 53.0001L80.825 53.0001C80.8249 68.3674 68.3673 80.825 53 80.825L53 78.175ZM78.175 53.0001C78.175 52.9795 78.1755 52.9614 78.1761 52.9465C78.1767 52.9316 78.1775 52.9189 78.1781 52.9093C78.1788 52.8997 78.1794 52.8919 78.1798 52.8873C78.18 52.885 78.1802 52.8831 78.1803 52.8819C78.1803 52.8813 78.1804 52.8808 78.1804 52.8805C78.1804 52.8804 78.1804 52.8803 78.1804 52.8802C78.1804 52.8802 78.1804 52.8801 78.1804 52.8801C78.1804 52.8801 78.1804 52.8801 78.1804 52.8801C78.1804 52.8801 78.1804 52.8801 78.1804 52.8801L78.1804 52.8801C78.1805 52.8795 78.1802 52.8831 78.1798 52.8873C78.1794 52.8919 78.1788 52.8996 78.1781 52.9092C78.1775 52.9189 78.1767 52.9315 78.1761 52.9464C78.1755 52.9614 78.175 52.9794 78.175 53L80.825 53C80.825 53.0206 80.8245 53.0386 80.8239 53.0536C80.8233 53.0685 80.8226 53.0812 80.8219 53.0908C80.8212 53.1004 80.8206 53.1082 80.8202 53.1128C80.82 53.1151 80.8198 53.117 80.8197 53.1182C80.8197 53.1188 80.8196 53.1193 80.8196 53.1196C80.8196 53.1197 80.8196 53.1198 80.8196 53.1199C80.8196 53.1199 80.8196 53.12 80.8196 53.12C80.8196 53.12 80.8196 53.12 80.8196 53.12C80.8196 53.12 80.8196 53.12 80.8196 53.12L80.8196 53.12C80.8195 53.1206 80.8198 53.117 80.8202 53.1128C80.8206 53.1082 80.8212 53.1005 80.8219 53.0909C80.8225 53.0812 80.8233 53.0686 80.8239 53.0536C80.8245 53.0387 80.825 53.0206 80.825 53.0001L78.175 53.0001ZM78.175 53C78.175 52.9988 78.175 52.9976 78.175 52.9958C78.175 52.9943 78.175 52.9922 78.175 52.9902L80.825 52.9902C80.825 52.9913 80.825 52.9926 80.825 52.9943C80.825 52.9959 80.825 52.9979 80.825 53L78.175 53Z"
+                fill="black" style="fill: var(--primary-color);" mask="url(#path-1-inside-1_180_175)" />
+        </svg>
+        <div class="appearance-icon-container">
+            <lord-icon class="header-icon" id="appearanceIcon" src="https://cdn.lordicon.com/pbxtntbx.json"
+                trigger="hover" stroke="bold" style="width: 2rem; height: 2rem;" state="rays"
+                colors="primary:#000000,secondary:#000000">
+            </lord-icon>
+        </div>
+    </div>
     <div class="title-text">
         <h1>Philip Horlemann</h1>
         <span>UX Designer</span>
     </div>
     <main class="main-x">
         <nav>
-            <a href="javascript:shortDelay('index.html')" id="notSelected"><h2>Projects</h2></a>
-            <a href="about-me.html" id="selected"><h2>About me</h2></a>
+            <a href="javascript:shortDelay('index.html')" id="notSelected">
+                <h2>Projects</h2>
+            </a>
+            <a href="about-me.html" id="selected">
+                <h2>About me</h2>
+            </a>
             <a id="linkedInContainer" href="https://www.linkedin.com/in/philip-horlemann-865b4b246" target="_blank">
-                <lord-icon class="linkedin-icon" src="https://cdn.lordicon.com/mgampcwp.json" trigger="hover"
-                    target="#linkedInContainer" state="hover-draw"
+                <lord-icon class="linkedin-icon header-icon" src="https://cdn.lordicon.com/mgampcwp.json"
+                    trigger="hover" target="#linkedInContainer" state="hover-draw"
                     colors="primary:#121331,secondary:#000000,tertiary:#000000" style="width: 1rem; height: 1rem;">
                 </lord-icon>
                 LinkedIn
@@ -118,16 +147,15 @@
                                 <span class="timeline-title s2">Designing my photography portfolio</span>
                             </div>
                         </div>
-                        <picture>
-                            <source srcset="./assets/about-me/timeline.webp" type="image/webp">
-                            <img src="./assets/timeline.png" alt="Timeline graphic" class="timeline">
-                        </picture>
+                        <img src="./assets/about-me/timeline-lightmode.svg" alt="Timeline graphic" class="timeline">
                     </div>
                 </div>
             </div>
         </div>
     </main>
     <script src="script.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/lbq0rfz.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
 </body>
 
