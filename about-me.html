@@ -49,7 +49,7 @@
         <a class="header-link" id="contactLink" href="mailto:philip.horlemann@web.de" target="_blank">
             Contact
             <lord-icon class="header-icon" id="contactIcon" src="https://cdn.lordicon.com/fdxqrdfe.json" trigger="hover"
-                target="#contactLink" style="width: 1.5rem; height: 1.5rem;" colors="primary:#000;" aria-label="Toggle appearance">
+                target="#contactLink" style="width: 1.5rem; height: 1.5rem;" colors="primary:#000;">
             </lord-icon>
         </a>
     </header>
@@ -113,7 +113,7 @@
                         <div class="school">
                             <picture>
                                 <source srcset="./assets/about-me/srh-logo.webp" type="image/webp">
-                                <img src="./assets/srh-logo.png" alt="SRH Berlin University Logo">
+                                <img src="./assets/about-me/srh-logo.png" alt="SRH Berlin University Logo">
                             </picture>
                             <div class="school-info">
                                 <span class="s2">SRH Berlin
@@ -147,7 +147,10 @@
                                 <span class="timeline-title s2">Designing my photography portfolio</span>
                             </div>
                         </div>
-                        <img src="./assets/about-me/timeline-lightmode.svg" alt="Timeline graphic" class="timeline">
+                        <picture>
+                            <source id="timelineSrc" srcset="./assets/about-me/timeline-lightmode.webp" type="image/webp">
+                            <img id="timeline" src="./assets/about-me/timeline-lightmode.png" alt="Timeline graphic">
+                        </picture>
                     </div>
                 </div>
             </div>
