@@ -18,4 +18,5 @@ function setTheme(theme,wasToggled){projectCard.forEach(card=>(card.classList.ad
 if(homeScreenIcon){homeScreenIcon.setAttribute("href",`./assets/home-screen-icon-${theme}mode.png`)}
 if(timeline){timeline.setAttribute("src",`./assets/about-me/timeline-${theme}mode.png`)}
 if(timelineSrc){timelineSrc.setAttribute("srcset",`./assets/about-me/timeline-${theme}mode.webp`)}
-const iconState=isDark?'hover-night':'rays';if(!wasToggled)appearanceIcon.setAttribute('state',iconState);setTimeout(()=>{projectCard.forEach(card=>(card.classList.remove('transitionsOff')))},5);body.classList.remove('no-opacity');localStorage.setItem('theme',theme)}})
+const iconState=isDark?'hover-night':'rays';if(!wasToggled)appearanceIcon.setAttribute('state',iconState);setTimeout(()=>{projectCard.forEach(card=>(card.classList.remove('transitionsOff')))},5);body.classList.remove('no-opacity');localStorage.setItem('theme',theme)}
+if(timeline){userPreference==='dark'?fetch('./assets/about-me/timeline-lightmode.webp'):fetch('./assets/about-me/timeline-darkmode.webp')}})
