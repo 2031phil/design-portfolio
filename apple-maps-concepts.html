@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philip Horlemann - Apple Maps Concepts</title>
+    <meta content="Philip Horlemann — Apple Maps Concepts" property="og:title">
+    <meta content="Adding features to Apple Maps that I wish it had in a realistic manner." name="description">
+    <meta content="Adding features to Apple Maps that I wish it had in a realistic manner." property="og:description">
+    <meta content="./assets/design-portfolio-opengraph.png" property="og:image">
+    <script>
+        (function () {
+            const userPreference = localStorage.getItem('theme') || 'light';
+            const root = document.documentElement;
+            root.classList.add(userPreference === 'dark' ? 'dark-mode' : 'light-mode');
+        })();
+    </script>
+    <link rel="preload" href="https://use.typekit.net/lbq0rfz.css" as="style" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon-lightmode.png" id="favicon">
+    <link rel="apple-touch-icon" href="assets/home-screen-icon-lightmode.png" id="homeScreenIcon">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="no-opacity">
+    <header style="border-bottom: none;">
+        <div id="monogramContainer">
+            <svg id="monogram" class="animate__animated" xmlns="http://www.w3.org/2000/svg" width="600" height="348"
+                viewBox="0 0 600 348" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M122.112 211.565H166.795V347.49H251.136V210.646H348.864V347.49H349.807H433.204H477.888C564.675 347.49 600 304.286 600 244.024C600 183.763 564.675 135.925 477.888 135.925H433.204V0H348.864V136.299H251.136V0H250.193H166.795H122.112C35.3251 0 0 43.2046 0 103.466C0 163.728 35.3251 211.565 122.112 211.565ZM166.795 71.0998H124.728C96.381 71.0998 85.4781 83.957 85.4781 103.466C85.4781 122.975 96.381 135.832 124.728 135.832H166.795V71.0998ZM433.204 276.391V211.658H475.272C503.619 211.658 514.522 224.515 514.522 244.024C514.522 263.533 503.619 276.391 475.272 276.391H433.204Z"
+                    fill="black" style="fill: var(--primary-color)" />
+            </svg>
+        </div>
+        <a class="header-link" id="linkedInLink" style="display: flex;"
+            href="https://www.linkedin.com/in/philip-horlemann-865b4b246" target="_blank">
+            LinkedIn
+            <lord-icon class="linkedin-icon" src="https://cdn.lordicon.com/mgampcwp.json" trigger="hover"
+                target="#linkedInLink" state="hover-draw" colors="primary:#121331,secondary:#000000,tertiary:#000000"
+                style="width: 1rem; height: 1rem;">
+            </lord-icon>
+        </a>
+        <a class="header-link" id="resumeLink"
+            href="https://drive.google.com/file/d/1Q76UBzBlZ4lAu-FwBwUzVFubjl89XBdD/view?usp=sharing" target="_blank">
+            Resume
+            <lord-icon id="resumeIcon" src="https://cdn.lordicon.com/zbgyohdh.json" trigger="hover" target="#resumeLink"
+                style="width: 1.2rem; height: 1.2rem;" colors="primary:#000;">
+            </lord-icon>
+        </a>
+        <a class="header-link" id="contactLink" href="mailto:philip.horlemann@web.de" target="_blank">
+            Contact
+            <lord-icon id="contactIcon" src="https://cdn.lordicon.com/fdxqrdfe.json" trigger="hover"
+                target="#contactLink" style="width: 1.5rem; height: 1.5rem;" colors="primary:#000;">
+            </lord-icon>
+        </a>
+    </header>
+    <div id="appearanceSwitch">
+        <svg xmlns="http://www.w3.org/2000/svg" width="106" height="80" viewBox="0 0 106 80" fill="none">
+            <mask id="path-1-inside-1_180_175" fill="white">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M79.5 52.9902C79.5054 38.3592 91.3678 26.5001 106 26.5001L106 9.15527e-05L9.48027e-07 9.02887e-05L6.32018e-07 26.5001C14.6355 26.5001 26.5 38.3645 26.5 53.0001C26.5001 67.6356 38.3645 79.5 53 79.5C67.6355 79.5 79.5 67.6356 79.5 53.0001C79.5 53.0001 79.5 53 79.5 53C79.5 52.9967 79.5 52.9934 79.5 52.9902Z" />
+            </mask>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M79.5 52.9902C79.5054 38.3592 91.3678 26.5001 106 26.5001L106 9.15527e-05L9.48027e-07 9.02887e-05L6.32018e-07 26.5001C14.6355 26.5001 26.5 38.3645 26.5 53.0001C26.5001 67.6356 38.3645 79.5 53 79.5C67.6355 79.5 79.5 67.6356 79.5 53.0001C79.5 53.0001 79.5 53 79.5 53C79.5 52.9967 79.5 52.9934 79.5 52.9902Z"
+                fill="white" style="fill: var(--background-color);" />
+            <path
+                d="M106 26.5001L107.325 26.5001L107.325 27.8251L106 27.8251L106 26.5001ZM79.5 52.9902L78.175 52.9902L78.175 52.9897L79.5 52.9902ZM106 9.15527e-05L106 -1.32491L107.325 -1.32491L107.325 9.15685e-05L106 9.15527e-05ZM9.48027e-07 9.02887e-05L-1.325 9.02729e-05L-1.325 -1.32491L9.63827e-07 -1.32491L9.48027e-07 9.02887e-05ZM6.32018e-07 26.5001L6.16217e-07 27.8251L-1.325 27.8251L-1.325 26.5001L6.32018e-07 26.5001ZM26.5 53.0001L25.175 53.0001L25.175 53.0001L26.5 53.0001ZM79.5 53.0001L80.825 53.0001L80.825 53.0001L79.5 53.0001ZM106 27.8251C92.0994 27.8251 80.8301 39.0912 80.825 52.9906L78.175 52.9897C78.1806 37.6271 90.6362 25.1751 106 25.1751L106 27.8251ZM107.325 9.15685e-05L107.325 26.5001L104.675 26.5001L104.675 9.15369e-05L107.325 9.15685e-05ZM9.63827e-07 -1.32491L106 -1.32491L106 1.32509L9.32226e-07 1.32509L9.63827e-07 -1.32491ZM-1.325 26.5001L-1.325 9.02729e-05L1.325 9.03045e-05L1.325 26.5001L-1.325 26.5001ZM25.175 53.0001C25.175 39.0963 13.9038 27.8251 6.16217e-07 27.8251L6.47818e-07 25.1751C15.3673 25.1751 27.825 37.6328 27.825 53.0001L25.175 53.0001ZM27.825 53.0001C27.8251 66.9038 39.0963 78.175 53 78.175L53 80.825C37.6327 80.825 25.1751 68.3674 25.175 53.0001L27.825 53.0001ZM53 78.175C66.9037 78.175 78.175 66.9038 78.175 53.0001L80.825 53.0001C80.8249 68.3674 68.3673 80.825 53 80.825L53 78.175ZM78.175 53.0001C78.175 52.9795 78.1755 52.9614 78.1761 52.9465C78.1767 52.9316 78.1775 52.9189 78.1781 52.9093C78.1788 52.8997 78.1794 52.8919 78.1798 52.8873C78.18 52.885 78.1802 52.8831 78.1803 52.8819C78.1803 52.8813 78.1804 52.8808 78.1804 52.8805C78.1804 52.8804 78.1804 52.8803 78.1804 52.8802C78.1804 52.8802 78.1804 52.8801 78.1804 52.8801C78.1804 52.8801 78.1804 52.8801 78.1804 52.8801C78.1804 52.8801 78.1804 52.8801 78.1804 52.8801L78.1804 52.8801C78.1805 52.8795 78.1802 52.8831 78.1798 52.8873C78.1794 52.8919 78.1788 52.8996 78.1781 52.9092C78.1775 52.9189 78.1767 52.9315 78.1761 52.9464C78.1755 52.9614 78.175 52.9794 78.175 53L80.825 53C80.825 53.0206 80.8245 53.0386 80.8239 53.0536C80.8233 53.0685 80.8226 53.0812 80.8219 53.0908C80.8212 53.1004 80.8206 53.1082 80.8202 53.1128C80.82 53.1151 80.8198 53.117 80.8197 53.1182C80.8197 53.1188 80.8196 53.1193 80.8196 53.1196C80.8196 53.1197 80.8196 53.1198 80.8196 53.1199C80.8196 53.1199 80.8196 53.12 80.8196 53.12C80.8196 53.12 80.8196 53.12 80.8196 53.12C80.8196 53.12 80.8196 53.12 80.8196 53.12L80.8196 53.12C80.8195 53.1206 80.8198 53.117 80.8202 53.1128C80.8206 53.1082 80.8212 53.1005 80.8219 53.0909C80.8225 53.0812 80.8233 53.0686 80.8239 53.0536C80.8245 53.0387 80.825 53.0206 80.825 53.0001L78.175 53.0001ZM78.175 53C78.175 52.9988 78.175 52.9976 78.175 52.9958C78.175 52.9943 78.175 52.9922 78.175 52.9902L80.825 52.9902C80.825 52.9913 80.825 52.9926 80.825 52.9943C80.825 52.9959 80.825 52.9979 80.825 53L78.175 53Z"
+                fill="black" style="fill: var(--primary-color);" mask="url(#path-1-inside-1_180_175)" />
+        </svg>
+        <div class="appearance-icon-container">
+            <lord-icon class="header-icon" id="appearanceIcon" src="https://cdn.lordicon.com/pbxtntbx.json"
+                trigger="hover" stroke="bold" style="width: 2rem; height: 2rem;" state="rays"
+                colors="primary:#000000,secondary:#000000">
+            </lord-icon>
+        </div>
+    </div>
+    <div class="title-text-small animate__animated animate__fadeIn">
+        <h3>Philip Horlemann -</h3>
+        <span>UX Designer</span>
+    </div>
+    <main>
+        <div class="project-container">
+            <a id="closeButton" class="animate__animated animate__fadeIn" href="javascript:delay('index.html')"
+                aria-label="Close">
+                <svg class="icons" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50"
+                    fill="none">
+                    <path
+                        d="M16 1H46C47.6569 1 49 2.34315 49 4V34C49 42.2843 42.2843 49 34 49H4C2.34315 49 1 47.6569 1 46V16C1 7.71573 7.71573 1 16 1Z"
+                        fill="white" stroke="black" stroke-width="2"
+                        style="fill: var(--background-color); stroke: var(--primary-color);" />
+                    <path d="M35 15L15 35M15 15L35 35" stroke="black" stroke-width="4" stroke-linecap="round"
+                        stroke-linejoin="round" style="stroke: var(--primary-color);" />
+                </svg>
+            </a>
+            <section>
+                <div class="project-title-img-container">
+                    <div class="project-title-container animate__animated animate__fadeIn">
+                        <h1>Apple Maps Concepts</h1>
+                        <span>2024</span>
+                    </div>
+                    <picture>
+                        <source
+                            srcset="./assets/apple-maps-concepts/mockup-cover-s.webp 800w, ./assets/apple-maps-concepts/mockup-cover.webp 2000w"
+                            sizes="(max-width: 915px) 20rem, (max-width: 1500px) 47rem, 57rem" type="image/webp">
+                        <img class="animate__animated animate__fadeIn"
+                            src="./assets/apple-maps-concepts/mockup-cover.png" alt="Mockups of my concepts">
+                    </picture>
+                </div>
+            </section>
+            <hr>
+            <section id="overview" class="animate__animated animate__fadeIn">
+                <div class="overview-top-container">
+                    <h2>Overview</h2>
+                    <div class="project-goal-container">
+                        <div class="project-goal-icon-title-container">
+                            <svg class="icons" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                viewBox="0 0 32 32" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M6.73473 6.73472C4.7407 8.72875 3.55844 11.7769 3.55844 16C3.55844 20.2232 4.7407 23.2714 6.73473 25.2653C8.72876 27.2594 11.7769 28.4416 16 28.4416C20.2232 28.4416 23.2712 27.2594 25.2654 25.2653C27.2593 23.2714 28.4417 20.2232 28.4417 16C28.4417 15.0174 29.2383 14.2208 30.2209 14.2208C31.2035 14.2208 32.0001 15.0174 32.0001 16C32.0001 20.8782 30.6225 24.9405 27.7815 27.7816C24.9404 30.6226 20.8782 32 16 32C11.1219 32 7.05957 30.6226 4.21853 27.7816C1.37749 24.9405 0 20.8782 0 16C0 11.1219 1.37749 7.05958 4.21853 4.21853C7.05957 1.37749 11.1219 0 16 0C16.9827 0 17.7792 0.796585 17.7792 1.77922C17.7792 2.76187 16.9827 3.55844 16 3.55844C11.7769 3.55844 8.72876 4.74069 6.73473 6.73472ZM15.4599 8.44816C15.6774 9.40642 15.0769 10.3596 14.1186 10.5771C12.8342 10.8685 11.9532 11.4642 11.3718 12.2732C10.776 13.1024 10.3846 14.3118 10.3846 15.999C10.3846 18.0378 10.9525 19.3794 11.7861 20.2131C12.6197 21.0467 13.9613 21.6146 16.0002 21.6146C17.77 21.6146 19.0137 21.1845 19.8473 20.5367C20.6628 19.9029 21.2583 18.9279 21.5001 17.4836C21.6623 16.5144 22.5795 15.8603 23.5486 16.0225C24.5179 16.1848 25.1719 17.1019 25.0097 18.0711C24.6462 20.2426 23.6658 22.0759 22.0309 23.3464C20.4141 24.6027 18.3331 25.173 16.0002 25.173C13.3063 25.173 10.9505 24.4098 9.2699 22.7292C7.58927 21.0486 6.82613 18.6928 6.82613 15.999C6.82613 13.7754 7.34365 11.7809 8.48209 10.1967C9.63505 8.59221 11.3137 7.56469 13.3311 7.10684C14.2893 6.88937 15.2425 7.48989 15.4599 8.44816ZM21.9096 12.6058L17.2583 17.2571C16.5635 17.9519 15.437 17.9519 14.7421 17.2571C14.0473 16.5623 14.0473 15.4357 14.7421 14.7409L19.3945 10.0885C18.9212 8.09571 19.5099 5.98695 20.9713 4.52548L24.5812 0.915487C24.8752 0.621417 25.3019 0.502829 25.7055 0.602942C26.109 0.703058 26.4309 1.00725 26.5533 1.40465L27.5063 4.49454L30.5962 5.44745C30.9935 5.57 31.2977 5.8917 31.3978 6.29535C31.4979 6.69897 31.3795 7.12556 31.0853 7.41963L27.4757 11.0295C26.0134 12.4917 23.9032 13.0803 21.9096 12.6058Z"
+                                    fill="black" />
+                            </svg>
+                            <h3>Project Goal</h3>
+                        </div>
+                        <p>Adding features to Apple Maps that I wish it had in a realistic manner.</p>
+                    </div>
+                    <div class="project-objectives-title-container">
+                        <h3>Objectives</h3>
+                        <div class="project-objectives-container">
+                            <div class="project-objective-container">
+                                <div class="project-objective-svg-container">
+                                    <svg class="icons" xmlns="http://www.w3.org/2000/svg" width="29" height="30"
+                                        viewBox="0 0 29 30" fill="none">
+                                        <path d="M14.5 2V28M1.5 15H27.5" stroke="black" stroke-width="3"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <span class="s1">Add useful features</span>
+                            </div>
+                            <div class="project-objective-container">
+                                <div class="project-objective-svg-container">
+                                    <svg class="icons" xmlns="http://www.w3.org/2000/svg" width="35" height="36"
+                                        viewBox="0 0 35 36" fill="none">
+                                        <path
+                                            d="M9.49758 22.3768L2.60587 25.4693C1.13919 26.136 1.13919 27.2277 2.60587 27.8943L14.9393 33.5194C16.3468 34.1602 18.6635 34.1602 20.071 33.5194L32.4044 27.8943C33.8711 27.2277 33.8711 26.136 32.4044 25.4693L25.7427 22.2635M32.3977 8.13754L19.951 2.4625C18.6018 1.84583 16.3935 1.84583 15.0443 2.4625L2.60587 8.13754C1.13919 8.80421 1.13919 9.89505 2.60587 10.5617L14.9393 16.1868C16.3468 16.8284 18.6635 16.8284 20.071 16.1868L32.4044 10.5617C33.8644 9.89505 33.8644 8.80338 32.3977 8.13754Z"
+                                            stroke="black" stroke-width="2.66668" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M9.49615 13.7065L2.5961 16.8032C1.12942 17.4699 1.12942 18.5616 2.5961 19.2282L14.9295 24.8525C16.337 25.4941 18.6537 25.4941 20.0612 24.8525L32.3946 19.2282C33.8696 18.5616 33.8696 17.4699 32.403 16.8032L25.4963 13.7065"
+                                            stroke="black" stroke-width="2.66668" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <span class="s1">Build on existing design language</span>
+                            </div>
+                            <div class="project-objective-container">
+                                <div class="project-objective-svg-container">
+                                    <svg class="icons" xmlns="http://www.w3.org/2000/svg" width="67" height="36"
+                                        viewBox="0 0 67 36" fill="none">
+                                        <path
+                                            d="M37.5925 25.0844C37.4416 24.9889 37.269 24.9332 37.0908 24.9224C36.9126 24.9116 36.7345 24.9461 36.5732 25.0226C36.0584 25.2658 35.4965 25.3927 34.9272 25.3943C34.3579 25.3959 33.7952 25.2723 33.2791 25.032C32.763 24.7918 32.306 24.441 31.9407 24.0044C31.5754 23.5677 31.3106 23.0561 31.1652 22.5057C31.0198 21.9553 30.9973 21.3796 31.0994 20.8195C31.2014 20.2595 31.4254 19.7287 31.7556 19.2649C32.0858 18.8012 32.5139 18.4157 33.0098 18.136C33.5056 17.8563 34.0569 17.6891 34.6246 17.6463C35.2946 17.5978 35.9657 17.7229 36.5732 18.0096C36.7344 18.086 36.9124 18.1204 37.0905 18.1096C37.2686 18.0988 37.4411 18.0431 37.592 17.9477C37.7428 17.8523 37.867 17.7203 37.9531 17.5641C38.0392 17.4078 38.0844 17.2322 38.0845 17.0538V9.52401C38.0845 8.86925 37.8244 8.24131 37.3614 7.77832C36.8984 7.31534 36.2704 7.05523 35.6156 7.05523H28.8229C28.8838 6.70584 28.9144 6.35185 28.9146 5.99719C28.9133 5.17837 28.7448 4.36844 28.4194 3.61704C28.0941 2.86565 27.6187 2.18861 27.0224 1.62745C26.4267 1.06261 25.7202 0.627562 24.9477 0.349825C24.1752 0.0720881 23.3534 -0.0422904 22.5344 0.0139266C21.6917 0.0682269 20.87 0.299921 20.123 0.693837C19.3761 1.08775 18.7208 1.635 18.2 2.29975C17.6793 2.9645 17.3048 3.73175 17.1012 4.55126C16.8976 5.37077 16.8693 6.22406 17.0184 7.05523H10.222C9.56726 7.05523 8.93931 7.31534 8.47631 7.77832C8.01332 8.24131 7.75321 8.86925 7.75321 9.52401V15.6131C6.76998 15.4369 5.7583 15.5091 4.81007 15.8232C3.86185 16.1373 3.00713 16.6834 2.32356 17.4118C1.54845 18.2374 1.02304 19.2657 0.808146 20.3776C0.593256 21.4896 0.697678 22.6396 1.10932 23.6946C1.52097 24.7496 2.22301 25.6665 3.13416 26.3391C4.04531 27.0116 5.12832 27.4124 6.25781 27.495C6.75757 27.5311 7.25988 27.5051 7.75321 27.4174V33.5064C7.75321 34.1612 8.01332 34.7891 8.47631 35.2521C8.93931 35.7151 9.56726 35.9752 10.222 35.9752H35.6156C36.2704 35.9752 36.8984 35.7151 37.3614 35.2521C37.8244 34.7891 38.0845 34.1612 38.0845 33.5064V25.9784C38.0845 25.8 38.0394 25.6245 37.9534 25.4682C37.8674 25.3118 37.7432 25.1798 37.5925 25.0844ZM35.9683 33.5064C35.9683 33.6 35.9312 33.6897 35.865 33.7558C35.7989 33.8219 35.7092 33.8591 35.6156 33.8591H10.222C10.1285 33.8591 10.0388 33.8219 9.97265 33.7558C9.9065 33.6897 9.86935 33.6 9.86935 33.5064V25.9784C9.86935 25.6978 9.75787 25.4287 9.55945 25.2303C9.36102 25.0318 9.0919 24.9204 8.81128 24.9204C8.65443 24.9199 8.4995 24.9548 8.35807 25.0226C7.78588 25.294 7.15597 25.4211 6.52334 25.3929C5.89071 25.3648 5.27459 25.1822 4.72877 24.8611C4.18295 24.54 3.72403 24.0902 3.39207 23.5509C3.06012 23.0116 2.86521 22.3993 2.82438 21.7674C2.78039 21.093 2.91336 20.4188 3.2101 19.8115C3.50684 19.2043 3.95707 18.6852 4.5162 18.3055C5.07532 17.9258 5.72394 17.6987 6.3978 17.6468C7.07167 17.5949 7.7474 17.72 8.35807 18.0096C8.51932 18.086 8.69728 18.1204 8.8754 18.1096C9.05352 18.0988 9.22601 18.0431 9.37683 17.9477C9.52765 17.8523 9.65189 17.7203 9.738 17.5641C9.82411 17.4078 9.8693 17.2322 9.86935 17.0538V9.52401C9.86935 9.43047 9.9065 9.34077 9.97265 9.27463C10.0388 9.20849 10.1285 9.17133 10.222 9.17133H18.4556C18.634 9.17128 18.8095 9.1261 18.9658 9.03999C19.1221 8.95388 19.2541 8.82964 19.3495 8.67882C19.4449 8.52801 19.5006 8.35552 19.5114 8.1774C19.5222 7.99929 19.4878 7.82133 19.4113 7.66008C19.1306 7.05406 19.0092 6.38639 19.0587 5.72033C19.0999 5.15202 19.2659 4.59978 19.5448 4.10287C19.8236 3.60596 20.2085 3.17657 20.6721 2.84523C21.1357 2.51389 21.6665 2.28873 22.227 2.18576C22.7874 2.08279 23.3636 2.10454 23.9147 2.24945C24.4658 2.39437 24.9782 2.65889 25.4155 3.02423C25.8527 3.38956 26.2042 3.84673 26.4448 4.36325C26.6854 4.87976 26.8093 5.44294 26.8076 6.01274C26.8059 6.58254 26.6788 7.14499 26.4352 7.66008C26.3591 7.82052 26.3246 7.99752 26.3349 8.17478C26.3452 8.35204 26.4 8.52385 26.4942 8.67438C26.5883 8.82492 26.7188 8.94934 26.8737 9.03619C27.0286 9.12303 27.2028 9.16951 27.3804 9.17133H35.6156C35.7092 9.17133 35.7989 9.20849 35.865 9.27463C35.9312 9.34077 35.9683 9.43047 35.9683 9.52401V15.6148C35.1371 15.4658 34.2838 15.494 33.4643 15.6977C32.6448 15.9013 31.8775 16.2758 31.2128 16.7965C30.548 17.3173 30.0007 17.9725 29.6068 18.7195C29.2129 19.4664 28.9812 20.2881 28.9269 21.1308C28.8711 21.9496 28.9855 22.7711 29.2629 23.5435C29.5403 24.3159 29.9747 25.0225 30.5387 25.6187C31.2235 26.3454 32.0783 26.8904 33.0261 27.2047C33.9739 27.519 34.985 27.5927 35.9683 27.4191V33.5064Z"
+                                            fill="black" />
+                                        <path
+                                            d="M65.8073 25.109C65.6564 25.0136 65.4838 24.9579 65.3056 24.9471C65.1274 24.9363 64.9493 24.9708 64.788 25.0473C64.2733 25.2905 63.7113 25.4174 63.142 25.419C62.5727 25.4206 62.0101 25.2969 61.4939 25.0567C60.9778 24.8165 60.5209 24.4656 60.1555 24.029C59.7902 23.5924 59.5254 23.0807 59.3801 22.5303C59.2346 21.9799 59.2122 21.4043 59.3142 20.8442C59.4162 20.2841 59.6403 19.7534 59.9704 19.2896C60.3006 18.8258 60.7288 18.4404 61.2246 18.1607C61.7204 17.8809 62.2717 17.7137 62.8394 17.6709C63.5094 17.6225 64.1805 17.7476 64.788 18.0342C64.9493 18.1106 65.1273 18.1451 65.3054 18.1342C65.4835 18.1234 65.656 18.0677 65.8068 17.9724C65.9576 17.877 66.0819 17.745 66.168 17.5887C66.2541 17.4324 66.2993 17.2569 66.2993 17.0784V9.54867C66.2993 8.89391 66.0392 8.26597 65.5762 7.80298C65.1132 7.33999 64.4853 7.07989 63.8305 7.07989H57.0377C57.0986 6.7305 57.1293 6.37651 57.1294 6.02184C57.1281 5.20303 56.9597 4.3931 56.6343 3.6417C56.3089 2.8903 55.8335 2.21327 55.2372 1.65211C54.6415 1.08727 53.935 0.652221 53.1625 0.374483C52.39 0.0967463 51.5683 -0.0176322 50.7493 0.0385848C49.9066 0.0928851 49.0848 0.32458 48.3379 0.718495C47.591 1.11241 46.9356 1.65966 46.4149 2.32441C45.8941 2.98916 45.5197 3.75641 45.316 4.57592C45.1124 5.39543 45.0842 6.24871 45.2332 7.07989H38.4369C37.7821 7.07989 37.1542 7.33999 36.6912 7.80298C36.2282 8.26597 35.9681 8.89391 35.9681 9.54867V15.6377C34.9848 15.4615 33.9731 15.5338 33.0249 15.8479C32.0767 16.162 31.222 16.708 30.5384 17.4364C29.7633 18.2621 29.2379 19.2904 29.023 20.4023C28.8081 21.5142 28.9125 22.6642 29.3242 23.7193C29.7358 24.7743 30.4379 25.6912 31.349 26.3637C32.2602 27.0363 33.3432 27.437 34.4727 27.5196C34.9724 27.5558 35.4747 27.5297 35.9681 27.442V33.5311C35.9681 34.1858 36.2282 34.8138 36.6912 35.2768C37.1542 35.7398 37.7821 35.9999 38.4369 35.9999H63.8305C64.4853 35.9999 65.1132 35.7398 65.5762 35.2768C66.0392 34.8138 66.2993 34.1858 66.2993 33.5311V26.0031C66.2993 25.8247 66.2542 25.6491 66.1682 25.4928C66.0822 25.3365 65.9581 25.2045 65.8073 25.109ZM64.1832 33.5311C64.1832 33.6246 64.146 33.7143 64.0799 33.7805C64.0137 33.8466 63.924 33.8838 63.8305 33.8838H38.4369C38.3433 33.8838 38.2536 33.8466 38.1875 33.7805C38.1213 33.7143 38.0842 33.6246 38.0842 33.5311V26.0031C38.0842 25.7225 37.9727 25.4533 37.7743 25.2549C37.5759 25.0565 37.3067 24.945 37.0261 24.945C36.8693 24.9445 36.7143 24.9795 36.5729 25.0473C36.0007 25.3186 35.3708 25.4457 34.7382 25.4176C34.1056 25.3894 33.4894 25.2068 32.9436 24.8857C32.3978 24.5646 31.9389 24.1148 31.6069 23.5756C31.275 23.0363 31.0801 22.424 31.0392 21.792C30.9952 21.1176 31.1282 20.4434 31.4249 19.8362C31.7217 19.229 32.1719 18.7098 32.731 18.3301C33.2902 17.9504 33.9388 17.7234 34.6126 17.6715C35.2865 17.6196 35.9622 17.7446 36.5729 18.0342C36.7342 18.1106 36.9121 18.1451 37.0902 18.1342C37.2684 18.1234 37.4409 18.0677 37.5917 17.9724C37.7425 17.877 37.8667 17.745 37.9528 17.5887C38.039 17.4324 38.0841 17.2569 38.0842 17.0784V9.54867C38.0842 9.45513 38.1213 9.36543 38.1875 9.29929C38.2536 9.23314 38.3433 9.19599 38.4369 9.19599H46.6704C46.8489 9.19594 47.0244 9.15075 47.1807 9.06464C47.337 8.97853 47.469 8.85429 47.5643 8.70348C47.6597 8.55267 47.7154 8.38018 47.7262 8.20206C47.737 8.02395 47.7026 7.84599 47.6262 7.68474C47.3454 7.07871 47.224 6.41105 47.2735 5.74499C47.3148 5.17668 47.4808 4.62444 47.7596 4.12753C48.0385 3.63062 48.4233 3.20123 48.8869 2.86989C49.3505 2.53855 49.8814 2.31339 50.4418 2.21042C51.0022 2.10745 51.5785 2.1292 52.1296 2.27411C52.6806 2.41902 53.193 2.68355 53.6303 3.04889C54.0676 3.41422 54.419 3.87139 54.6596 4.38791C54.9002 4.90442 55.0241 5.4676 55.0224 6.0374C55.0208 6.6072 54.8936 7.16964 54.65 7.68474C54.5739 7.84518 54.5395 8.02218 54.5498 8.19944C54.5601 8.37669 54.6148 8.5485 54.709 8.69904C54.8031 8.84958 54.9337 8.974 55.0885 9.06085C55.2434 9.14769 55.4177 9.19417 55.5952 9.19599H63.8305C63.924 9.19599 64.0137 9.23314 64.0799 9.29929C64.146 9.36543 64.1832 9.45513 64.1832 9.54867V15.6395C63.352 15.4905 62.4987 15.5187 61.6792 15.7223C60.8596 15.926 60.0924 16.3004 59.4276 16.8212C58.7628 17.3419 58.2156 17.9972 57.8217 18.7441C57.4277 19.4911 57.196 20.3128 57.1417 21.1555C57.0859 21.9743 57.2003 22.7957 57.4777 23.5681C57.7551 24.3406 58.1895 25.0471 58.7535 25.6433C59.4383 26.3701 60.2931 26.9151 61.2409 27.2294C62.1887 27.5437 63.1998 27.6173 64.1832 27.4438V33.5311Z"
+                                            fill="black" />
+                                    </svg>
+                                </div>
+                                <span class="s1">Integrate design seamlessly</span>
+                            </div>
+                            <div class="project-objective-container">
+                                <div class="project-objective-svg-container">
+                                    <svg class="icons" xmlns="http://www.w3.org/2000/svg" width="27" height="40"
+                                        viewBox="0 0 27 40" fill="none">
+                                        <path
+                                            d="M1.5 6C1.5 4.93913 1.92143 3.92172 2.67157 3.17157C3.42172 2.42143 4.43913 2 5.5 2H21.5C22.5609 2 23.5783 2.42143 24.3284 3.17157C25.0786 3.92172 25.5 4.93913 25.5 6V34C25.5 35.0609 25.0786 36.0783 24.3284 36.8284C23.5783 37.5786 22.5609 38 21.5 38H5.5C4.43913 38 3.42172 37.5786 2.67157 36.8284C1.92143 36.0783 1.5 35.0609 1.5 34V6Z"
+                                            stroke="black" stroke-width="2.25" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M11.5 4H15.5" stroke="black" stroke-width="2.25" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M13.5 30V30.02" stroke="black" stroke-width="2.25"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <span class="s1">Practice mobile design</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <hr>
+            <article>
+                <h3>Background</h3>
+                <div class="article-text">
+                    <p>Being an iOS user and living in Berlin, I use Apple Maps pretty much on a daily basis, especially
+                        for getting directions when using public transport or driving. Features like live location of
+                        buses, trains, etc. and a beautiful, highly detailed map make the user experience great, but
+                        over time I have had some moments where I wished for some additional information.<br><br>
+
+                        I started collecting my ideas for new features and thought about how it could look if Apple were
+                        to implement them in Maps.<br><br>
+
+                        The first feature I wish Maps had, is being able to see the platforms trains stop at to make it
+                        easier to find the one you're looking for. Then, within train lines, there could also be
+                        distinctions between which direction a specific train is heading, as often there are different
+                        end stations on the same line. This would be even more useful for people who don't care about
+                        the end station, but just want to know if the next train is going in their direction.</p>
+                    <p>Next, I believe that a live departure board for airports could be a simple, yet useful, feature.
+                        This could even be integrated with Apple's already existing “flight info” feature in iMessage,
+                        by showing friends' and family member's flights in Maps.<br><br>
+
+                        Lastly: please just give me a little bit more info when driving, Apple Maps. Of course it would
+                        be great to have all important road signs showing up on screen to make sure they haven't been
+                        overlooked, but I know that would be hard to implement. However, at least showing the actual
+                        speed limit and parking restrictions (taking time of day and day of week into account for both)
+                        could be done and would be immensely useful. I can't tell you how often Maps has shown me the
+                        wrong speed limit because it doesn't take the extra sign, specifying the time range for a speed
+                        limit, into account.<br><br>
+                        Disclaimer: My Apple Maps Concepts are in German (for example 'Gl.' is the German
+                        abbreviation for 'platform').
+                    </p>
+                </div>
+            </article>
+            <hr>
+            <section>
+                <h2>Platform Information</h2>
+                <article class="dual-article-column">
+                    <h3>Departure Board</h3>
+                    <div class="vertical-article">
+                        <div class="article-image-w-description">
+                            <div class="article-img-container">
+                                <picture>
+                                    <source srcset="./assets/apple-maps-concepts/train-departure-board-original.webp"
+                                        type="image/webp">
+                                    <img src="./assets/apple-maps-concepts/train-departure-board-original.png"
+                                        alt="The current Apple Maps departure board design">
+                                </picture>
+                            </div>
+                            <p>This is currently the kind of departure board that can be seen when clicking on any
+                                station in Apple Maps. It's pretty nice, but with a few tweaks it could show even more
+                                valuable information to the user.</p>
+                        </div>
+                        <div class="article-image-w-description">
+                            <div class="article-img-container">
+                                <picture>
+                                    <source srcset="./assets/apple-maps-concepts/train-departure-board-new.webp"
+                                        type="image/webp">
+                                    <img src="./assets/apple-maps-concepts/train-departure-board-new.png"
+                                        alt="My improved Apple Maps departure board design">
+                                </picture>
+                            </div>
+                            <p>It could, for example, display platform numbers in the middle, giving the user this
+                                information at a glance when scrolling through the list. By removing separators between
+                                trains heading in the same direction and grouping them, we could make it so much easier
+                                for users who only care about going in a certain direction on a train line and not a
+                                specific end stop.</p>
+                        </div>
+                        <div class="article-image-w-description">
+                            <div class="article-img-container">
+                                <picture>
+                                    <source srcset="./assets/apple-maps-concepts/train-departure-screen.webp"
+                                        type="image/webp">
+                                    <img src="./assets/apple-maps-concepts/train-departure-screen.png"
+                                        alt="Apple Maps departure board with filter option">
+                                </picture>
+                            </div>
+                            <p>Now, we could also add a filter at the top to sort the departure board by platforms. This
+                                could help a user to, for example, find all trains departing on the platform he's
+                                standing on, because sometimes it doesn't even matter what train line the next train is,
+                                but only which direction it's going.</p>
+                        </div>
+                    </div>
+                    <h3>Detailed Info Screen</h3>
+                    <div class="vertical-article">
+                        <div class="article-image-w-description">
+                            <div class="article-img-container">
+                                <picture>
+                                    <source srcset="./assets/apple-maps-concepts/train-details-screen-original.webp"
+                                        type="image/webp">
+                                    <img src="./assets/apple-maps-concepts/train-details-screen-original.png"
+                                        alt="The current Apple Maps screen showing detailed infos about a train">
+                                </picture>
+                            </div>
+                            <p>When clicking on a train, the user is brought to this detailed info screen in the current
+                                state. This could also be updated with some platform information.</p>
+                        </div>
+                        <div class="article-image-w-description">
+                            <div class="article-img-container">
+                                <picture>
+                                    <source srcset="./assets/apple-maps-concepts/train-details-screen-new.webp"
+                                        type="image/webp">
+                                    <img src="./assets/apple-maps-concepts/train-details-screen-new.png"
+                                        alt="My updated Apple Maps screen showing detailed infos about a train">
+                                </picture>
+                            </div>
+                            <p>In the scrollable container at the top, I grouped the trains heading in the same
+                                direction again, using a separator to achieve the same effect as in the departure board.
+                                Below that, the departures of trains going to the specified end station is shown with
+                                the addition of platforms numbers. This is important because, sometimes, these can vary
+                                even on regular services (especially on regional trains here in Germany). Lastly, I
+                                added platform information for all stations in the route preview at the bottom.</p>
+                        </div>
+                    </div>
+                </article>
+                <div class="project-img-container smaller-img">
+                    <div class="img-title-centered">
+                        <div class="img-title-container">
+                            <h4>Applied to the S-Bahn</h4>
+                        </div>
+                    </div>
+                    <picture>
+                        <source
+                            srcset="./assets/apple-maps-concepts/s-bahn-screens-s.webp 600w, ./assets/apple-maps-concepts/s-bahn-screens.webp 1200w"
+                            sizes="(max-width: 915px) 20rem, (max-width: 1500px) 47rem, 57rem" type="image/webp">
+                        <img src="./assets/apple-maps-concepts/s-bahn-screens.png"
+                            alt="Three screens showing the design applied to the S-Bahn">
+                    </picture>
+                </div>
+                <div class="project-img-container smaller-img">
+                    <div class="img-title-centered">
+                        <div class="img-title-container">
+                            <h4>Applied to Regional Trains</h4>
+                        </div>
+                    </div>
+                    <picture>
+                        <source
+                            srcset="./assets/apple-maps-concepts/regio-screens-s.webp 600w, ./assets/apple-maps-concepts/regio-screens.webp 1200w"
+                            sizes="(max-width: 915px) 20rem, (max-width: 1500px) 47rem, 57rem" type="image/webp">
+                        <img src="./assets/apple-maps-concepts/regio-screens.png"
+                            alt="Three screens showing the design applied to the regional trains">
+                    </picture>
+                </div>
+            </section>
+            <hr>
+            <section>
+                <h2>Airport Overhaul</h2>
+                <article class="dual-article-column">
+                    <h3>Departure Board</h3>
+                    <div class="vertical-article">
+                        <div class="article-image-w-description">
+                            <div class="article-img-container">
+                                <picture>
+                                    <source srcset="./assets/apple-maps-concepts/airport-departure-board-original.webp"
+                                        type="image/webp">
+                                    <img src="./assets/apple-maps-concepts/airport-departure-board-original.png"
+                                        alt="The current Apple Maps airport page design">
+                                </picture>
+                            </div>
+                            <p>This is currently the kind of screen that can be seen when clicking on airports on Apple
+                                Maps. Even though there is already so much transport-related info available on Maps,
+                                from ferries to cable cars, the user is left on his own to find any info when he's at
+                                the airport. How about we add a departure board to this screen?</p>
+                        </div>
+                        <div class="article-image-w-description">
+                            <div class="article-img-container">
+                                <picture>
+                                    <source srcset="./assets/apple-maps-concepts/airport-departure-board-new.webp"
+                                        type="image/webp">
+                                    <img class="full-width"
+                                        src="./assets/apple-maps-concepts/airport-departure-board-new.png"
+                                        alt="Apple Maps airport page with departure board">
+                                </picture>
+                            </div>
+                            <p>Much better. The user can now look at current departures (Abflüge) and arrivals
+                                (Ankünfte) in an interface resembling the ones he already knows from places like train
+                                stations. To view more flights, the user can click on 'View all' ('Alle anzeigen').
+                                Below you can see how I imagine that screen could look.</p>
+                        </div>
+                        <div class="article-image-w-description">
+                            <div class="article-img-container">
+                                <picture>
+                                    <source srcset="./assets/apple-maps-concepts/all-flights-screen.webp"
+                                        type="image/webp">
+                                    <img src="./assets/apple-maps-concepts/all-flights-screen.png"
+                                        alt="Apple Maps airport departure board of all flights">
+                                </picture>
+                            </div>
+                            <p>Here the user can view all departures and arrivals of the day. There is a prominent
+                                distinction between past and future flights using the current time as a separator. When
+                                designing this, I wanted to stop here at first, but then I remembered that Apple already
+                                has a design for viewing details of a specific flight. Weirdly, however, this is only
+                                available when sending a flight number through iMessage. So why not integrate that
+                                screen in Maps?</p>
+                        </div>
+                    </div>
+                    <h3>Messages Integration</h3>
+                    <div class="vertical-article">
+                        <div class="article-image-w-description">
+                            <div class="article-img-container">
+                                <picture>
+                                    <source srcset="./assets/apple-maps-concepts/flight-info-screen.webp"
+                                        type="image/webp">
+                                    <img src="./assets/apple-maps-concepts/flight-info-screen.png"
+                                        alt="Integration of Apple's flight info screen into Maps">
+                                </picture>
+                            </div>
+                            <p>This is how it could look when clicking on a specific flight. I simply took Apple's
+                                already existing design from Messages and integrated it into Apple Maps. Piece of cake!
+                                Now why not also show flights that you've received in Messages from friends and family
+                                in the airport screen?</p>
+                        </div>
+                        <div class="article-image-w-description">
+                            <div class="article-img-container">
+                                <picture>
+                                    <source srcset="./assets/apple-maps-concepts/flight-recommendation-component.webp"
+                                        type="image/webp">
+                                    <img src="./assets/apple-maps-concepts/flight-recommendation-component.png"
+                                        alt="A component showing someone else's flight from Messages">
+                                </picture>
+                            </div>
+                            <p>I designed this card to resemble the departure board, but cut some less important
+                                information and replaced it with more relevant details.</p>
+                        </div>
+                        <div class="article-image-w-description">
+                            <div class="article-img-container">
+                                <picture>
+                                    <source srcset="./assets/apple-maps-concepts/airport-departure-screen.webp"
+                                        type="image/webp">
+                                    <img src="./assets/apple-maps-concepts/airport-departure-screen.png"
+                                        alt="Apple Maps airport screen with all design updates">
+                                </picture>
+                            </div>
+                            <p>Now, when a user clicks on an airport that matches a flight that he's received in
+                                Messages, he can see that flight right away at the top and know if it'll be on time, for
+                                example. With these design changes, the under-used and not well-known flight info screen
+                                from Messages can be put to much better use, I think.</p>
+                        </div>
+                    </div>
+                </article>
+                <div class="project-img-container smaller-img">
+                    <div class="img-title-centered">
+                        <div class="img-title-container">
+                            <h4>The Final Redesigns</h4>
+                        </div>
+                    </div>
+                    <picture>
+                        <source
+                            srcset="./assets/apple-maps-concepts/airport-overhaul-screens-s.webp 600w, ./assets/apple-maps-concepts/airport-overhaul-screens.webp 1200w"
+                            sizes="(max-width: 915px) 20rem, (max-width: 1500px) 47rem, 57rem" type="image/webp">
+                        <img src="./assets/apple-maps-concepts/airport-overhaul-screens.png"
+                            alt="Three screens showing the overhauled design of the airport screen">
+                    </picture>
+                </div>
+            </section>
+            <hr>
+            <section>
+                <h2>Road Signage</h2>
+                <h3>Displaying more Road Signs</h3>
+                <article class="dual-article-column">
+                    <div class="vertical-article">
+                        <div class="article-image-w-description">
+                            <div class="article-img-container">
+                                <picture>
+                                    <source srcset="./assets/apple-maps-concepts/road-signage-original.webp"
+                                        type="image/webp">
+                                    <img src="./assets/apple-maps-concepts/road-signage-original.png"
+                                        alt="The current Apple Maps design when driving">
+                                </picture>
+                            </div>
+                            <p>This idea is pretty simple. Currently Apple Maps only displays speed limits like here,
+                                but sometimes that's not enough.</p>
+                        </div>
+                        <div class="article-image-w-description">
+                            <div class="article-img-container">
+                                <picture>
+                                    <source srcset="./assets/apple-maps-concepts/road-signage-new.webp"
+                                        type="image/webp">
+                                    <img src="./assets/apple-maps-concepts/road-signage-new.png"
+                                        alt="The updated Apple Maps design when driving">
+                                </picture>
+                            </div>
+                            <p>My revised version would show more accurate speed limits, taking the time range for a
+                                speed limit (if specified like in the example above) into account. Additionally, it
+                                could be helpful to know the parking restrictions for the street you're currently on
+                                since these signs can be easily overlooked. Thus, I placed this sign less prominently,
+                                but still visible, in the bottom right corner.</p>
+                        </div>
+                        <div class="article-image-w-description">
+                            <div class="article-img-container">
+                                <picture>
+                                    <source srcset="./assets/apple-maps-concepts/road-signage-carplay.webp"
+                                        type="image/webp">
+                                    <img src="./assets/apple-maps-concepts/road-signage-carplay.png"
+                                        alt="The updated Apple Maps design when driving">
+                                </picture>
+                            </div>
+                            <p>Here is how it could look on Carplay.</p>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <hr>
+            <section id="takeaways">
+                <h2>Project Takeaways</h2>
+                <div class="takeaway-cards-container">
+                    <div class="takeaway-card">
+                        <div class="fuck-you-CSS">
+                            <div class="takeaway-card-icon-container">
+                                <svg class="icons" xmlns="http://www.w3.org/2000/svg" width="40" height="49"
+                                    viewBox="0 0 40 49" fill="none">
+                                    <path
+                                        d="M33.3277 46.5089C30.7431 49.0143 27.9212 48.6187 25.2048 47.432C22.3302 46.2188 19.6929 46.1661 16.66 47.432C12.8623 49.0671 10.8579 48.5924 8.58986 46.5089C-4.28012 33.2433 -2.38127 13.0417 12.2293 12.3032C15.7897 12.4879 18.2687 14.2548 20.3522 14.4131C23.4642 13.7801 26.4443 11.9604 29.7673 12.1978C33.7496 12.5142 36.7561 14.0966 38.7341 16.9449C30.5058 21.8766 32.4573 32.7159 40 35.7488C38.4967 39.7047 36.5452 43.6343 33.3013 46.5353L33.3277 46.5089ZM20.0885 12.145C19.6929 6.26385 24.4664 1.41124 29.9519 0.936523C30.7167 7.74073 23.7807 12.8043 20.0885 12.145Z"
+                                        fill="black" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="takeaway-card-text-container">
+                            <h4>Working with existing components</h4>
+                            <p>Before being able to really start working on my own ideas, I first had to study and
+                                meticulously copy Apple's existing components and design language to be able to
+                                convincingly create designs that looked like they could be from Apple. This took some
+                                time, but, in the end, was worth it.</p>
+                        </div>
+                    </div>
+                    <div class="takeaway-card">
+                        <div class="fuck-you-CSS">
+                            <div class="takeaway-card-icon-container">
+                                <svg class="icons" xmlns="http://www.w3.org/2000/svg" width="52" height="44"
+                                    viewBox="0 0 52 44" fill="none">
+                                    <path
+                                        d="M41.2054 0.125255C40.1846 0.0180735 39.2484 0.700984 39.0387 1.70572L38.9059 2.34198C38.7679 3.00319 38.2303 3.49567 37.5827 3.6877C36.9338 3.8801 36.2131 3.75943 35.7369 3.27842L35.284 2.82084C34.5613 2.09075 33.403 2.02691 32.6044 2.67315L32.5496 2.71751C31.7516 3.3633 31.5721 4.5084 32.1343 5.36739L32.4912 5.91281C32.8607 6.47733 32.8321 7.19948 32.5109 7.7928C32.1895 8.38663 31.5936 8.81602 30.9184 8.81298L30.2681 8.81004C29.2409 8.8054 28.3772 9.57969 28.27 10.6013L28.2624 10.6736C28.1553 11.6944 28.8382 12.6305 29.8429 12.8402L30.4812 12.9733C31.1413 13.1111 31.6342 13.6542 31.8273 14.3002C32.0205 14.9465 31.8985 15.6586 31.4197 16.1337L30.9549 16.5949C30.2264 17.3178 30.1634 18.4748 30.809 19.2727L30.8539 19.3282C31.5001 20.1267 32.6461 20.3059 33.5051 19.7427L34.0497 19.3857C34.6144 19.0156 35.3427 19.0474 35.9361 19.3695C36.5298 19.6918 36.9534 20.2855 36.9503 20.961L36.9474 21.6074C36.9427 22.6347 37.717 23.4984 38.7387 23.6056L38.8094 23.613C39.8308 23.7202 40.7674 23.0363 40.9762 22.0307L41.1078 21.3974C41.2453 20.7357 41.7896 20.2415 42.4378 20.05C43.086 19.8585 43.7997 19.9813 44.2755 20.4613L44.7313 20.9213C45.4545 21.651 46.6129 21.7141 47.4111 21.0673L47.4665 21.0223C48.2645 20.3757 48.4429 19.2299 47.8795 18.3712L47.524 17.8294C47.1533 17.2646 47.185 16.5358 47.5073 15.942C47.8293 15.3486 48.4224 14.925 49.0975 14.9275L49.7464 14.9298C50.7729 14.9335 51.6356 14.1595 51.7427 13.1386L51.7501 13.0678C51.8574 12.0457 51.1726 11.1087 50.1662 10.9006L49.5365 10.7703C48.8738 10.6332 48.3787 10.0885 48.1874 9.43938C47.9961 8.79022 48.1193 8.07553 48.6003 7.59942L49.057 7.14735C49.7875 6.4243 49.851 5.2653 49.2039 4.46677L49.1588 4.41114C48.5125 3.61366 47.3675 3.43487 46.5089 3.99736L45.9678 4.35189C45.4022 4.7224 44.6784 4.69393 44.0841 4.3716C43.4895 4.04915 43.0595 3.45219 43.0625 2.77583L43.0654 2.13057C43.0701 1.10342 42.2959 0.239757 41.2743 0.132493L41.2054 0.125255ZM40.0161 8.45891C40.1315 8.4593 40.2484 8.4628 40.3656 8.47508C42.24 8.672 43.5975 10.3507 43.4006 12.2251C43.2036 14.0994 41.5249 15.4601 39.6505 15.2632C37.7762 15.0663 36.4155 13.3876 36.6124 11.5133C36.7969 9.75601 38.2865 8.4529 40.0161 8.45891ZM15.4969 8.75976C14.4701 8.75979 13.6101 9.53734 13.507 10.5589L13.3357 12.257C13.2521 13.0848 12.6581 13.7589 11.885 14.0664C11.79 14.1042 11.6956 14.1433 11.6019 14.1835C10.8366 14.5116 9.93894 14.4549 9.29426 13.928L7.9744 12.8491C7.17913 12.1991 6.02075 12.2572 5.29445 12.9834L4.28359 13.9943C3.55751 14.7204 3.49924 15.8783 4.14877 16.6736L5.22965 17.9971C5.75609 18.6417 5.8126 19.5388 5.48446 20.3036C5.44431 20.3972 5.40536 20.4914 5.36762 20.5862C5.05964 21.3598 4.3848 21.9543 3.55633 22.0374L1.86102 22.2073C0.838839 22.3098 0.0605469 23.1701 0.0605469 24.1974V25.627C0.0605469 26.6538 0.838097 27.5137 1.8597 27.6169L3.55722 27.7882C4.38522 27.8718 5.05953 28.4662 5.36788 29.2391C5.40539 29.3332 5.44414 29.4267 5.4841 29.5197C5.81261 30.2844 5.75607 31.1815 5.22966 31.826L4.14872 33.1496C3.49919 33.9449 3.55746 35.1028 4.28354 35.8289L5.29494 36.8403C6.02101 37.5664 7.17895 37.6246 7.97425 36.9751L9.29777 35.8942C9.94234 35.3678 10.8395 35.3113 11.6041 35.6398C11.6971 35.6798 11.7907 35.7185 11.8847 35.756C12.6577 36.0644 13.2521 36.7387 13.3357 37.5667L13.507 39.2642C13.6101 40.2858 14.4701 41.0634 15.4969 41.0634H16.9265C17.9538 41.0634 18.814 40.2851 18.9165 39.2629L19.0865 37.5676C19.1696 36.7391 19.764 36.0643 20.5376 35.7563C20.6324 35.7186 20.7266 35.6796 20.8202 35.6395C21.585 35.3113 22.4822 35.3678 23.1268 35.8943L24.4502 36.9751C25.2455 37.6246 26.4035 37.5664 27.1295 36.8403L28.1404 35.8294C28.8667 35.1031 28.9248 33.9447 28.2747 33.1495L27.1958 31.8296C26.6689 31.1849 26.6122 30.2873 26.9404 29.522C26.9806 29.4283 27.0196 29.3339 27.0574 29.2389C27.3649 28.4659 28.039 27.8718 28.8668 27.7882L30.5649 27.6168C31.5865 27.5137 32.364 26.6538 32.364 25.627V24.1973C32.364 23.1701 31.5857 22.3098 30.5636 22.2073L28.8682 22.0373C28.0398 21.9543 27.365 21.3598 27.0576 20.586C27.0196 20.4904 26.9805 20.3955 26.9401 20.3012C26.6122 19.5358 26.6689 18.6381 27.1959 17.9934L28.2747 16.6736C28.9248 15.8783 28.8667 14.7199 28.1404 13.9936L27.1301 12.9833C26.4038 12.257 25.2454 12.199 24.4502 12.849L23.1303 13.9279C22.4856 14.4548 21.588 14.5116 20.8226 14.1838C20.7283 14.1433 20.6333 14.1041 20.5376 14.0661C19.7639 13.7588 19.1695 13.084 19.0864 12.2555L18.9164 10.5602C18.8139 9.538 17.9537 8.7597 16.9264 8.75973L15.4969 8.75976ZM16.2123 20.2427C18.7911 20.2427 20.8812 22.3329 20.8812 24.9116C20.8812 27.4903 18.7911 29.5804 16.2123 29.5804C13.6336 29.5804 11.5434 27.4902 11.5434 24.9116C11.5434 22.3329 13.6336 20.2427 16.2123 20.2427ZM38.94 26.6193C38.2047 26.5391 37.5298 27.0333 37.3842 27.7584L37.2798 28.2783C37.1878 28.7366 36.8145 29.0807 36.3676 29.218C35.9071 29.3595 35.3953 29.2712 35.0629 28.9224L34.7905 28.6366C34.2599 28.0799 33.3875 28.0325 32.7998 28.5286C32.2456 28.9963 32.1207 29.8008 32.5069 30.4145L32.7902 30.8647C33.0457 31.2706 33.0267 31.7802 32.8032 32.2046C32.5692 32.6488 32.1265 32.9728 31.6244 32.9702L31.3083 32.9686C30.5364 32.9646 29.8879 33.5478 29.8101 34.3157C29.7334 35.074 30.2382 35.7691 30.9831 35.9306L31.3239 36.0045C31.8137 36.1107 32.1764 36.5122 32.3147 36.994C32.4489 37.4617 32.3639 37.9777 32.0254 38.3272L31.6859 38.6777C31.1767 39.2035 31.1323 40.0239 31.5817 40.6017C32.0579 41.214 32.9282 41.3505 33.5691 40.9134L33.8598 40.7151C34.2633 40.44 34.7925 40.4635 35.2187 40.7019C35.6261 40.9298 35.9157 41.3412 35.914 41.808L35.9119 42.3692C35.9092 43.1002 36.4587 43.7153 37.1854 43.7946C37.9214 43.8749 38.5968 43.3797 38.7414 42.6536L38.8451 42.133C38.9365 41.6745 39.3096 41.3303 39.7569 41.1942C40.217 41.0542 40.7281 41.1425 41.06 41.4907L41.3336 41.7778C41.8642 42.3345 42.7363 42.3821 43.3244 41.8866C43.8799 41.4184 44.0049 40.6123 43.6174 39.9979L43.3349 39.5499C43.0787 39.1437 43.0974 38.6334 43.3211 38.2084C43.5547 37.7646 43.9966 37.4408 44.4981 37.4427L44.82 37.444C45.5913 37.447 46.2386 36.8635 46.3154 36.0961C46.3912 35.3388 45.8868 34.6452 45.1431 34.4839L44.8008 34.4097C44.3104 34.3034 43.9463 33.8958 43.808 33.4135C43.6736 32.9446 43.7611 32.4325 44.1007 32.0824L44.437 31.7357C44.9468 31.2103 44.9919 30.3897 44.5429 29.8115C44.0665 29.198 43.195 29.0613 42.5536 29.4994L42.2681 29.6945C41.8643 29.9703 41.3366 29.9486 40.9097 29.7103C40.5013 29.4823 40.2087 29.0689 40.2111 28.6013L40.2138 28.0467C40.2174 27.3149 39.6675 26.6987 38.94 26.6193ZM38.0684 32.7092C38.1494 32.7096 38.2319 32.7132 38.3143 32.7222C39.6317 32.8663 40.5849 34.0946 40.4465 35.466C40.3081 36.8372 39.1301 37.8328 37.8127 37.6888C36.4953 37.5447 35.5389 36.3163 35.6773 34.945C35.807 33.6594 36.8528 32.7048 38.0684 32.7092Z"
+                                        fill="black" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="takeaway-card-text-container">
+                            <h4>Integrating new features into old designs</h4>
+                            <p>Not only did I need to emulate Apple's design language in my own components, but also
+                                integrate them into already existing screens seamlessly. Since most of my changes were
+                                in the details, many parts of the design stayed the same. This required me to make new
+                                spaces in between the existing elements without compromising the design and flow of a
+                                screen.</p>
+                        </div>
+                    </div>
+                    <div class="takeaway-card">
+                        <div class="fuck-you-CSS">
+                            <div class="takeaway-card-icon-container">
+                                <svg class="icons" xmlns="http://www.w3.org/2000/svg" width="40" height="37" viewBox="0 0 40 37"
+                                    fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M3.68864 4.62747C5.81168 2.50396 8.62353 1.20882 11.6172 0.975572C14.6109 0.742327 17.5894 1.58633 20.0157 3.35539C22.5793 1.50065 25.7469 0.678394 28.8889 1.05207C32.0309 1.42575 34.9173 2.968 36.9743 5.37227C39.0313 7.77654 40.1084 10.8668 39.9914 14.0288C39.8744 17.1908 38.5719 20.193 36.3428 22.4387L24.468 34.3135C23.2871 35.4941 21.6856 36.1573 20.0157 36.1573C18.3459 36.1573 16.7444 35.4941 15.5635 34.3135L3.68864 22.4408C1.32684 20.0788 0 16.8754 0 13.5352C0 10.195 1.32684 6.98943 3.68864 4.62747Z"
+                                        fill="black" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="takeaway-card-text-container">
+                            <h4>Passion projects</h4>
+                            <p>I started this project completely out of my own passion for design and Apple Maps. I came
+                                to realize how important it is to have projects besides what you're doing for work or
+                                your studies to give yourself the chance to do whatever you want, without any pressure,
+                                once in a while.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <hr>
+            <section class="other-projects-section">
+                <h2>Other Projects</h2>
+                <div class="projects-grid other-projects">
+                    <a href="javascript:shortDelay('edurino-app.html')" class="project-card" id="edurinoApp">
+                        <picture>
+                            <source
+                                srcset="./assets/edurino-app/edurino-app-thumbnail-s.webp 300w, ./assets/edurino-app/edurino-app-thumbnail.webp 900w"
+                                sizes="(max-width: 915px) 12.5rem, (max-width: 1500px) 15rem, 18rem" type="image/webp">
+                            <img src="./assets/edurino-app/edurino-app-thumbnail.png" alt="Edurino App Thumbnail"
+                                class="background-image">
+                        </picture>
+                        <div class="project-card-text-container">
+                            <h3>Edurino App</h3>
+                            <p>Updating the Onboarding Process of Edurino's App.
+                            </p>
+                        </div>
+                        <div class="project-card-fader"></div>
+                    </a>
+                    <a href="javascript:shortDelay('edurino-website.html')" class="project-card" id="edurinoWebsite">
+                        <picture>
+                            <source
+                                srcset="./assets/edurino-website/edurino-website-thumbnail-s.webp 300w, ./assets/edurino-website/edurino-website-thumbnail.webp 900w"
+                                sizes="(max-width: 915px) 12.5rem, (max-width: 1500px) 15rem, 18rem" type="image/webp">
+                            <img src="./assets/edurino-website/edurino-website-thumbnail.png" alt="Edurino Website Thumbnail"
+                                class="background-image">
+                        </picture>
+                        <div class="project-card-text-container">
+                            <h3>Edurino Website</h3>
+                            <p>Creating a landing page for Edurino to make their products more accessible.</p>
+                        </div>
+                        <div class="project-card-fader"></div>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="script2.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/lbq0rfz.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+    <script>
+        projectCard.forEach((card) => {
+            card.addEventListener('click', () => {
+                const filePath = card.getAttribute('href').match(/\('([^']+)'\)/);
+                fetch('/' + filePath[1]);
+                fetch('/script2.js');
+            });
+        });
+    </script>
+</body>
+
+</html>

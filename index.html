@@ -29,7 +29,8 @@
 <body class="no-opacity">
     <header>
         <div id="monogramContainer">
-            <svg id="monogram" class="animate__animated" xmlns="http://www.w3.org/2000/svg" width="600" height="348" viewBox="0 0 600 348" fill="none">
+            <svg id="monogram" class="animate__animated" xmlns="http://www.w3.org/2000/svg" width="600" height="348"
+                viewBox="0 0 600 348" fill="none">
                 <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M122.112 211.565H166.795V347.49H251.136V210.646H348.864V347.49H349.807H433.204H477.888C564.675 347.49 600 304.286 600 244.024C600 183.763 564.675 135.925 477.888 135.925H433.204V0H348.864V136.299H251.136V0H250.193H166.795H122.112C35.3251 0 0 43.2046 0 103.466C0 163.728 35.3251 211.565 122.112 211.565ZM166.795 71.0998H124.728C96.381 71.0998 85.4781 83.957 85.4781 103.466C85.4781 122.975 96.381 135.832 124.728 135.832H166.795V71.0998ZM433.204 276.391V211.658H475.272C503.619 211.658 514.522 224.515 514.522 244.024C514.522 263.533 503.619 276.391 475.272 276.391H433.204Z"
                     fill="black" style="fill: var(--primary-color)" />
@@ -99,17 +100,13 @@
         </nav>
         <div class="projects-grid animate__animated animate__fadeIn">
             <a href="javascript:longDelay('edurino-app.html')" class="project-card" id="edurinoApp">
-                <div class="project-card-image-container">
-                    <picture>
-                        <source srcset="./assets/edurino-app/edurino-app-screenshot.webp" type="image/webp">
-                        <img src="./assets/edurino-app-screenshot.png" alt="Edurino App Screenshot"
-                            id="edurinoAppImage1">
-                    </picture>
-                    <picture>
-                        <source srcset="./assets/edurino-app/edurino-app-mockup.webp" type="image/webp">
-                        <img src="./assets/edurino-app-mockup.png" alt="Edurino App iPad Mockup" id="edurinoAppImage2">
-                    </picture>
-                </div>
+                <picture>
+                    <source
+                        srcset="./assets/edurino-app/edurino-app-thumbnail-s.webp 300w, ./assets/edurino-app/edurino-app-thumbnail.webp 900w"
+                        sizes="(max-width: 915px) 12.5rem, (max-width: 1500px) 15rem, 18rem" type="image/webp">
+                    <img src="./assets/edurino-app/edurino-app-thumbnail.png" alt="Edurino App Thumbnail"
+                        class="background-image">
+                </picture>
                 <div class="project-card-text-container">
                     <h3>Edurino App</h3>
                     <p>Updating the Onboarding Process of Edurino's App.
@@ -118,18 +115,13 @@
                 <div class="project-card-fader"></div>
             </a>
             <a href="javascript:longDelay('edurino-website.html')" class="project-card" id="edurinoWebsite">
-                <div class="project-card-image-container">
-                    <picture>
-                        <source srcset="./assets/edurino-website/edurino-website-screenshot.webp" type="image/webp">
-                        <img src="./assets/edurino-website/edurino-website-screenshot.jpeg"
-                            alt="Edurino Website Screenshot" id="edurinoWebsiteImage2">
-                    </picture>
-                    <picture>
-                        <source srcset="./assets/edurino-website/edurino-website-mockup.webp" type="image/webp">
-                        <img src="./assets/edurino-website/edurino-website-mockup.png"
-                            alt="Edurino Website iPhone Mockup" id="edurinoWebsiteImage1">
-                    </picture>
-                </div>
+                <picture>
+                    <source
+                        srcset="./assets/edurino-website/edurino-website-thumbnail-s.webp 300w, ./assets/edurino-website/edurino-website-thumbnail.webp 900w"
+                        sizes="(max-width: 915px) 12.5rem, (max-width: 1500px) 15rem, 18rem" type="image/webp">
+                    <img src="./assets/edurino-website/edurino-website-thumbnail.png" alt="Edurino Website Thumbnail"
+                        class="background-image">
+                </picture>
                 <div class="project-card-text-container">
                     <h3>Edurino Website</h3>
                     <p>Creating a landing page for Edurino to make their products more accessible.</p>
@@ -137,18 +129,13 @@
                 <div class="project-card-fader"></div>
             </a>
             <a href="javascript:longDelay('hospital-app.html')" class="project-card" id="hospitalApp">
-                <div class="project-card-image-container">
-                    <picture>
-                        <source srcset="./assets/hospital-app/app-icon.webp" type="image/webp">
-                        <img src="./assets/hospital-app/app-icon.png" alt="Icon of the Hospital App"
-                            id="hospitalAppImage1">
-                    </picture>
-                    <picture>
-                        <source srcset="./assets/hospital-app/iphone-mockup1-s.webp" type="image/webp">
-                        <img src="./assets/hospital-app/iphone-mockup1-s.png" alt="Hospital App iPhone Mockup"
-                            id="hospitalAppImage2">
-                    </picture>
-                </div>
+                <picture>
+                    <source
+                        srcset="./assets/hospital-app/hospital-app-thumbnail-s.webp 300w, ./assets/hospital-app/hospital-app-thumbnail.webp 900w"
+                        sizes="(max-width: 915px) 12.5rem, (max-width: 1500px) 15rem, 18rem" type="image/webp">
+                    <img src="./assets/hospital-app/hospital-app-thumbnail.png" alt="Hospital App Thumbnail"
+                        class="background-image">
+                </picture>
                 <div class="project-card-text-container">
                     <h3>Hospital App</h3>
                     <p>Designing an app that helps users plan a visit to the hospital more easily.</p>
@@ -156,21 +143,34 @@
                 <div class="project-card-fader"></div>
             </a>
             <a href="https://2031.photography" target="_blank" class="project-card" id="photoPortfolio">
-                <div class="centered-image">
-                    <picture>
-                        <source
-                            srcset="./assets/photography-portfolio-s.webp 300w, ./assets/photography-portfolio.webp 900w"
-                            sizes="(max-width: 915px) 12.5rem, (max-width: 1500px) 15rem, 18rem" type="image/webp">
-                        <img src="./assets/photography-portfolio.png" alt="Photo Portfolio Screenshot"
-                            id="photographyPortfolioImage">
-                    </picture>
-                </div>
+                <picture>
+                    <source
+                        srcset="./assets/photography-portfolio-thumbnail-s.webp 300w, ./assets/photography-portfolio-thumbnail.webp 900w"
+                        sizes="(max-width: 915px) 12.5rem, (max-width: 1500px) 15rem, 18rem" type="image/webp">
+                    <img src="./assets/photography-portfolio-thumbnail.png" alt="Photography Portfolio Thumbnail"
+                        class="background-image">
+                </picture>
                 <div class="project-card-text-container">
                     <h3>Photo Portfolio</h3>
                     <p>Creating a portfolio website for my photos. View the live website.</p>
                 </div>
                 <div class="project-card-fader"></div>
             </a>
+            <a href="javascript:longDelay('apple-maps-concepts.html')" class="project-card" id="appleMapsConcepts">
+                <picture>
+                    <source
+                        srcset="./assets/apple-maps-concepts/apple-maps-concepts-thumbnail-s.webp 300w, ./assets/apple-maps-concepts/apple-maps-concepts-thumbnail.webp 900w"
+                        sizes="(max-width: 915px) 12.5rem, (max-width: 1500px) 15rem, 18rem" type="image/webp">
+                    <img src="./assets/apple-maps-concepts/apple-maps-concepts-thumbnail.png"
+                        alt="Apple Maps Concepts Thumbnail" class="background-image">
+                </picture>
+                <div class="project-card-text-container">
+                    <h3>Apple Maps Concepts</h3>
+                    <p>Adding features to Apple Maps that I wish it had in a realistic manner.</p>
+                </div>
+                <div class="project-card-fader"></div>
+            </a>
+            <div class="white-space"></div>
             <div class="white-space"></div>
         </div>
     </main>
@@ -178,7 +178,6 @@
     <script src="script.js"></script>
     <link rel="stylesheet" href="https://use.typekit.net/lbq0rfz.css" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <!-- <script src="lordiconScript.js" type="module"></script> -->
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
     <script>
         projectCard.forEach((card) => {
