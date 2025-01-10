@@ -379,7 +379,7 @@
                             <h4>Video of the Finished Prototype</h4>
                         </div>
                     </div>
-                    <video id="hospitalAppVideo" autoplay muted loop playsinline
+                    <video id="hospitalAppVideo" autoplay muted loop playsinline controlsList="nodownload"
                         src="./assets/hospital-app/hopsital-app-video.mp4"></video>
                 </div>
             </section>
@@ -501,7 +501,13 @@
                 </div>
             </section>
         </div>
+        <div id="enlargedImageContainer">
+            <img src="" alt="" id="enlargedImage">
+        </div>
     </main>
+    <div id="loadingOverlay" style="display: none;">
+        <div class="spinner"></div>
+    </div>
     <script src="script2.js"></script>
     <link rel="stylesheet" href="https://use.typekit.net/lbq0rfz.css" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
