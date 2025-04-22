@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philip Horlemann - Iter</title>
+    <meta content="Philip Horlemann — Iter" property="og:title">
+    <meta content="Designing a modern and user-friendly interface for the travel app Iter." name="description">
+    <meta content="Designing a modern and user-friendly interface for the travel app Iter." property="og:description">
+    <meta content="https://phorlemann.vercel.app/assets/design-portfolio-opengraph.png" property="og:image">
+    <script>
+        (function () {
+            const userPreference = localStorage.getItem('theme') || 'light';
+            const root = document.documentElement;
+            root.classList.add(userPreference === 'dark' ? 'dark-mode' : 'light-mode');
+        })();
+    </script>
+    <link rel="preload" href="https://use.typekit.net/lbq0rfz.css" as="style" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon-lightmode.png" id="favicon">
+    <link rel="apple-touch-icon" href="assets/home-screen-icon-lightmode.png" id="homeScreenIcon">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="no-opacity">
+    <header style="border-bottom: none;">
+        <div id="monogramContainer">
+            <svg id="monogram" class="animate__animated" xmlns="http://www.w3.org/2000/svg" width="600" height="348"
+                viewBox="0 0 600 348" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M122.112 211.565H166.795V347.49H251.136V210.646H348.864V347.49H349.807H433.204H477.888C564.675 347.49 600 304.286 600 244.024C600 183.763 564.675 135.925 477.888 135.925H433.204V0H348.864V136.299H251.136V0H250.193H166.795H122.112C35.3251 0 0 43.2046 0 103.466C0 163.728 35.3251 211.565 122.112 211.565ZM166.795 71.0998H124.728C96.381 71.0998 85.4781 83.957 85.4781 103.466C85.4781 122.975 96.381 135.832 124.728 135.832H166.795V71.0998ZM433.204 276.391V211.658H475.272C503.619 211.658 514.522 224.515 514.522 244.024C514.522 263.533 503.619 276.391 475.272 276.391H433.204Z"
+                    fill="black" style="fill: var(--primary-color)" />
+            </svg>
+        </div>
+        <a class="header-link" id="linkedInLink" style="display: flex;"
+            href="https://www.linkedin.com/in/philip-horlemann-865b4b246" target="_blank">
+            LinkedIn
+            <lord-icon class="linkedin-icon" src="https://cdn.lordicon.com/mgampcwp.json" trigger="hover"
+                target="#linkedInLink" state="hover-draw" colors="primary:#121331,secondary:#000000,tertiary:#000000"
+                style="width: 1rem; height: 1rem;">
+            </lord-icon>
+        </a>
+        <a class="header-link" id="resumeLink"
+            href="https://drive.google.com/file/d/1Q76UBzBlZ4lAu-FwBwUzVFubjl89XBdD/view?usp=sharing" target="_blank">
+            Resume
+            <lord-icon id="resumeIcon" src="https://cdn.lordicon.com/zbgyohdh.json" trigger="hover" target="#resumeLink"
+                style="width: 1.2rem; height: 1.2rem;" colors="primary:#000;">
+            </lord-icon>
+        </a>
+        <a class="header-link" id="contactLink" href="mailto:philip.horlemann@web.de" target="_blank">
+            Contact
+            <lord-icon id="contactIcon" src="https://cdn.lordicon.com/fdxqrdfe.json" trigger="hover"
+                target="#contactLink" style="width: 1.5rem; height: 1.5rem;" colors="primary:#000;">
+            </lord-icon>
+        </a>
+    </header>
+    <div id="appearanceSwitch">
+        <svg xmlns="http://www.w3.org/2000/svg" width="106" height="80" viewBox="0 0 106 80" fill="none">
+            <mask id="path-1-inside-1_180_175" fill="white">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M79.5 52.9902C79.5054 38.3592 91.3678 26.5001 106 26.5001L106 9.15527e-05L9.48027e-07 9.02887e-05L6.32018e-07 26.5001C14.6355 26.5001 26.5 38.3645 26.5 53.0001C26.5001 67.6356 38.3645 79.5 53 79.5C67.6355 79.5 79.5 67.6356 79.5 53.0001C79.5 53.0001 79.5 53 79.5 53C79.5 52.9967 79.5 52.9934 79.5 52.9902Z" />
+            </mask>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M79.5 52.9902C79.5054 38.3592 91.3678 26.5001 106 26.5001L106 9.15527e-05L9.48027e-07 9.02887e-05L6.32018e-07 26.5001C14.6355 26.5001 26.5 38.3645 26.5 53.0001C26.5001 67.6356 38.3645 79.5 53 79.5C67.6355 79.5 79.5 67.6356 79.5 53.0001C79.5 53.0001 79.5 53 79.5 53C79.5 52.9967 79.5 52.9934 79.5 52.9902Z"
+                fill="white" style="fill: var(--background-color);" />
+            <path
+                d="M106 26.5001L107.325 26.5001L107.325 27.8251L106 27.8251L106 26.5001ZM79.5 52.9902L78.175 52.9902L78.175 52.9897L79.5 52.9902ZM106 9.15527e-05L106 -1.32491L107.325 -1.32491L107.325 9.15685e-05L106 9.15527e-05ZM9.48027e-07 9.02887e-05L-1.325 9.02729e-05L-1.325 -1.32491L9.63827e-07 -1.32491L9.48027e-07 9.02887e-05ZM6.32018e-07 26.5001L6.16217e-07 27.8251L-1.325 27.8251L-1.325 26.5001L6.32018e-07 26.5001ZM26.5 53.0001L25.175 53.0001L25.175 53.0001L26.5 53.0001ZM79.5 53.0001L80.825 53.0001L80.825 53.0001L79.5 53.0001ZM106 27.8251C92.0994 27.8251 80.8301 39.0912 80.825 52.9906L78.175 52.9897C78.1806 37.6271 90.6362 25.1751 106 25.1751L106 27.8251ZM107.325 9.15685e-05L107.325 26.5001L104.675 26.5001L104.675 9.15369e-05L107.325 9.15685e-05ZM9.63827e-07 -1.32491L106 -1.32491L106 1.32509L9.32226e-07 1.32509L9.63827e-07 -1.32491ZM-1.325 26.5001L-1.325 9.02729e-05L1.325 9.03045e-05L1.325 26.5001L-1.325 26.5001ZM25.175 53.0001C25.175 39.0963 13.9038 27.8251 6.16217e-07 27.8251L6.47818e-07 25.1751C15.3673 25.1751 27.825 37.6328 27.825 53.0001L25.175 53.0001ZM27.825 53.0001C27.8251 66.9038 39.0963 78.175 53 78.175L53 80.825C37.6327 80.825 25.1751 68.3674 25.175 53.0001L27.825 53.0001ZM53 78.175C66.9037 78.175 78.175 66.9038 78.175 53.0001L80.825 53.0001C80.8249 68.3674 68.3673 80.825 53 80.825L53 78.175ZM78.175 53.0001C78.175 52.9795 78.1755 52.9614 78.1761 52.9465C78.1767 52.9316 78.1775 52.9189 78.1781 52.9093C78.1788 52.8997 78.1794 52.8919 78.1798 52.8873C78.18 52.885 78.1802 52.8831 78.1803 52.8819C78.1803 52.8813 78.1804 52.8808 78.1804 52.8805C78.1804 52.8804 78.1804 52.8803 78.1804 52.8802C78.1804 52.8802 78.1804 52.8801 78.1804 52.8801C78.1804 52.8801 78.1804 52.8801 78.1804 52.8801C78.1804 52.8801 78.1804 52.8801 78.1804 52.8801L78.1804 52.8801C78.1805 52.8795 78.1802 52.8831 78.1798 52.8873C78.1794 52.8919 78.1788 52.8996 78.1781 52.9092C78.1775 52.9189 78.1767 52.9315 78.1761 52.9464C78.1755 52.9614 78.175 52.9794 78.175 53L80.825 53C80.825 53.0206 80.8245 53.0386 80.8239 53.0536C80.8233 53.0685 80.8226 53.0812 80.8219 53.0908C80.8212 53.1004 80.8206 53.1082 80.8202 53.1128C80.82 53.1151 80.8198 53.117 80.8197 53.1182C80.8197 53.1188 80.8196 53.1193 80.8196 53.1196C80.8196 53.1197 80.8196 53.1198 80.8196 53.1199C80.8196 53.1199 80.8196 53.12 80.8196 53.12C80.8196 53.12 80.8196 53.12 80.8196 53.12C80.8196 53.12 80.8196 53.12 80.8196 53.12L80.8196 53.12C80.8195 53.1206 80.8198 53.117 80.8202 53.1128C80.8206 53.1082 80.8212 53.1005 80.8219 53.0909C80.8225 53.0812 80.8233 53.0686 80.8239 53.0536C80.8245 53.0387 80.825 53.0206 80.825 53.0001L78.175 53.0001ZM78.175 53C78.175 52.9988 78.175 52.9976 78.175 52.9958C78.175 52.9943 78.175 52.9922 78.175 52.9902L80.825 52.9902C80.825 52.9913 80.825 52.9926 80.825 52.9943C80.825 52.9959 80.825 52.9979 80.825 53L78.175 53Z"
+                fill="black" style="fill: var(--primary-color);" mask="url(#path-1-inside-1_180_175)" />
+        </svg>
+        <div class="appearance-icon-container">
+            <lord-icon class="header-icon" id="appearanceIcon" src="https://cdn.lordicon.com/pbxtntbx.json"
+                trigger="hover" stroke="bold" style="width: 2rem; height: 2rem;" state="rays"
+                colors="primary:#000000,secondary:#000000">
+            </lord-icon>
+        </div>
+    </div>
+    <div class="title-text-small animate__animated animate__fadeIn">
+        <h3>Philip Horlemann -</h3>
+        <span>UX Designer</span>
+    </div>
+    <main>
+        <div class="project-container">
+            <a id="closeButton" class="animate__animated animate__fadeIn" href="javascript:delay('index.html')"
+                aria-label="Close">
+                <svg class="icons" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50"
+                    fill="none">
+                    <path
+                        d="M16 1H46C47.6569 1 49 2.34315 49 4V34C49 42.2843 42.2843 49 34 49H4C2.34315 49 1 47.6569 1 46V16C1 7.71573 7.71573 1 16 1Z"
+                        fill="white" stroke="black" stroke-width="2"
+                        style="fill: var(--background-color); stroke: var(--primary-color);" />
+                    <path d="M35 15L15 35M15 15L35 35" stroke="black" stroke-width="4" stroke-linecap="round"
+                        stroke-linejoin="round" style="stroke: var(--primary-color);" />
+                </svg>
+            </a>
+            <section>
+                <div class="project-title-img-container">
+                    <div class="project-title-container animate__animated animate__fadeIn">
+                        <h1>Iter</h1>
+                        <span>2024</span>
+                    </div>
+                    <picture>
+                        <source srcset="./assets/iter/iter-mockup1-s.webp 500w, ./assets/iter/iter-mockup1.webp 1000w"
+                            sizes="(max-width: 915px) 20rem, (max-width: 1500px) 47rem, 57rem" type="image/webp">
+                        <img class="animate__animated animate__fadeIn" src="./assets/iter/iter-mockup1.png"
+                            alt="Mockup of my Design for Iter">
+                    </picture>
+                </div>
+            </section>
+            <hr>
+            <section id="overview" class="animate__animated animate__fadeIn">
+                <div class="overview-top-container">
+                    <h2>Overview</h2>
+                    <div class="project-goal-container">
+                        <div class="project-goal-icon-title-container">
+                            <svg class="icons" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                viewBox="0 0 32 32" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M6.73473 6.73472C4.7407 8.72875 3.55844 11.7769 3.55844 16C3.55844 20.2232 4.7407 23.2714 6.73473 25.2653C8.72876 27.2594 11.7769 28.4416 16 28.4416C20.2232 28.4416 23.2712 27.2594 25.2654 25.2653C27.2593 23.2714 28.4417 20.2232 28.4417 16C28.4417 15.0174 29.2383 14.2208 30.2209 14.2208C31.2035 14.2208 32.0001 15.0174 32.0001 16C32.0001 20.8782 30.6225 24.9405 27.7815 27.7816C24.9404 30.6226 20.8782 32 16 32C11.1219 32 7.05957 30.6226 4.21853 27.7816C1.37749 24.9405 0 20.8782 0 16C0 11.1219 1.37749 7.05958 4.21853 4.21853C7.05957 1.37749 11.1219 0 16 0C16.9827 0 17.7792 0.796585 17.7792 1.77922C17.7792 2.76187 16.9827 3.55844 16 3.55844C11.7769 3.55844 8.72876 4.74069 6.73473 6.73472ZM15.4599 8.44816C15.6774 9.40642 15.0769 10.3596 14.1186 10.5771C12.8342 10.8685 11.9532 11.4642 11.3718 12.2732C10.776 13.1024 10.3846 14.3118 10.3846 15.999C10.3846 18.0378 10.9525 19.3794 11.7861 20.2131C12.6197 21.0467 13.9613 21.6146 16.0002 21.6146C17.77 21.6146 19.0137 21.1845 19.8473 20.5367C20.6628 19.9029 21.2583 18.9279 21.5001 17.4836C21.6623 16.5144 22.5795 15.8603 23.5486 16.0225C24.5179 16.1848 25.1719 17.1019 25.0097 18.0711C24.6462 20.2426 23.6658 22.0759 22.0309 23.3464C20.4141 24.6027 18.3331 25.173 16.0002 25.173C13.3063 25.173 10.9505 24.4098 9.2699 22.7292C7.58927 21.0486 6.82613 18.6928 6.82613 15.999C6.82613 13.7754 7.34365 11.7809 8.48209 10.1967C9.63505 8.59221 11.3137 7.56469 13.3311 7.10684C14.2893 6.88937 15.2425 7.48989 15.4599 8.44816ZM21.9096 12.6058L17.2583 17.2571C16.5635 17.9519 15.437 17.9519 14.7421 17.2571C14.0473 16.5623 14.0473 15.4357 14.7421 14.7409L19.3945 10.0885C18.9212 8.09571 19.5099 5.98695 20.9713 4.52548L24.5812 0.915487C24.8752 0.621417 25.3019 0.502829 25.7055 0.602942C26.109 0.703058 26.4309 1.00725 26.5533 1.40465L27.5063 4.49454L30.5962 5.44745C30.9935 5.57 31.2977 5.8917 31.3978 6.29535C31.4979 6.69897 31.3795 7.12556 31.0853 7.41963L27.4757 11.0295C26.0134 12.4917 23.9032 13.0803 21.9096 12.6058Z"
+                                    fill="black" />
+                            </svg>
+                            <h3>Project Goal</h3>
+                        </div>
+                        <p>Designing a modern and user-friendly interface for the travel app Iter.</p>
+                    </div>
+                    <div class="project-objectives-title-container">
+                        <h3>Objectives</h3>
+                        <div class="project-objectives-container">
+                            <div class="project-objective-container">
+                                <div class="project-objective-svg-container">
+                                    <svg class="icons" xmlns="http://www.w3.org/2000/svg" width="37" height="37"
+                                        viewBox="0 0 37 37" fill="none">
+                                        <rect x="11" y="11" width="15" height="15" rx="7.5" fill="black" />
+                                        <circle cx="18.5" cy="18.5134" r="16.5" stroke="black" stroke-width="3" />
+                                    </svg>
+                                </div>
+                                <span class="s1">Simplify interface</span>
+                            </div>
+                            <div class="project-objective-container">
+                                <div class="project-objective-svg-container">
+                                    <svg class="icons" xmlns="http://www.w3.org/2000/svg" width="37" height="38"
+                                        viewBox="0 0 37 38" fill="none">
+                                        <path
+                                            d="M21.4163 15.5971C19.8686 14.0515 17.7708 13.1833 15.5836 13.1833C13.3964 13.1833 11.2986 14.0515 9.75093 15.5971L3.91636 21.4297C2.36919 22.9769 1.5 25.0753 1.5 27.2633C1.5 29.4514 2.36919 31.5498 3.91636 33.097C5.46354 34.6441 7.56195 35.5133 9.74999 35.5133C11.938 35.5133 14.0364 34.6441 15.5836 33.097L18.4999 30.1806"
+                                            stroke="black" stroke-width="3" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M15.5859 21.4297C17.1336 22.9753 19.2314 23.8434 21.4186 23.8434C23.6058 23.8434 25.7037 22.9753 27.2513 21.4297L33.0859 15.597C34.633 14.0499 35.5022 11.9514 35.5022 9.76341C35.5022 7.57538 34.633 5.47697 33.0859 3.92979C31.5387 2.38262 29.4403 1.51343 27.2522 1.51343C25.0642 1.51343 22.9658 2.38262 21.4186 3.92979L18.5023 6.84613"
+                                            stroke="black" stroke-width="3" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <span class="s1">Unify design language</span>
+                            </div>
+                            <div class="project-objective-container">
+                                <div class="project-objective-svg-container">
+                                    <svg class="icons" xmlns="http://www.w3.org/2000/svg" width="41" height="37"
+                                        viewBox="0 0 41 37" fill="none">
+                                        <path
+                                            d="M39.8818 16.6767H21.6182V11.5338H23.4818C24.1738 11.5338 24.8374 11.2629 25.3267 10.7807C25.816 10.2984 26.0909 9.64439 26.0909 8.96241V3.08486C26.0909 2.40287 25.816 1.74882 25.3267 1.26658C24.8374 0.784345 24.1738 0.513428 23.4818 0.513428H17.5182C16.8262 0.513428 16.1626 0.784345 15.6733 1.26658C15.184 1.74882 14.9091 2.40287 14.9091 3.08486V8.96241C14.9091 9.64439 15.184 10.2984 15.6733 10.7807C16.1626 11.2629 16.8262 11.5338 17.5182 11.5338H19.3818V16.6767H1.11818C0.821622 16.6767 0.537207 16.7928 0.327508 16.9995C0.117808 17.2061 0 17.4865 0 17.7787C0 18.071 0.117808 18.3513 0.327508 18.558C0.537207 18.7647 0.821622 18.8808 1.11818 18.8808H7.45455V25.493H5.59091C4.89894 25.493 4.2353 25.7639 3.746 26.2462C3.2567 26.7284 2.98182 27.3825 2.98182 28.0644V33.942C2.98182 34.624 3.2567 35.278 3.746 35.7603C4.2353 36.2425 4.89894 36.5134 5.59091 36.5134H11.5545C12.2465 36.5134 12.9102 36.2425 13.3995 35.7603C13.8888 35.278 14.1636 34.624 14.1636 33.942V28.0644C14.1636 27.3825 13.8888 26.7284 13.3995 26.2462C12.9102 25.7639 12.2465 25.493 11.5545 25.493H9.69091V18.8808H31.3091V25.493H29.4455C28.7535 25.493 28.0898 25.7639 27.6005 26.2462C27.1112 26.7284 26.8364 27.3825 26.8364 28.0644V33.942C26.8364 34.624 27.1112 35.278 27.6005 35.7603C28.0898 36.2425 28.7535 36.5134 29.4455 36.5134H35.4091C36.1011 36.5134 36.7647 36.2425 37.254 35.7603C37.7433 35.278 38.0182 34.624 38.0182 33.942V28.0644C38.0182 27.3825 37.7433 26.7284 37.254 26.2462C36.7647 25.7639 36.1011 25.493 35.4091 25.493H33.5455V18.8808H39.8818C40.1784 18.8808 40.4628 18.7647 40.6725 18.558C40.8822 18.3513 41 18.071 41 17.7787C41 17.4865 40.8822 17.2061 40.6725 16.9995C40.4628 16.7928 40.1784 16.6767 39.8818 16.6767ZM17.1455 8.96241V3.08486C17.1455 2.98743 17.1847 2.89399 17.2546 2.8251C17.3245 2.75621 17.4193 2.71751 17.5182 2.71751H23.4818C23.5807 2.71751 23.6755 2.75621 23.7454 2.8251C23.8153 2.89399 23.8545 2.98743 23.8545 3.08486V8.96241C23.8545 9.05983 23.8153 9.15327 23.7454 9.22216C23.6755 9.29105 23.5807 9.32975 23.4818 9.32975H17.5182C17.4193 9.32975 17.3245 9.29105 17.2546 9.22216C17.1847 9.15327 17.1455 9.05983 17.1455 8.96241ZM11.9273 28.0644V33.942C11.9273 34.0394 11.888 34.1329 11.8181 34.2018C11.7482 34.2706 11.6534 34.3093 11.5545 34.3093H5.59091C5.49206 34.3093 5.39725 34.2706 5.32735 34.2018C5.25745 34.1329 5.21818 34.0394 5.21818 33.942V28.0644C5.21818 27.967 5.25745 27.8736 5.32735 27.8047C5.39725 27.7358 5.49206 27.6971 5.59091 27.6971H11.5545C11.6534 27.6971 11.7482 27.7358 11.8181 27.8047C11.888 27.8736 11.9273 27.967 11.9273 28.0644ZM35.7818 28.0644V33.942C35.7818 34.0394 35.7425 34.1329 35.6726 34.2018C35.6027 34.2706 35.5079 34.3093 35.4091 34.3093H29.4455C29.3466 34.3093 29.2518 34.2706 29.1819 34.2018C29.112 34.1329 29.0727 34.0394 29.0727 33.942V28.0644C29.0727 27.967 29.112 27.8736 29.1819 27.8047C29.2518 27.7358 29.3466 27.6971 29.4455 27.6971H35.4091C35.5079 27.6971 35.6027 27.7358 35.6726 27.8047C35.7425 27.8736 35.7818 27.967 35.7818 28.0644Z"
+                                            fill="black" />
+                                    </svg>
+                                </div>
+                                <span class="s1">Improve organization</span>
+                            </div>
+                            <div class="project-objective-container">
+                                <div class="project-objective-svg-container">
+                                    <svg class="icons" xmlns="http://www.w3.org/2000/svg" width="25" height="36"
+                                        viewBox="0 0 25 36" fill="none">
+                                        <path
+                                            d="M1.5 5.41667C1.5 4.44421 1.88631 3.51158 2.57394 2.82394C3.26158 2.13631 4.19421 1.75 5.16667 1.75H19.8333C20.8058 1.75 21.7384 2.13631 22.4261 2.82394C23.1137 3.51158 23.5 4.44421 23.5 5.41667V31.0833C23.5 32.0558 23.1137 32.9884 22.4261 33.6761C21.7384 34.3637 20.8058 34.75 19.8333 34.75H5.16667C4.19421 34.75 3.26158 34.3637 2.57394 33.6761C1.88631 32.9884 1.5 32.0558 1.5 31.0833V5.41667Z"
+                                            stroke="black" stroke-width="2.15217" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M10.6665 3.58325H14.3332" stroke="black" stroke-width="2.15217"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M12.5 27.4167V27.4367" stroke="black" stroke-width="2.15217"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <span class="s1">Create mockups</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <article>
+                    <h3>Background</h3>
+                    <div class="article-text">
+                        <p>In 2024 I received the offer to work as a UX/UI designer on the Iter project by a young,
+                            swedish entrepreneur, who wanted to improve the way people were discovering new places, at
+                            home and abroad. She had already developed a prototype of such an app which, however, lacked
+                            a well designed user interface. It was my task to improve the usability and design of the
+                            prototype so that it could be released as a real app.<br><br>
+
+                            The idea behind Iter is to provide the user with personalized recommendations for points of
+                            interest (POIs) and events based on what they like. In order to do so the user first
+                            completes a short survey based on which the app then calculates match percentages for each
+                            POI nearby.</p>
+                        <p>Below you can see what the previous design looked like. A simple login screen, preference
+                            survey, map screen and a screen allowing users to contribute to the Iter’s map by adding
+                            POIs.<br><br>
+
+                            What was still missing was an onboarding, a POI-details screen, app and profile settings,
+                            and POI recommendations. Thus, along with a redesign of the existing screens I was going to
+                            have to design these missing screens as well and connect them all together to create a
+                            seamless user experience.
+                        </p>
+                    </div>
+                </article>
+                <div class="project-img-container">
+                    <div class="img-title-centered">
+                        <div class="img-title-container">
+                            <h4>Previous Design</h4>
+                        </div>
+                    </div>
+                    <picture>
+                        <source
+                            srcset="./assets/iter/iter-previous-design-s.webp 600w, ./assets/iter/iter-previous-design.webp 1200w"
+                            sizes="(max-width: 915px) 20rem, (max-width: 1500px) 47rem, 57rem" type="image/webp">
+                        <img src="./assets/iter/iter-previous-design.png" alt="The previous design of the Iter App">
+                    </picture>
+                </div>
+            </section>
+            <hr>
+            <section>
+                <h2>Competitive Analysis</h2>
+                <article class="persona-article">
+                    <h3>Google Maps</h3>
+                    <div class="article-text">
+                        <p>Google Maps is a leading map-based travel application that features a bottom navigation bar
+                            with three primary items and a prominent search bar at the top. The app effectively draws
+                            users in through a range of engaging map filter options and visually appealing thumbnails
+                            for POIs, making exploration intuitive and visually rich. However, its interface leans
+                            toward a more cluttered and adaptable design, characterized by frequent use of accent colors
+                            and a heavy reliance on icons. This icon-centric approach, while functional, can contribute
+                            to visual overload, especially for new users navigating the platform for the first time.
+                        </p>
+                        <div class="persona-article-img-container">
+                            <picture>
+                                <source srcset="./assets/iter/iter-google-maps.webp" type="image/webp">
+                                <img src="./assets/iter/iter-google-maps.png" alt="Screenshots of Google Maps">
+                            </picture>
+                        </div>
+                    </div>
+                </article>
+                <article class="persona-article">
+                    <h3>Tripadvisor</h3>
+                    <div class="article-text">
+                        <p>Tripadvisor is a card-based travel app that emphasizes content discovery through visually
+                            engaging photos, often used to highlight destinations, accommodations, and experiences. The
+                            interface features a bottom navigation bar with five items and a top search bar,
+                            supplemented by an additional search option within the navigation menu. Unlike more
+                            icon-driven platforms, Tripadvisor adopts a simpler, cleaner design with a consistent
+                            monochromatic color scheme, resulting in a more streamlined and approachable user
+                            experience. The app leans heavily on text to deliver detailed information, making it
+                            particularly suited for users who prefer in-depth content over quick visual cues.
+                        </p>
+                        <div class="persona-article-img-container">
+                            <picture>
+                                <source srcset="./assets/iter/iter-tripadvisor.webp" type="image/webp">
+                                <img src="./assets/iter/iter-tripadvisor.png" alt="Screenshots of Tripadvisor">
+                            </picture>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <hr>
+            <section>
+                <h2>Personas</h2>
+                <article class="persona-article">
+                    <h3>Persona 1</h3>
+                    <div class="article-text">
+                        <p>Tim is a 24-year-old explorer who enjoys traveling to new cities and discovering
+                            hidden gems within his hometown. He relies heavily on photos to decide where to go next,
+                            making visual content a key driver in his decision-making. Tim finds Google Maps
+                            overwhelming due to its dense interface and abundance of information, and he’s also
+                            uncomfortable with the amount of data it collects—though he hasn’t found a satisfying
+                            alternative yet. Personality-wise, he leans more toward being introverted, creative, and
+                            organized, with a preference for a slower pace and independent experiences. Tim is cautious
+                            and thoughtful in his approach, valuing simplicity and clarity in the tools he uses.
+                        </p>
+                        <div class="persona-article-img-container">
+                            <picture>
+                                <source srcset="./assets/iter/iter-persona1.webp" type="image/webp">
+                                <img src="./assets/iter/iter-persona1.png" alt="My persona, Tim">
+                            </picture>
+                        </div>
+                    </div>
+                </article>
+                <article class="persona-article">
+                    <h3>Persona 2</h3>
+                    <div class="article-text">
+                        <p>Lisa is a 26-year-old adventurous spirit who thrives on traveling to new places, especially
+                            to immerse herself in nature and go hiking. She’s passionate about discovering new trends
+                            and loves being in the loop with what’s current, often trying out the latest apps and
+                            platforms recommended by her peers or social media. While she supports independent and
+                            creative projects, she’s comfortable using any product as long as it helps her find exciting
+                            new spots. Personality-wise, she’s an energetic extrovert with a creative mindset, always on
+                            the go and eager to engage with others. Though a bit disorganized, Lisa embraces spontaneity
+                            and gravitates toward fun, social tools that feel fresh and visually engaging.
+                        </p>
+                        <div class="persona-article-img-container">
+                            <picture>
+                                <source srcset="./assets/iter/iter-persona2.webp" type="image/webp">
+                                <img src="./assets/iter/iter-persona2.png" alt="My persona, Lisa">
+                            </picture>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <hr>
+            <section>
+                <h2>App Structure</h2>
+                <div class="project-img-container">
+                    <div class="img-title-centered">
+                        <div class="img-title-container">
+                            <h4>Sitemap Sketch</h4>
+                        </div>
+                    </div>
+                    <picture>
+                        <source
+                            srcset="./assets/iter/iter-sitemap-sketch-s.webp 600w, ./assets/iter/iter-sitemap-sketch.webp 1200w"
+                            sizes="(max-width: 915px) 20rem, (max-width: 1500px) 47rem, 57rem" type="image/webp">
+                        <img src="./assets/iter/iter-sitemap-sketch.png" alt="A sketch of a sitemap for the app">
+                    </picture>
+                </div>
+                <div class="project-img-container">
+                    <div class="img-title-centered">
+                        <div class="img-title-container">
+                            <h4>Digital Sitemap</h4>
+                        </div>
+                    </div>
+                    <picture>
+                        <source
+                            srcset="./assets/iter/iter-digital-sitemap-s.webp 600w, ./assets/iter/iter-digital-sitemap.webp 1200w"
+                            sizes="(max-width: 915px) 20rem, (max-width: 1500px) 47rem, 57rem" type="image/webp">
+                        <img src="./assets/iter/iter-digital-sitemap.png"
+                            alt="A digital version of my sitemap for the app">
+                    </picture>
+                </div>
+                <article>
+                    <h3>Structuring Iter</h3>
+                    <div class="article-text">
+                        <p>Like in Google Maps, I wanted to make the map the home screen of the app. This allows the
+                            user to have a sense of orientation right from the start by finding himself on the map.
+                            Furthermore, it is what many users would expect when opening a travel app. From here, the
+                            user can reach any other screen in one or two clicks at most.<br><br>
+
+                            Besides the map/home screen, there are two other main screens: The “For You” page, which
+                            shows POIs as cards, and the “Contribute (Add POI)” page, which lets users add places to the
+                            map or write reviews of POIs.
+                        </p>
+                        <p>After a couple of discussions with the client, we decided to drop the search function for
+                            now, since that would take a lot more time to develop. I also discontinued the idea of
+                            swiping right or left from the map screen to open the For You or Add POI screen since
+                            swiping was already used to move the map around.
+                        </p>
+                    </div>
+                </article>
+            </section>
+            <hr>
+            <section>
+                <h2>User Flows</h2>
+                <div class="project-img-container">
+                    <div class="img-title-centered">
+                        <div class="img-title-container">
+                            <h4>Sketched User Flows</h4>
+                        </div>
+                    </div>
+                    <picture>
+                        <source
+                            srcset="./assets/iter/iter-sketched-user-flows-s.webp 600w, ./assets/iter/iter-sketched-user-flows.webp 1200w"
+                            sizes="(max-width: 915px) 20rem, (max-width: 1500px) 47rem, 57rem" type="image/webp">
+                        <img src="./assets/iter/iter-sketched-user-flows.png"
+                            alt="A sketch of a user flows for the app">
+                    </picture>
+                </div>
+                <div class="project-img-container">
+                    <div class="img-title-centered">
+                        <div class="img-title-container">
+                            <h4>Digital User Flows</h4>
+                        </div>
+                    </div>
+                    <picture>
+                        <source
+                            srcset="./assets/iter/iter-digital-user-flows-s.webp 600w, ./assets/iter/iter-digital-user-flows.webp 1200w"
+                            sizes="(max-width: 915px) 20rem, (max-width: 1500px) 47rem, 57rem" type="image/webp">
+                        <img src="./assets/iter/iter-digital-user-flows.png"
+                            alt="A digital version of the user flows for the app">
+                    </picture>
+                </div>
+            </section>
+            <hr>
+            <section>
+                <h2>Wireframing</h2>
+                <div class="project-img-container">
+                    <div class="img-title-centered">
+                        <div class="img-title-container">
+                            <h4>Low-fidelity Wireframes</h4>
+                        </div>
+                    </div>
+                    <picture>
+                        <source
+                            srcset="./assets/iter/iter-low-fidelity-wireframes-s.webp 600w, ./assets/iter/iter-low-fidelity-wireframes.webp 1200w"
+                            sizes="(max-width: 915px) 20rem, (max-width: 1500px) 47rem, 57rem" type="image/webp">
+                        <img src="./assets/iter/iter-low-fidelity-wireframes.png"
+                            alt="Low-fidelity wireframes of the app">
+                    </picture>
+                </div>
+                <div class="project-img-container">
+                    <div class="img-title-centered">
+                        <div class="img-title-container">
+                            <h4>Medium-fidelity Wireframes</h4>
+                        </div>
+                    </div>
+                    <picture>
+                        <source
+                            srcset="./assets/iter/iter-medium-fidelity-wireframes-s.webp 600w, ./assets/iter/iter-medium-fidelity-wireframes.webp 1200w"
+                            sizes="(max-width: 915px) 20rem, (max-width: 1500px) 47rem, 57rem" type="image/webp">
+                        <img src="./assets/iter/iter-medium-fidelity-wireframes.png"
+                            alt="Medium-fidelity wireframes of the app">
+                    </picture>
+                </div>
+                <div class="project-img-container">
+                    <div class="img-title-centered">
+                        <div class="img-title-container">
+                            <h4>High-fidelity Wireframes</h4>
+                        </div>
+                    </div>
+                    <picture>
+                        <source
+                            srcset="./assets/iter/iter-high-fidelity-wireframes-s.webp 600w, ./assets/iter/iter-high-fidelity-wireframes.webp 1200w"
+                            sizes="(max-width: 915px) 20rem, (max-width: 1500px) 47rem, 57rem" type="image/webp">
+                        <img src="./assets/iter/iter-high-fidelity-wireframes.png"
+                            alt="High-fidelity wireframes of the app">
+                    </picture>
+                </div>
+                <article>
+                    <h3>Design Decisions</h3>
+                    <div class="article-text">
+                        <p>Based on the already existing Iter logo, I decided to use blue as my primary color. On the
+                            For You page I went for a lighter, more turquoise blue to visually separate it from the rest
+                            of the app and thus invite the user to engage with it more. As a background, I decided to go
+                            for a gradient to make the design less flat and more adventurous. Lastly, I reserved purple
+                            as the accent color for my percentage match indicator, to highlight its importance.<br><br>
+
+                            Speaking of the percentage match indicator, I knew it would be important to do something
+                            recognizable and unique with it since this was what set Iter apart from its competitors:
+                            Transparently showing its users why something gets recommended to them. To portray that, I
+                            designed a circle whose completeness proportionally corresponds to the match percentage for
+                            a given POI.</p>
+                        <p>The font I chose for Iter is Raleway by Google since it is very readable, modern, different
+                            and free to use. The icons are from Apple’s SF family since it will be an iOS app.<br><br>
+
+                            The client was also interested in having a unique rating system in the app that would be fun
+                            for the users to use. My immediate thought was to use emojis, which turned out to be an idea
+                            the client was very happy with and which made the app unique in yet another way. These
+                            emojis also play a vital role in the setup of the app where users rate different topics to
+                            calibrate the recommendation algorithm.</p>
+                    </div>
+                </article>
+            </section>
+            <hr>
+            <section>
+                <h2>The Final Result</h2>
+                <div class="project-img-container">
+                    <div class="img-title-centered">
+                        <div class="img-title-container">
+                            <h4>Some more Screens</h4>
+                        </div>
+                    </div>
+                    <picture>
+                        <source srcset="./assets/iter/iter-mockup2-s.webp 600w, ./assets/iter/iter-mockup2.webp 1200w"
+                            sizes="(max-width: 915px) 20rem, (max-width: 1500px) 47rem, 57rem" type="image/webp">
+                        <img src="./assets/iter/iter-mockup2.png" alt="Mockups of my design of the app">
+                    </picture>
+                </div>
+                <div class="project-img-container" style="z-index: 1;">
+                    <div class="img-title-centered">
+                        <div class="img-title-container">
+                            <h4>Video of the Prototype of the App</h4>
+                        </div>
+                    </div>
+                    <video id="edurinoWebsiteVideo" autoplay muted loop playsinline controlsList="nodownload"
+                        src="./assets/iter/iter.mp4"></video>
+                </div>
+            </section>
+            <hr>
+            <section id="takeaways">
+                <h2>Project Takeaways</h2>
+                <div class="takeaway-cards-container">
+                    <div class="takeaway-card">
+                        <div class="fuck-you-CSS">
+                            <div class="takeaway-card-icon-container">
+                                <svg class="icons" xmlns="http://www.w3.org/2000/svg" width="40" height="41"
+                                    viewBox="0 0 40 41" fill="none">
+                                    <path
+                                        d="M2.50001 22.6758C1.79167 22.6758 1.19834 22.4358 0.720008 21.9558C0.241675 21.4758 0.00167529 20.8824 8.62067e-06 20.1758C-0.00165804 19.4691 0.238342 18.8758 0.720008 18.3958C1.20167 17.9158 1.79501 17.6758 2.50001 17.6758H19L31.5 5.17578H27.5C26.7916 5.17578 26.1983 4.93578 25.72 4.45578C25.2416 3.97578 25.0016 3.38245 25 2.67578C24.9983 1.96911 25.2383 1.37578 25.72 0.895781C26.2016 0.415781 26.795 0.175781 27.5 0.175781H37.5C38.2083 0.175781 38.8025 0.415781 39.2825 0.895781C39.7625 1.37578 40.0016 1.96911 40 2.67578V12.6758C40 13.3841 39.76 13.9783 39.28 14.4583C38.8 14.9383 38.2066 15.1774 37.5 15.1758C36.7933 15.1741 36.2 14.9341 35.72 14.4558C35.24 13.9774 35 13.3841 35 12.6758V8.67578L22.4375 21.2383C21.9792 21.6966 21.4483 22.0508 20.845 22.3008C20.2417 22.5508 19.6058 22.6758 18.9375 22.6758H2.50001ZM27.5 40.1758C26.7916 40.1758 26.1983 39.9358 25.72 39.4558C25.2416 38.9758 25.0016 38.3824 25 37.6758C24.9983 36.9691 25.2383 36.3758 25.72 35.8958C26.2016 35.4158 26.795 35.1758 27.5 35.1758H31.5L25.3125 29.0508C24.8125 28.5508 24.5625 27.9574 24.5625 27.2708C24.5625 26.5841 24.8125 25.9899 25.3125 25.4883C25.8125 24.9866 26.4166 24.7366 27.125 24.7383C27.8333 24.7399 28.4375 24.9899 28.9375 25.4883L35 31.6758V27.6758C35 26.9674 35.24 26.3741 35.72 25.8958C36.2 25.4174 36.7933 25.1774 37.5 25.1758C38.2066 25.1741 38.8008 25.4141 39.2825 25.8958C39.7641 26.3774 40.0033 26.9708 40 27.6758V37.6758C40 38.3841 39.76 38.9783 39.28 39.4583C38.8 39.9383 38.2066 40.1774 37.5 40.1758H27.5Z"
+                                        fill="black" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="takeaway-card-text-container">
+                            <h4>Design Variations</h4>
+                            <p>To reach a final design that’s beautiful, innovative and effective, it’s necessary to
+                                design multiple variations of important screens and points in the user journey. This
+                                allows you to compare designs and take the best of each variation.</p>
+                        </div>
+                    </div>
+                    <div class="takeaway-card">
+                        <div class="fuck-you-CSS">
+                            <div class="takeaway-card-icon-container">
+                                <svg class="icons" xmlns="http://www.w3.org/2000/svg" width="50" height="41"
+                                    viewBox="0 0 50 41" fill="none">
+                                    <path
+                                        d="M4.95455 20.1758C2.50455 20.1758 0.5 18.1758 0.5 15.7313V4.62023C0.5 2.17578 2.50455 0.175781 4.95455 0.175781H22.7727C25.2227 0.175781 27.2273 2.17578 27.2273 4.62023V15.7313C27.2273 18.1758 25.2227 20.1758 22.7727 20.1758H18.3182V26.8424L11.6364 20.1758H4.95455ZM45.0455 33.5091C47.4955 33.5091 49.5 31.5091 49.5 29.0647V17.9536C49.5 15.5091 47.4955 13.5091 45.0455 13.5091H31.6818V15.7313C31.6818 20.6202 27.6727 24.6202 22.7727 24.6202V29.0647C22.7727 31.5091 24.7773 33.5091 27.2273 33.5091H31.6818V40.1758L38.3636 33.5091H45.0455Z"
+                                        fill="black" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="takeaway-card-text-container">
+                            <h4>Frequent Communication with the Client</h4>
+                            <p>Meeting frequently with the stakeholders of a project (in this case my client) is the
+                                only way to truly figure out what the client wants while wasting as little of your time
+                                as possible designing things that will get scrapped in the end or going down a wrong
+                                path.</p>
+                        </div>
+                    </div>
+                    <div class="takeaway-card">
+                        <div class="fuck-you-CSS">
+                            <div class="takeaway-card-icon-container">
+                                <svg class="icons" xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44"
+                                    fill="none">
+                                    <path
+                                        d="M28 40V44H6V40H28ZM30 38V16C30 14.8954 29.1046 14 28 14H6C4.89543 14 4 14.8954 4 16V38C4 39.1046 4.89543 40 6 40V44L5.69141 43.9922C2.62332 43.8367 0.163251 41.3767 0.0078125 38.3086L0 38V16C0 12.7898 2.52111 10.1684 5.69141 10.0078L6 10H28L28.3086 10.0078C31.4789 10.1684 34 12.7898 34 16V38L33.9922 38.3086C33.8367 41.3767 31.3767 43.8367 28.3086 43.9922L28 44V40C29.1046 40 30 39.1046 30 38Z"
+                                        fill="black" />
+                                    <path
+                                        d="M38 30V34H16V30H38ZM40 28V6C40 4.89543 39.1046 4 38 4H16C14.8954 4 14 4.89543 14 6V28C14 29.1046 14.8954 30 16 30V34L15.6914 33.9922C12.6233 33.8367 10.1633 31.3767 10.0078 28.3086L10 28V6C10 2.78979 12.5211 0.168429 15.6914 0.0078125L16 0H38L38.3086 0.0078125C41.4789 0.168429 44 2.78979 44 6V28L43.9922 28.3086C43.8367 31.3767 41.3767 33.8367 38.3086 33.9922L38 34V30C39.1046 30 40 29.1046 40 28Z"
+                                        fill="black" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="takeaway-card-text-container">
+                            <h4>Jakob’s Law</h4>
+                            <p>I paid quite a lot attention in this project to using already established design patterns
+                                where it benefitted the design. Looking through suggested POIs on the For You page, for
+                                example, is like swiping right or left in a dating app. Opening a submenu (like the
+                                Settings screen) shows this layered page effect that I discovered is quite common among
+                                iOS applications. Things like these will ultimately decrease the time and effort for
+                                users to learn how to use a new app.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <hr>
+            <section class="other-projects-section">
+                <h2>Other Projects</h2>
+                <div class="projects-grid other-projects">
+                    <a href="javascript:shortDelay('edurino-app.html')" class="project-card" id="edurinoApp">
+                        <picture>
+                            <source
+                                srcset="./assets/edurino-app/edurino-app-thumbnail-s.webp 300w, ./assets/edurino-app/edurino-app-thumbnail.webp 900w"
+                                sizes="(max-width: 915px) 12.5rem, (max-width: 1500px) 15rem, 18rem" type="image/webp">
+                            <img src="./assets/edurino-app/edurino-app-thumbnail.png" alt="Edurino App Thumbnail"
+                                class="background-image">
+                        </picture>
+                        <div class="project-card-text-container">
+                            <h3>Edurino App</h3>
+                            <p>Updating the Onboarding Process of Edurino's App.
+                            </p>
+                        </div>
+                        <div class="project-card-fader"></div>
+                    </a>
+                    <a href="javascript:shortDelay('hospital-app.html')" class="project-card" id="hospitalApp">
+                        <picture>
+                            <source
+                                srcset="./assets/hospital-app/hospital-app-thumbnail-s.webp 300w, ./assets/hospital-app/hospital-app-thumbnail.webp 900w"
+                                sizes="(max-width: 915px) 12.5rem, (max-width: 1500px) 15rem, 18rem" type="image/webp">
+                            <img src="./assets/hospital-app/hospital-app-thumbnail.png" alt="Hospital App Thumbnail"
+                                class="background-image">
+                        </picture>
+                        <div class="project-card-text-container">
+                            <h3>Hospital App</h3>
+                            <p>Designing an app that helps users plan a visit to the hospital more easily.</p>
+                        </div>
+                        <div class="project-card-fader"></div>
+                    </a>
+                </div>
+            </section>
+        </div>
+        <div id="enlargedImageContainer">
+            <img src="" alt="" id="enlargedImage">
+        </div>
+    </main>
+    <div id="loadingOverlay" style="display: none;">
+        <div class="spinner"></div>
+    </div>
+    <script src="script2.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/lbq0rfz.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+    <script>
+        projectCard.forEach((card) => {
+            card.addEventListener('click', () => {
+                const filePath = card.getAttribute('href').match(/\('([^']+)'\)/);
+                fetch('/' + filePath[1]);
+                fetch('/script2.js');
+            });
+        });
+    </script>
+</body>
+
+</html>
