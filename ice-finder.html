@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philip Horlemann - ICE Finder</title>
+    <meta content="Philip Horlemann — ICE Finder" property="og:title">
+    <meta content="Creating a simple tool to look up ICE train types used on german high speed lines." name="description">
+    <meta content="Creating a simple tool to look up ICE train types used on german high speed lines." property="og:description">
+    <meta content="https://phorlemann.vercel.app/assets/design-portfolio-opengraph.png" property="og:image">
+    <script>
+        (function () {
+            const userPreference = localStorage.getItem('theme') || 'light';
+            const root = document.documentElement;
+            root.classList.add(userPreference === 'dark' ? 'dark-mode' : 'light-mode');
+        })();
+    </script>
+    <link rel="preload" href="https://use.typekit.net/lbq0rfz.css" as="style" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon-lightmode.png" id="favicon">
+    <link rel="apple-touch-icon" href="assets/home-screen-icon-lightmode.png" id="homeScreenIcon">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="no-opacity">
+    <header style="border-bottom: none;">
+        <div id="monogramContainer">
+            <svg id="monogram" class="animate__animated" xmlns="http://www.w3.org/2000/svg" width="600" height="348"
+                viewBox="0 0 600 348" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M122.112 211.565H166.795V347.49H251.136V210.646H348.864V347.49H349.807H433.204H477.888C564.675 347.49 600 304.286 600 244.024C600 183.763 564.675 135.925 477.888 135.925H433.204V0H348.864V136.299H251.136V0H250.193H166.795H122.112C35.3251 0 0 43.2046 0 103.466C0 163.728 35.3251 211.565 122.112 211.565ZM166.795 71.0998H124.728C96.381 71.0998 85.4781 83.957 85.4781 103.466C85.4781 122.975 96.381 135.832 124.728 135.832H166.795V71.0998ZM433.204 276.391V211.658H475.272C503.619 211.658 514.522 224.515 514.522 244.024C514.522 263.533 503.619 276.391 475.272 276.391H433.204Z"
+                    fill="black" style="fill: var(--primary-color)" />
+            </svg>
+        </div>
+        <a class="header-link" id="linkedInLink" style="display: flex;"
+            href="https://www.linkedin.com/in/philip-horlemann-865b4b246" target="_blank">
+            LinkedIn
+            <lord-icon class="linkedin-icon" src="https://cdn.lordicon.com/mgampcwp.json" trigger="hover"
+                target="#linkedInLink" state="hover-draw" colors="primary:#121331,secondary:#000000,tertiary:#000000"
+                style="width: 1rem; height: 1rem;">
+            </lord-icon>
+        </a>
+        <a class="header-link" id="resumeLink"
+            href="https://drive.google.com/file/d/19loBTNmpt_p2G4dm2DvNI848GIxT2NBW/view?usp=sharing" target="_blank">
+            Resume
+            <lord-icon id="resumeIcon" src="https://cdn.lordicon.com/zbgyohdh.json" trigger="hover" target="#resumeLink"
+                style="width: 1.2rem; height: 1.2rem;" colors="primary:#000;">
+            </lord-icon>
+        </a>
+        <a class="header-link" id="contactLink" href="mailto:philip.horlemann@web.de" target="_blank">
+            Contact
+            <lord-icon id="contactIcon" src="https://cdn.lordicon.com/fdxqrdfe.json" trigger="hover"
+                target="#contactLink" style="width: 1.5rem; height: 1.5rem;" colors="primary:#000;">
+            </lord-icon>
+        </a>
+    </header>
+    <div id="appearanceSwitch">
+        <svg xmlns="http://www.w3.org/2000/svg" width="106" height="80" viewBox="0 0 106 80" fill="none">
+            <mask id="path-1-inside-1_180_175" fill="white">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M79.5 52.9902C79.5054 38.3592 91.3678 26.5001 106 26.5001L106 9.15527e-05L9.48027e-07 9.02887e-05L6.32018e-07 26.5001C14.6355 26.5001 26.5 38.3645 26.5 53.0001C26.5001 67.6356 38.3645 79.5 53 79.5C67.6355 79.5 79.5 67.6356 79.5 53.0001C79.5 53.0001 79.5 53 79.5 53C79.5 52.9967 79.5 52.9934 79.5 52.9902Z" />
+            </mask>
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M79.5 52.9902C79.5054 38.3592 91.3678 26.5001 106 26.5001L106 9.15527e-05L9.48027e-07 9.02887e-05L6.32018e-07 26.5001C14.6355 26.5001 26.5 38.3645 26.5 53.0001C26.5001 67.6356 38.3645 79.5 53 79.5C67.6355 79.5 79.5 67.6356 79.5 53.0001C79.5 53.0001 79.5 53 79.5 53C79.5 52.9967 79.5 52.9934 79.5 52.9902Z"
+                fill="white" style="fill: var(--background-color);" />
+            <path
+                d="M106 26.5001L107.325 26.5001L107.325 27.8251L106 27.8251L106 26.5001ZM79.5 52.9902L78.175 52.9902L78.175 52.9897L79.5 52.9902ZM106 9.15527e-05L106 -1.32491L107.325 -1.32491L107.325 9.15685e-05L106 9.15527e-05ZM9.48027e-07 9.02887e-05L-1.325 9.02729e-05L-1.325 -1.32491L9.63827e-07 -1.32491L9.48027e-07 9.02887e-05ZM6.32018e-07 26.5001L6.16217e-07 27.8251L-1.325 27.8251L-1.325 26.5001L6.32018e-07 26.5001ZM26.5 53.0001L25.175 53.0001L25.175 53.0001L26.5 53.0001ZM79.5 53.0001L80.825 53.0001L80.825 53.0001L79.5 53.0001ZM106 27.8251C92.0994 27.8251 80.8301 39.0912 80.825 52.9906L78.175 52.9897C78.1806 37.6271 90.6362 25.1751 106 25.1751L106 27.8251ZM107.325 9.15685e-05L107.325 26.5001L104.675 26.5001L104.675 9.15369e-05L107.325 9.15685e-05ZM9.63827e-07 -1.32491L106 -1.32491L106 1.32509L9.32226e-07 1.32509L9.63827e-07 -1.32491ZM-1.325 26.5001L-1.325 9.02729e-05L1.325 9.03045e-05L1.325 26.5001L-1.325 26.5001ZM25.175 53.0001C25.175 39.0963 13.9038 27.8251 6.16217e-07 27.8251L6.47818e-07 25.1751C15.3673 25.1751 27.825 37.6328 27.825 53.0001L25.175 53.0001ZM27.825 53.0001C27.8251 66.9038 39.0963 78.175 53 78.175L53 80.825C37.6327 80.825 25.1751 68.3674 25.175 53.0001L27.825 53.0001ZM53 78.175C66.9037 78.175 78.175 66.9038 78.175 53.0001L80.825 53.0001C80.8249 68.3674 68.3673 80.825 53 80.825L53 78.175ZM78.175 53.0001C78.175 52.9795 78.1755 52.9614 78.1761 52.9465C78.1767 52.9316 78.1775 52.9189 78.1781 52.9093C78.1788 52.8997 78.1794 52.8919 78.1798 52.8873C78.18 52.885 78.1802 52.8831 78.1803 52.8819C78.1803 52.8813 78.1804 52.8808 78.1804 52.8805C78.1804 52.8804 78.1804 52.8803 78.1804 52.8802C78.1804 52.8802 78.1804 52.8801 78.1804 52.8801C78.1804 52.8801 78.1804 52.8801 78.1804 52.8801C78.1804 52.8801 78.1804 52.8801 78.1804 52.8801L78.1804 52.8801C78.1805 52.8795 78.1802 52.8831 78.1798 52.8873C78.1794 52.8919 78.1788 52.8996 78.1781 52.9092C78.1775 52.9189 78.1767 52.9315 78.1761 52.9464C78.1755 52.9614 78.175 52.9794 78.175 53L80.825 53C80.825 53.0206 80.8245 53.0386 80.8239 53.0536C80.8233 53.0685 80.8226 53.0812 80.8219 53.0908C80.8212 53.1004 80.8206 53.1082 80.8202 53.1128C80.82 53.1151 80.8198 53.117 80.8197 53.1182C80.8197 53.1188 80.8196 53.1193 80.8196 53.1196C80.8196 53.1197 80.8196 53.1198 80.8196 53.1199C80.8196 53.1199 80.8196 53.12 80.8196 53.12C80.8196 53.12 80.8196 53.12 80.8196 53.12C80.8196 53.12 80.8196 53.12 80.8196 53.12L80.8196 53.12C80.8195 53.1206 80.8198 53.117 80.8202 53.1128C80.8206 53.1082 80.8212 53.1005 80.8219 53.0909C80.8225 53.0812 80.8233 53.0686 80.8239 53.0536C80.8245 53.0387 80.825 53.0206 80.825 53.0001L78.175 53.0001ZM78.175 53C78.175 52.9988 78.175 52.9976 78.175 52.9958C78.175 52.9943 78.175 52.9922 78.175 52.9902L80.825 52.9902C80.825 52.9913 80.825 52.9926 80.825 52.9943C80.825 52.9959 80.825 52.9979 80.825 53L78.175 53Z"
+                fill="black" style="fill: var(--primary-color);" mask="url(#path-1-inside-1_180_175)" />
+        </svg>
+        <div class="appearance-icon-container">
+            <lord-icon class="header-icon" id="appearanceIcon" src="https://cdn.lordicon.com/pbxtntbx.json"
+                trigger="hover" stroke="bold" style="width: 2rem; height: 2rem;" state="rays"
+                colors="primary:#000000,secondary:#000000">
+            </lord-icon>
+        </div>
+    </div>
+    <div class="title-text-small animate__animated animate__fadeIn">
+        <h3>Philip Horlemann -</h3>
+        <span>UX/UI Designer</span>
+    </div>
+    <main>
+        <div class="project-container">
+            <a id="closeButton" class="animate__animated animate__fadeIn" href="javascript:delay('index.html')"
+                aria-label="Close">
+                <svg class="icons" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50"
+                    fill="none">
+                    <path
+                        d="M16 1H46C47.6569 1 49 2.34315 49 4V34C49 42.2843 42.2843 49 34 49H4C2.34315 49 1 47.6569 1 46V16C1 7.71573 7.71573 1 16 1Z"
+                        fill="white" stroke="black" stroke-width="2"
+                        style="fill: var(--background-color); stroke: var(--primary-color);" />
+                    <path d="M35 15L15 35M15 15L35 35" stroke="black" stroke-width="4" stroke-linecap="round"
+                        stroke-linejoin="round" style="stroke: var(--primary-color);" />
+                </svg>
+            </a>
+            <section>
+                <div class="project-title-img-container">
+                    <div class="project-title-container animate__animated animate__fadeIn">
+                        <h1>ICE Finder</h1>
+                        <span>2025</span>
+                    </div>
+                    <picture>
+                        <source
+                            srcset="./assets/ice-finder/ice-finder-desktop-search-s.webp 800w, ./assets/ice-finder/ice-finder-desktop-search.webp 2000w"
+                            sizes="(max-width: 915px) 20rem, (max-width: 1500px) 47rem, 57rem" type="image/webp">
+                        <img class="animate__animated animate__fadeIn"
+                            src="./assets/ice-finder/ice-finder-desktop-search.png" alt="">
+                    </picture>
+                </div>
+            </section>
+            <hr>
+            <section id="overview" class="animate__animated animate__fadeIn">
+                <div class="overview-top-container">
+                    <h2>Overview</h2>
+                    <div class="project-goal-container">
+                        <div class="project-goal-icon-title-container">
+                            <svg class="icons" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                viewBox="0 0 32 32" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M6.73473 6.73472C4.7407 8.72875 3.55844 11.7769 3.55844 16C3.55844 20.2232 4.7407 23.2714 6.73473 25.2653C8.72876 27.2594 11.7769 28.4416 16 28.4416C20.2232 28.4416 23.2712 27.2594 25.2654 25.2653C27.2593 23.2714 28.4417 20.2232 28.4417 16C28.4417 15.0174 29.2383 14.2208 30.2209 14.2208C31.2035 14.2208 32.0001 15.0174 32.0001 16C32.0001 20.8782 30.6225 24.9405 27.7815 27.7816C24.9404 30.6226 20.8782 32 16 32C11.1219 32 7.05957 30.6226 4.21853 27.7816C1.37749 24.9405 0 20.8782 0 16C0 11.1219 1.37749 7.05958 4.21853 4.21853C7.05957 1.37749 11.1219 0 16 0C16.9827 0 17.7792 0.796585 17.7792 1.77922C17.7792 2.76187 16.9827 3.55844 16 3.55844C11.7769 3.55844 8.72876 4.74069 6.73473 6.73472ZM15.4599 8.44816C15.6774 9.40642 15.0769 10.3596 14.1186 10.5771C12.8342 10.8685 11.9532 11.4642 11.3718 12.2732C10.776 13.1024 10.3846 14.3118 10.3846 15.999C10.3846 18.0378 10.9525 19.3794 11.7861 20.2131C12.6197 21.0467 13.9613 21.6146 16.0002 21.6146C17.77 21.6146 19.0137 21.1845 19.8473 20.5367C20.6628 19.9029 21.2583 18.9279 21.5001 17.4836C21.6623 16.5144 22.5795 15.8603 23.5486 16.0225C24.5179 16.1848 25.1719 17.1019 25.0097 18.0711C24.6462 20.2426 23.6658 22.0759 22.0309 23.3464C20.4141 24.6027 18.3331 25.173 16.0002 25.173C13.3063 25.173 10.9505 24.4098 9.2699 22.7292C7.58927 21.0486 6.82613 18.6928 6.82613 15.999C6.82613 13.7754 7.34365 11.7809 8.48209 10.1967C9.63505 8.59221 11.3137 7.56469 13.3311 7.10684C14.2893 6.88937 15.2425 7.48989 15.4599 8.44816ZM21.9096 12.6058L17.2583 17.2571C16.5635 17.9519 15.437 17.9519 14.7421 17.2571C14.0473 16.5623 14.0473 15.4357 14.7421 14.7409L19.3945 10.0885C18.9212 8.09571 19.5099 5.98695 20.9713 4.52548L24.5812 0.915487C24.8752 0.621417 25.3019 0.502829 25.7055 0.602942C26.109 0.703058 26.4309 1.00725 26.5533 1.40465L27.5063 4.49454L30.5962 5.44745C30.9935 5.57 31.2977 5.8917 31.3978 6.29535C31.4979 6.69897 31.3795 7.12556 31.0853 7.41963L27.4757 11.0295C26.0134 12.4917 23.9032 13.0803 21.9096 12.6058Z"
+                                    fill="black" />
+                            </svg>
+                            <h3>Project Goal</h3>
+                        </div>
+                        <p>Creating a simple tool to look up ICE train types used on german high speed lines.</p>
+                    </div>
+                    <div class="project-objectives-title-container">
+                        <h3>Objectives</h3>
+                        <div class="project-objectives-container">
+                            <div class="project-objective-container">
+                                <div class="project-objective-svg-container">
+                                    <svg class="icons" xmlns="http://www.w3.org/2000/svg" width="36" height="36"
+                                        viewBox="0 0 36 36" fill="none">
+                                        <path
+                                            d="M14.4096 3.22951e-06C17.1207 0.00085229 19.7764 0.76697 22.0713 2.21023C24.3662 3.65348 26.207 5.71524 27.3821 8.15834C28.5572 10.6014 29.0187 13.3266 28.7137 16.0204C28.4086 18.7142 27.3493 21.2672 25.6576 23.3856L34.7425 32.4704L34.9473 32.72C35.1512 33.0277 35.2425 33.3964 35.2056 33.7637C35.1687 34.131 35.006 34.4743 34.745 34.7353C34.4839 34.9963 34.1407 35.1591 33.7734 35.1959C33.4061 35.2328 33.0373 35.1415 32.7297 34.9376L32.4768 34.7328L23.3952 25.6448C21.5983 27.0822 19.4831 28.0681 17.2268 28.5198C14.9704 28.9715 12.6387 28.8759 10.4269 28.2411C8.21514 27.6062 6.18771 26.4505 4.5145 24.8708C2.84128 23.2911 1.571 21.3334 0.810082 19.1617C0.0491624 16.9901 -0.180239 14.6677 0.141097 12.3891C0.462433 10.1106 1.32515 7.94219 2.65697 6.06567C3.98878 4.18914 5.75092 2.65911 7.79575 1.60376C9.84057 0.548405 12.1085 -0.00153775 14.4096 3.22951e-06ZM14.4096 3.2C12.9388 3.2 11.4824 3.4897 10.1236 4.05255C8.76474 4.61541 7.53007 5.44039 6.49005 6.48041C5.45003 7.52042 4.62505 8.7551 4.06219 10.1139C3.49934 11.4728 3.20965 12.9292 3.20965 14.4C3.20965 15.8708 3.49934 17.3272 4.06219 18.6861C4.62505 20.0449 5.45003 21.2796 6.49005 22.3196C7.53007 23.3596 8.76474 24.1846 10.1236 24.7475C11.4824 25.3103 12.9388 25.6 14.4096 25.6C17.3801 25.6 20.2288 24.42 22.3292 22.3196C24.4296 20.2192 25.6096 17.3704 25.6096 14.4C25.6096 11.4296 24.4296 8.58082 22.3292 6.48041C20.2288 4.38 17.3801 3.2 14.4096 3.2Z"
+                                            fill="black" />
+                                    </svg>
+                                </div>
+                                <span class="s1">Make data easier to find</span>
+                            </div>
+                            <div class="project-objective-container">
+                                <div class="project-objective-svg-container">
+                                    <svg class="icons" xmlns="http://www.w3.org/2000/svg" width="39" height="39"
+                                        viewBox="0 0 39 39" fill="none">
+                                        <path
+                                            d="M34.3 19.5C35.42 19.5 35.98 19.5 36.408 19.282C36.7843 19.0903 37.0903 18.7843 37.282 18.408C37.5 17.98 37.5 17.42 37.5 16.3V11.9C37.5 10.78 37.5 10.22 37.282 9.792C37.0903 9.41569 36.7843 9.10974 36.408 8.918C35.98 8.7 35.42 8.7 34.3 8.7H31.2C30.7226 8.7 30.2648 8.51036 29.9272 8.17279C29.5896 7.83523 29.4 7.37739 29.4 6.9C29.4 5.46783 28.8311 4.09432 27.8184 3.08162C26.8057 2.06893 25.4322 1.5 24 1.5C22.5678 1.5 21.1943 2.06893 20.1816 3.08162C19.1689 4.09432 18.6 5.46783 18.6 6.9C18.6 7.37739 18.4104 7.83523 18.0728 8.17279C17.7352 8.51036 17.2774 8.7 16.8 8.7H13.7C12.58 8.7 12.02 8.7 11.592 8.918C11.2157 9.10974 10.9097 9.41569 10.718 9.792C10.5 10.22 10.5 10.78 10.5 11.9V16.3C10.5 17.42 10.5 17.98 10.282 18.408C10.0903 18.7843 9.78431 19.0903 9.408 19.282C8.98 19.5 8.42 19.5 7.3 19.5H6.9C6.19086 19.5 5.48867 19.6397 4.83351 19.9111C4.17835 20.1824 3.58306 20.5802 3.08162 21.0816C2.58019 21.5831 2.18243 22.1784 1.91105 22.8335C1.63967 23.4887 1.5 24.1909 1.5 24.9C1.5 25.6091 1.63967 26.3113 1.91105 26.9665C2.18243 27.6216 2.58019 28.2169 3.08162 28.7184C3.58306 29.2198 4.17835 29.6176 4.83351 29.889C5.48867 30.1603 6.19086 30.3 6.9 30.3H7.3C8.42 30.3 8.98 30.3 9.408 30.518C9.78431 30.7097 10.0903 31.0157 10.282 31.392C10.5 31.82 10.5 32.38 10.5 33.5V34.3C10.5 35.42 10.5 35.98 10.718 36.408C10.9097 36.7843 11.2157 37.0903 11.592 37.282C12.02 37.5 12.58 37.5 13.7 37.5H34.3C35.42 37.5 35.98 37.5 36.408 37.282C36.7843 37.0903 37.0903 36.7843 37.282 36.408C37.5 35.98 37.5 35.42 37.5 34.3V33.5C37.5 32.38 37.5 31.82 37.282 31.392C37.0903 31.0157 36.7843 30.7097 36.408 30.518C35.98 30.3 35.42 30.3 34.3 30.3H33.9C32.4678 30.3 31.0943 29.7311 30.0816 28.7184C29.0689 27.7057 28.5 26.3322 28.5 24.9C28.5 23.4678 29.0689 22.0943 30.0816 21.0816C31.0943 20.0689 32.4678 19.5 33.9 19.5H34.3Z"
+                                            stroke="black" stroke-width="3" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <span class="s1">Fun to use, but still simple</span>
+                            </div>
+                            <div class="project-objective-container">
+                                <div class="project-objective-svg-container">
+                                    <svg class="icons" xmlns="http://www.w3.org/2000/svg" width="42" height="27"
+                                        viewBox="0 0 42 27" fill="none">
+                                        <path
+                                            d="M41.8381 14.1375C37.7131 22.9125 34.0756 27 30.3631 27C25.6568 27 22.7262 20.7525 19.6231 14.1375C17.1743 8.9175 14.3993 3 11.6056 3C8.53057 3 4.79745 9.97687 2.84557 14.1375C2.67191 14.49 2.36685 14.7603 1.99599 14.8902C1.62512 15.0202 1.21808 14.9994 0.862389 14.8323C0.506694 14.6653 0.230752 14.3653 0.0939005 13.997C-0.0429514 13.6286 -0.0297839 13.2213 0.130572 12.8625C4.2387 4.0875 7.88557 0 11.6056 0C16.3118 0 19.2424 6.2475 22.3456 12.8625C24.7868 18.0825 27.5618 24 30.3556 24C33.4306 24 37.1637 17.0231 39.1156 12.8625C39.2892 12.51 39.5943 12.2397 39.9652 12.1098C40.336 11.9798 40.7431 12.0006 41.0988 12.1677C41.4544 12.3347 41.7304 12.6347 41.8672 13.003C42.0041 13.3714 41.9909 13.7787 41.8306 14.1375H41.8381Z"
+                                            fill="black" />
+                                    </svg>
+                                </div>
+                                <span class="s1">Smooth, reliable animations</span>
+                            </div>
+                            <div class="project-objective-container">
+                                <div class="project-objective-svg-container">
+                                    <svg class="icons" xmlns="http://www.w3.org/2000/svg" width="48" height="48"
+                                        viewBox="0 0 48 48" fill="none">
+                                        <path
+                                            d="M43.2935 5.04457C43.2775 4.96763 43.2399 4.89685 43.1851 4.84055C43.1303 4.78425 43.0606 4.74477 42.9841 4.72676C37.886 3.47988 26.1091 7.9227 19.7219 14.3052C18.5836 15.4342 17.5456 16.6601 16.6197 17.9689C14.651 17.7908 12.6822 17.9408 11.006 18.6721C6.27254 20.7533 4.89535 26.1889 4.51097 28.5224C4.49015 28.6502 4.49904 28.7812 4.53697 28.9051C4.5749 29.0289 4.64084 29.1424 4.72968 29.2367C4.81852 29.331 4.92788 29.4035 5.04928 29.4487C5.17068 29.4939 5.30085 29.5106 5.42972 29.4974L13.03 28.663C13.0352 29.2363 13.0697 29.8089 13.1332 30.3786C13.1728 30.7724 13.3485 31.1401 13.63 31.4183L16.5728 34.3611C16.8513 34.6428 17.2193 34.8186 17.6135 34.858C18.1798 34.9212 18.749 34.9556 19.3188 34.9611L18.4853 42.5549C18.4723 42.6836 18.4891 42.8136 18.5343 42.9348C18.5796 43.056 18.652 43.1651 18.7462 43.2538C18.8403 43.3426 18.9536 43.4084 19.0773 43.4464C19.201 43.4843 19.3317 43.4933 19.4594 43.4727C21.7938 43.0977 27.2407 41.7205 29.3097 36.988C30.041 35.3099 30.191 33.3514 30.0222 31.3921C31.3349 30.467 32.5643 29.429 33.6963 28.2899C40.1069 21.9149 44.5216 10.3968 43.2935 5.04457ZM27.9982 20.0314C27.4382 19.4716 27.0569 18.7584 26.9023 17.9818C26.7478 17.2052 26.827 16.4003 27.13 15.6688C27.4329 14.9372 27.946 14.312 28.6044 13.8721C29.2627 13.4322 30.0367 13.1974 30.8285 13.1974C31.6203 13.1974 32.3943 13.4322 33.0526 13.8721C33.7109 14.312 34.224 14.9372 34.527 15.6688C34.8299 16.4003 34.9091 17.2052 34.7546 17.9818C34.6001 18.7584 34.2187 19.4716 33.6588 20.0314C33.2874 20.4036 32.8462 20.6989 32.3606 20.9004C31.8749 21.1019 31.3543 21.2056 30.8285 21.2056C30.3027 21.2056 29.782 21.1019 29.2964 20.9004C28.8107 20.6989 28.3696 20.4036 27.9982 20.0314Z"
+                                            stroke="black" stroke-width="3" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M10.2787 33C9.34417 33.1147 8.47471 33.5384 7.80844 34.2037C6.15656 35.8612 6 42 6 42C6 42 12.1425 41.8434 13.7953 40.1897C14.4634 39.5245 14.8877 38.6536 15 37.7175"
+                                            stroke="black" stroke-width="3" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <span class="s1">Deploy to production</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <article>
+                    <h3>Background</h3>
+                    <div class="article-text">
+                        <p>I’ve never considered myself a train nerd, but I have recently become more interested in the
+                            high speed ICE (Intercity-Express) system here in Germany. One thing that’s been bugging me,
+                            however, was that the Deutsche Bahn app doesn’t show the user which ICE train generation is
+                            used on which line before the day of the travel (and even then that information is hidden
+                            very well).<br><br>
+
+                            The train generation you travel with can make a big difference though, as comfort and travel
+                            speed
+                            vary widely between them. So out of this use case I started looking on the internet
+                            for tools to get this information, only to find that, while they exist, they are not easy or
+                            quick to use and they don’t provide pictures or stats of the trains themselves either, so if
+                            you don’t know the difference between an ICE 3 and ICE 3 neo, that’s an additional Google
+                            search.
+                        </p>
+                        <p>I then started designing my own tool, keeping it as simple as it needed to be since there
+                            wasn’t much it needed to do and I was mainly designing it for myself to use. The primary
+                            color had to be the DB red of course. Then there needed to be an input field in the middle
+                            and a title above. Translated the title says “What ICE-Type am I traveling with?”.<br><br>
+
+                            Now to the centerpiece of this application: The data. Where do I get it from? Sadly not the
+                            DB itself. They do not provide an API that grants access to this data. So now is the time
+                            that I have to confess that I’ve had to resort to scraping the data from another website,
+                            which (I don’t know how) has access to this information. Because of that I’ve decided to
+                            prevent search engines from indexing my site and have been using it just for myself, not
+                            publishing it.
+                        </p>
+                    </div>
+                </article>
+                <div class="project-img-container">
+                    <div class="img-title-centered">
+                        <div class="img-title-container">
+                            <h4>Example of existing tool</h4>
+                        </div>
+                    </div>
+                    <picture>
+                        <source
+                            srcset="./assets/ice-finder/ice-finder-existing-tool-s.webp 600w, ./assets/ice-finder/ice-finder-existing-tool.webp 1200w"
+                            sizes="(max-width: 915px) 20rem, (max-width: 1500px) 47rem, 57rem" type="image/webp">
+                        <img src="./assets/ice-finder/ice-finder-existing-tool.png"
+                            alt="A screenshot of an existing tool">
+                    </picture>
+                </div>
+            </section>
+            <hr>
+            <section>
+                <h2>Design Process</h2>
+                <div class="project-img-container">
+                    <div class="img-title-centered">
+                        <div class="img-title-container">
+                            <h4>Train Details Screen</h4>
+                        </div>
+                    </div>
+                    <picture>
+                        <source
+                            srcset="./assets/ice-finder/ice-finder-train-details-screen-s.webp 600w, ./assets/ice-finder/ice-finder-train-details-screen.webp 1200w"
+                            sizes="(max-width: 915px) 20rem, (max-width: 1500px) 47rem, 57rem" type="image/webp">
+                        <img src="./assets/ice-finder/ice-finder-train-details-screen.png"
+                            alt="The train details screen of my tool, showing the results of a search">
+                    </picture>
+                </div>
+                <article>
+                    <h3>Search Results</h3>
+                    <div class="article-text">
+                        <p>After typing in a train number and hitting Enter, the tool displays a picture of the
+                            corresponding train and its name. When clicking on the chevron it reveals route- and
+                            train-information. If there is more than one service on a given train number, the tool
+                            displays a selector screen with all of the options.
+                        </p>
+                        <p>There are currently 7 ICE types in service. From oldest to newest they are ranked as follows:
+                            ICE 1 (1991), ICE 2 (1996), ICE T (1999), ICE 3 (2000), ICE 4 (2017), ICE 3neo (2022), ICE L
+                            (2025).
+                        </p>
+                    </div>
+                </article>
+                <div class="project-img-container">
+                    <div class="img-title-centered">
+                        <div class="img-title-container">
+                            <h4>ICE Types</h4>
+                        </div>
+                    </div>
+                    <picture>
+                        <source
+                            srcset="./assets/ice-finder/ice-finder-ice-types-s.webp 600w, ./assets/ice-finder/ice-finder-ice-types.webp 1200w"
+                            sizes="(max-width: 915px) 20rem, (max-width: 1500px) 47rem, 57rem" type="image/webp">
+                        <img src="./assets/ice-finder/ice-finder-ice-types.png"
+                            alt="All of the ICE types currently in service with Deutsche Bahn">
+                    </picture>
+                </div>
+                <div class="project-img-container">
+                    <div class="img-title-centered">
+                        <div class="img-title-container">
+                            <h4>Favicon & Web App Icons</h4>
+                        </div>
+                    </div>
+                    <picture>
+                        <source
+                            srcset="./assets/ice-finder/ice-finder-icons-s.webp 600w, ./assets/ice-finder/ice-finder-icons.webp 1200w"
+                            sizes="(max-width: 915px) 20rem, (max-width: 1500px) 47rem, 57rem" type="image/webp">
+                        <img src="./assets/ice-finder/ice-finder-icons.png"
+                            alt="The icons for my tool for different platforms">
+                    </picture>
+                </div>
+            </section>
+            <hr>
+            <section>
+                <h2>Animations</h2>
+                <article class="dual-article">
+                    <div class="vertical-article">
+                        <h3>Search Result</h3>
+                        <ul>
+                            <li>The pictures of the trains are the prominent feature of this tool, so they get a grand
+                                entrance, resembling a portal opening up</li>
+                            <li>A gradient border animation gives life to the ICE type and draws attention to it</li>
+                        </ul>
+                        <video class="small-video" src="./assets/ice-finder/ice-finder-train-animation.mov" muted
+                            autoplay playsinline loop></video>
+                    </div>
+                    <div class="vertical-article">
+                        <h3>Train Details</h3>
+                        <ul>
+                            <li>When opening the details, the ICE type moves to the top and stays there, even when
+                                scrolling</li>
+                            <li>The route- and train-information is revealed in two separate containers that float in
+                                staggered</li>
+                            <li>The site automatically scrolls to the first container smoothly</li>
+                            <li>It also scrolls back to the top when the details are collapsed again</li>
+                        </ul>
+                        <video class="small-video" src="./assets/ice-finder/ice-finder-train-details-animation.mov"
+                            muted autoplay playsinline loop></video>
+                    </div>
+                </article>
+            </section>
+            <hr>
+            <section>
+                <h2>Development Process</h2>
+                <article>
+                    <h3>Version 1</h3>
+                    <div class="article-text">
+                        <p>When I started this project I was only familiar with simple HTML, CSS and JavaScript so
+                            that’s what I coded the site with. The animations were all done with CSS and JS. The backend
+                            consisted of a node server, which I was able to code with the help of ChatGPT and Claude.
+                        </p>
+                        <p>This project was also the first where I actively focused on good error handling. I
+                            implemented a function that could receive error messages and display them for a couple of
+                            seconds to the user beneath the search bar. It can distinguish between invalid user input,
+                            empty searches, server errors, connection issues, and nonexistent train numbers.
+                        </p>
+                    </div>
+                </article>
+                <div class="project-img-container">
+                    <div class="img-title-centered">
+                        <div class="img-title-container">
+                            <h4>Version 1 in VS Code</h4>
+                        </div>
+                    </div>
+                    <picture>
+                        <source
+                            srcset="./assets/ice-finder/ice-finder-code-v1-s.webp 600w, ./assets/ice-finder/ice-finder-code-v1.webp 1200w"
+                            sizes="(max-width: 915px) 20rem, (max-width: 1500px) 47rem, 57rem" type="image/webp">
+                        <img src="./assets/ice-finder/ice-finder-code-v1.png"
+                            alt="Version 1 of my project only using HTML, CSS and JS opened in VS Code">
+                    </picture>
+                </div>
+                <article>
+                    <h3>Version 2</h3>
+                    <div class="article-text">
+                        <p>Some months later I started learning React and changed the hosting of my projects to Vercel.
+                            Thus, the project had to be converted to nextjs with most of the heavy lifting done once
+                            again by ChatGPT and Claude. However, I forgot to specify in my prompt to not convert to
+                            TypeScript and module based CSS (which I hadn’t worked with yet), so that caused some
+                            confusion for me at the beginning. In the end I was too lazy to regenerate everything again
+                            and took it as an opportunity to expand my knowledge.
+                        </p>
+                        <p>After the refactoring it mostly worked, but the animations were not transferred one to one.
+                            This took me quite some time to figure out and fix, but in the end I got everything to work.
+                            The whole process also gave me the opportunity to improve the error popup design and I
+                            discovered new edge cases which broke some animations again.
+                        </p>
+                    </div>
+                </article>
+                <div class="project-img-container">
+                    <div class="img-title-centered">
+                        <div class="img-title-container">
+                            <h4>Version 2 in VS Code</h4>
+                        </div>
+                    </div>
+                    <picture>
+                        <source
+                            srcset="./assets/ice-finder/ice-finder-code-v2-s.webp 600w, ./assets/ice-finder/ice-finder-code-v2.webp 1200w"
+                            sizes="(max-width: 915px) 20rem, (max-width: 1500px) 47rem, 57rem" type="image/webp">
+                        <img src="./assets/ice-finder/ice-finder-code-v2.png"
+                            alt="Version 2 of my project using nextJS opened in VS Code">
+                    </picture>
+                </div>
+                <div class="project-img-container" style="z-index: 1;">
+                    <div class="img-title-centered">
+                        <div class="img-title-container">
+                            <h4>Video of the Desktop Version</h4>
+                        </div>
+                    </div>
+                    <video id="iceFinderVideo" autoplay muted loop playsinline controlsList="nodownload"
+                        src="./assets/ice-finder/ice-finder-desktop.mp4"></video>
+                </div>
+                <div class="project-img-container" style="z-index: 1;">
+                    <div class="img-title-centered">
+                        <div class="img-title-container">
+                            <h4>Video of the Mobile Version</h4>
+                        </div>
+                    </div>
+                    <video id="iceFinderVideoMobile" autoplay muted loop playsinline controlsList="nodownload"
+                        src="./assets/ice-finder/ice-finder-webapp.mp4"></video>
+                </div>
+            </section>
+            <section class="other-projects-section">
+                <h2>Other Projects</h2>
+                <div class="projects-grid other-projects">
+                    <a href="javascript:shortDelay('edurino-app.html')" class="project-card" id="edurinoApp">
+                        <picture>
+                            <source
+                                srcset="./assets/edurino-app/edurino-app-thumbnail-s.webp 300w, ./assets/edurino-app/edurino-app-thumbnail.webp 900w"
+                                sizes="(max-width: 915px) 12.5rem, (max-width: 1500px) 15rem, 18rem" type="image/webp">
+                            <img src="./assets/edurino-app/edurino-app-thumbnail.png" alt="Edurino App Thumbnail"
+                                class="background-image">
+                        </picture>
+                        <div class="project-card-text-container">
+                            <h3>Edurino App</h3>
+                            <p>Updating the Onboarding Process of Edurino's App.
+                            </p>
+                        </div>
+                        <div class="project-card-fader"></div>
+                    </a>
+                    <a href="javascript:shortDelay('hospital-app.html')" class="project-card" id="hospitalApp">
+                        <picture>
+                            <source
+                                srcset="./assets/hospital-app/hospital-app-thumbnail-s.webp 300w, ./assets/hospital-app/hospital-app-thumbnail.webp 900w"
+                                sizes="(max-width: 915px) 12.5rem, (max-width: 1500px) 15rem, 18rem" type="image/webp">
+                            <img src="./assets/hospital-app/hospital-app-thumbnail.png" alt="Hospital App Thumbnail"
+                                class="background-image">
+                        </picture>
+                        <div class="project-card-text-container">
+                            <h3>Hospital App</h3>
+                            <p>Designing an app that helps users plan a visit to the hospital more easily.</p>
+                        </div>
+                        <div class="project-card-fader"></div>
+                    </a>
+                </div>
+            </section>
+        </div>
+        <div id="enlargedImageContainer">
+            <img src="" alt="" id="enlargedImage">
+        </div>
+    </main>
+    <div id="loadingOverlay" style="display: none;">
+        <div class="spinner"></div>
+    </div>
+    <script src="script2.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/lbq0rfz.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+    <script>
+        projectCard.forEach((card) => {
+            card.addEventListener('click', () => {
+                const filePath = card.getAttribute('href').match(/\('([^']+)'\)/);
+                fetch('/' + filePath[1]);
+                fetch('/script2.js');
+            });
+        });
+    </script>
+</body>
+
+</html>
